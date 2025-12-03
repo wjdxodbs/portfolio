@@ -81,7 +81,15 @@
 
 @media (max-width: 480px) {
   .navList {
-    display: none;
+    gap: 2px;
+  }
+
+  .navLink {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+  }
+
+  .logo {
+    font-size: 0.9rem;
   }
 }
-
