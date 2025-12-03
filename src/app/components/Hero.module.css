@@ -8,15 +8,22 @@
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(ellipse at 20% 50%, var(--accent-glow) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+  background: radial-gradient(
+      ellipse at 20% 50%,
+      var(--accent-glow) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 80%,
+      rgba(0, 212, 255, 0.1) 0%,
+      transparent 50%
+    );
   pointer-events: none;
 }
 
@@ -95,6 +102,17 @@
 
 .btnPrimary:hover .arrow {
   transform: translateX(4px);
+}
+
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent);
 }
 
 .visual {
@@ -191,7 +209,8 @@
 }
 
 @keyframes scrollPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
     transform: scaleY(1);
   }
@@ -237,4 +256,3 @@
     display: none;
   }
 }
-

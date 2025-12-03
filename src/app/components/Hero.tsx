@@ -6,18 +6,10 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <p className={styles.greeting}>안녕하세요, 저는</p>
           <h1 className={styles.name}>
-            <span className={styles.firstName}>홍길동</span>
+            <span className={styles.firstName}>정태윤</span>
             <span className={styles.role}>Frontend Developer</span>
           </h1>
-          <p className={styles.description}>
-            사용자 중심의 웹 경험을 만드는{" "}
-            <span className={styles.highlight}>프론트엔드 개발자</span>입니다.
-            <br />
-            React, TypeScript, Next.js를 활용하여 직관적이고 아름다운
-            인터페이스를 구현합니다.
-          </p>
           <div className={styles.cta}>
             <Link
               href="/projects"
@@ -45,10 +37,9 @@ export default function Hero() {
             <pre className={styles.code}>
               <code>
                 {`const developer = {
-  name: "홍길동",
+  name: "정태윤",
   role: "Frontend Developer",
   skills: ["React", "TypeScript", "Next.js"],
-  passion: "사용자 경험",
   status: "취업 준비 중 🚀"
 };`}
               </code>
