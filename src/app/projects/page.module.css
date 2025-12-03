@@ -1,0 +1,254 @@
+.page {
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: var(--section-padding);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--foreground-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.featured {
+  margin-bottom: 80px;
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.projectCard {
+  background: var(--background-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.projectCard:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.projectImage {
+  height: 200px;
+  background: linear-gradient(
+    135deg,
+    var(--background-tertiary) 0%,
+    var(--background) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.projectEmoji {
+  font-size: 5rem;
+}
+
+.projectContent {
+  padding: 28px;
+}
+
+.projectTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.projectDescription {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--foreground-secondary);
+  margin-bottom: 20px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  padding: 6px 14px;
+  background: var(--background-tertiary);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--foreground-secondary);
+}
+
+.links {
+  display: flex;
+  gap: 16px;
+}
+
+.link {
+  font-size: 0.9rem;
+  color: var(--foreground-secondary);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--accent);
+}
+
+.linkPrimary {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.other {
+  margin-bottom: 40px;
+}
+
+.otherGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.smallCard {
+  background: var(--background-secondary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all var(--transition-normal);
+}
+
+.smallCard:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+
+.smallCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.smallEmoji {
+  font-size: 2.5rem;
+}
+
+.smallLinks {
+  display: flex;
+  gap: 8px;
+}
+
+.iconLink {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-tertiary);
+  border-radius: 8px;
+  color: var(--foreground-secondary);
+  transition: all var(--transition-fast);
+}
+
+.iconLink:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.smallTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.smallDescription {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--foreground-secondary);
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.smallTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.smallTag {
+  padding: 4px 10px;
+  background: var(--background-tertiary);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: var(--foreground-muted);
+}
+
+@media (max-width: 968px) {
+  .featuredGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .otherGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .otherGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectContent {
+    padding: 20px;
+  }
+}
