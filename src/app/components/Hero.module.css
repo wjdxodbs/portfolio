@@ -255,4 +255,9 @@
   .scrollIndicator {
     display: none;
   }
+
+  .code {
+    font-size: 0.75rem; /* 모바일용 더 작은 크기 */
+    padding: 16px; /* 패딩도 조정 */
+  }
 }
