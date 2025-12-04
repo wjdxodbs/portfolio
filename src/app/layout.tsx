@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "정태윤 | Frontend Developer Portfolio",
     description: "프론트엔드 개발자 정태윤의 포트폴리오입니다.",
-    url: "https://your-portfolio-domain.com", // 실제 도메인으로 변경 필요
+    url: "https://portfolio-lake-delta-ms83rd5i7f.vercel.app/",
     siteName: "정태윤 포트폴리오",
     images: [
       {
