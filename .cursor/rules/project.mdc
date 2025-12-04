@@ -1,0 +1,37 @@
+---
+alwaysApply: true
+---
+
+# Project Context
+
+- Framework: Next.js 15 (App Router)
+- Language: TypeScript
+- Styling: CSS Modules
+
+# General Guidelines
+
+- Write concise, readable, and production-ready code.
+- Prioritize code readability, maintainability, and performance (LCP, CLS).
+- Use functional components and hooks.
+- Follow the DRY (Don't Repeat Yourself) principle and use "Early Returns" to avoid deep nesting.
+
+# Architecture & Behavior Rules
+
+- Use React Server Components (RSC) by default. Add 'use client' only when interactivity (hooks, event listeners) is required.
+- **CRITICAL NEXT.js 15 CHANGE**: Asynchronous APIs (`params`, `searchParams`, `cookies()`) MUST be awaited before access.
+- Use `next/image` for image optimization with explicit width/height or fill.
+- Use `next/link` for all internal navigation.
+- Use `next/font` for font optimization.
+- Prefer static generation: Avoid using dynamic functions (like `cookies()`, `headers()`) in layout/page unless absolutely necessary to keep the site Static (SSG).
+
+# Styling Rules (CSS Modules)
+
+- Use **camelCase** for CSS class names (e.g., `.userProfile`) to enable dot notation in JS (`styles.userProfile`).
+- Use CSS variables (e.g., `var(--primary-color)`) defined in `globals.css` for consistent design tokens.
+
+# TypeScript Rules
+
+- Strictly avoid `any`. Use proper type definitions.
+- Use `interface` for defining component props and data shapes.
+- Use `import type` for type-only imports.
+- Use Absolute Imports (e.g., `@/components/Header`) instead of relative paths.
