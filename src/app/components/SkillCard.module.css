@@ -1,0 +1,151 @@
+/* Skill Card */
+.skillCard {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.skillCardOpen {
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+/* Skill Header (Button) */
+.skillHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.skillHeader:hover {
+  background: var(--background-secondary);
+}
+
+.skillMain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.skillName {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Star Rating */
+.skillLevel {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star {
+  font-size: 0.95rem;
+  color: var(--border);
+  transition: color var(--transition-fast);
+}
+
+.starFilled {
+  color: #ffd700;
+}
+
+.levelText {
+  margin-left: 10px;
+  font-size: 0.85rem;
+  color: var(--foreground-muted);
+  font-family: var(--font-mono);
+}
+
+/* Expand Icon */
+.expandIcon {
+  font-size: 0.75rem;
+  color: var(--foreground-muted);
+  transition: transform var(--transition-normal);
+  flex-shrink: 0;
+}
+
+.expandIconOpen {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+/* Skill Content (Expandable) */
+.skillContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.skillContentOpen {
+  max-height: 1000px;
+  border-top: 1px solid var(--border);
+}
+
+/* Capabilities */
+.capabilities {
+  padding: 20px;
+}
+
+.capabilitiesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.capabilityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--foreground-secondary);
+  line-height: 1.6;
+}
+
+.checkIcon {
+  color: var(--accent);
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.capabilityText {
+  flex: 1;
+  word-break: keep-all;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .skillHeader {
+    padding: 16px;
+  }
+
+  .skillMain {
+    gap: 6px;
+  }
+
+  .skillName {
+    font-size: 1rem;
+  }
+
+  .star {
+    font-size: 0.85rem;
+  }
+
+  .capabilities {
+    padding: 14px;
+    margin: 0 16px 16px;
+  }
+
+  .capabilityItem {
+    font-size: 0.85rem;
+  }
+}
