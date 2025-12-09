@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
+import ScrollProgress from "./components/ScrollProgress";
 
 export const metadata: Metadata = {
   title: "정태윤 | Frontend Developer Portfolio",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "정태윤 | Frontend Developer Portfolio",
     description: "프론트엔드 개발자 정태윤의 포트폴리오입니다.",
-    url: "https://portfolio-lake-delta-ms83rd5i7f.vercel.app/",
+    url: "https://wjdxodbs-portfolio.vercel.app/",
     siteName: "정태윤 포트폴리오",
     images: [
       {
@@ -40,9 +41,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" data-scroll-behavior="smooth">
       <body>
         <Header />
+        <ScrollProgress />
         <main>{children}</main>
       </body>
     </html>
