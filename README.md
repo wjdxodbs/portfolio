@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 개요
 
-## Getting Started
+정태윤의 프론트엔드 포트폴리오 사이트입니다. Next.js App Router 기반으로 제작되었으며, 스크롤 진행률 표시와 프로젝트 Notion 임베드 등 인터랙션을 포함합니다.
 
-First, run the development server:
+## 기술 스택
+
+- Next.js (App Router) + TypeScript
+- 스타일: CSS Modules
+- 배포: Vercel
+
+## 주요 기능
+
+- 홈: `Hero`, `About`, `Skills`, `Experience` 섹션
+- 프로젝트: Notion 임베드로 프로젝트 목록 제공 (`/projects`)
+- 헤더 고정 내비게이션 + 스크롤 진행률 바
+- SEO 메타데이터 및 Open Graph 설정
+
+## 프로젝트 구조
+
+- `src/app/layout.tsx` : 전역 레이아웃, 메타데이터, 헤더/스크롤바 포함
+- `src/app/page.tsx` : 홈 섹션 조합
+- `src/app/projects/page.tsx` : 프로젝트 Notion 임베드 페이지
+- `src/app/components/*` : UI 컴포넌트 (Header, ScrollProgress 등)
+- `public/` : 정적 자산 (예: 로고)
+
+## 실행 방법
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 스크립트
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` : 개발 서버 실행
+- `npm run build` : 프로덕션 빌드
+- `npm run start` : 빌드된 앱 실행
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 메모
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 스크롤바는 `requestAnimationFrame`을 활용한 throttling으로 부드럽게 업데이트됩니다.
+- `metadataBase`와 Open Graph 이미지가 `layout.tsx`에 설정되어 있습니다.
