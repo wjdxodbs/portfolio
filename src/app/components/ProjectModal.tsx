@@ -1,22 +1,30 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { Project } from "@/types/project";
+import type { CardRect } from "./ProjectCard";
 import { getTechIcon } from "@/utils/techIcons";
 import styles from "./ProjectModal.module.css";
 
 interface ProjectModalProps {
   project: Project | null;
+  originRect: CardRect | null;
   onClose: () => void;
 }
 
-export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+export default function ProjectModal({ project, originRect, onClose }: ProjectModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const [isClosing, setIsClosing] = useState(false);
+
   useEffect(() => {
-    if (!project) return;
+    if (!project) {
+      setIsClosing(false);
+      return;
+    }
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") handleClose();
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -26,21 +34,63 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
-  }, [project, onClose]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [project]);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      onClose();
+    }, 300);
+  };
+
+  const getOriginStyle = (): React.CSSProperties => {
+    if (!originRect) return {};
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const centerX = vw / 2;
+    const centerY = vh / 2;
+    const cardCenterX = originRect.left + originRect.width / 2;
+    const cardCenterY = originRect.top + originRect.height / 2;
+    const tx = cardCenterX - centerX;
+    const ty = cardCenterY - centerY;
+
+    const modalW = Math.min(vw - 48, 800);
+    const scaleX = originRect.width / modalW;
+    const scaleY = originRect.height / (vh * 0.96);
+
+    return {
+      "--origin-tx": `${tx}px`,
+      "--origin-ty": `${ty}px`,
+      "--origin-scale-x": scaleX,
+      "--origin-scale-y": scaleY,
+    } as React.CSSProperties;
+  };
 
   if (!project) return null;
 
+  const modalClass = [
+    styles.modal,
+    isClosing ? styles.modalClosing : styles.modalOpening,
+  ].join(" ");
+
   return (
     <div
-      className={styles.overlay}
-      onClick={onClose}
+      className={`${styles.overlay} ${isClosing ? styles.overlayClosing : ""}`}
+      onClick={handleClose}
       role="dialog"
       aria-modal="true"
     >
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+      <div
+        ref={modalRef}
+        className={modalClass}
+        style={getOriginStyle()}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           className={styles.closeButton}
-          onClick={onClose}
+          onClick={handleClose}
           aria-label="모달 닫기"
         >
           <svg

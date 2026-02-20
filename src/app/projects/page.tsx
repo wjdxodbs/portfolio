@@ -3,12 +3,23 @@
 import { useState } from "react";
 import { projects } from "@/constants/projects";
 import type { Project } from "@/types/project";
-import ProjectCard from "@/app/components/ProjectCard";
+import ProjectCard, { type CardRect } from "@/app/components/ProjectCard";
 import ProjectModal from "@/app/components/ProjectModal";
 import styles from "./page.module.css";
 
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [originRect, setOriginRect] = useState<CardRect | null>(null);
+
+  const handleCardClick = (project: Project, rect: CardRect) => {
+    setOriginRect(rect);
+    setSelectedProject(project);
+  };
+
+  const handleClose = () => {
+    setSelectedProject(null);
+    setOriginRect(null);
+  };
 
   return (
     <div className={styles.page}>
@@ -26,7 +37,7 @@ export default function ProjectsPage() {
             <ProjectCard
               key={project.id}
               project={project}
-              onClick={setSelectedProject}
+              onClick={handleCardClick}
             />
           ))}
         </section>
@@ -34,7 +45,8 @@ export default function ProjectsPage() {
 
       <ProjectModal
         project={selectedProject}
-        onClose={() => setSelectedProject(null)}
+        originRect={originRect}
+        onClose={handleClose}
       />
     </div>
   );

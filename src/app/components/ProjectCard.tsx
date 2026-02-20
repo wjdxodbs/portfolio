@@ -1,18 +1,40 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import type { Project } from "@/types/project";
 import { getTechIcon } from "@/utils/techIcons";
 import styles from "./ProjectCard.module.css";
 
+export interface CardRect {
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+}
+
 interface ProjectCardProps {
   project: Project;
-  onClick: (project: Project) => void;
+  onClick: (project: Project, rect: CardRect) => void;
 }
 
 export default function ProjectCard({ project, onClick }: ProjectCardProps) {
+  const cardRef = useRef<HTMLElement>(null);
+
+  const handleClick = () => {
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      onClick(project, {
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+      });
+    }
+  };
+
   return (
-    <article className={styles.card} onClick={() => onClick(project)}>
+    <article ref={cardRef} className={styles.card} onClick={handleClick}>
       <div
         className={styles.thumbnail}
         style={project.thumbnailBg ? { background: project.thumbnailBg } : undefined}
