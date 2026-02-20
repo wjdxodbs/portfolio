@@ -1,6 +1,15 @@
+"use client";
+
+import { useState } from "react";
+import { projects } from "@/constants/projects";
+import type { Project } from "@/types/project";
+import ProjectCard from "@/app/components/ProjectCard";
+import ProjectModal from "@/app/components/ProjectModal";
 import styles from "./page.module.css";
 
 export default function ProjectsPage() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   return (
     <div className={styles.page}>
       <div className={styles.container}>
@@ -12,17 +21,21 @@ export default function ProjectsPage() {
           </p>
         </div>
 
-        <section className={styles.notionContainer}>
-          <iframe
-            src="https://exultant-dish-a7c.notion.site/ebd/31d0758d87ad4f8faaf07f11553411b2?v=b8ed41eeebc4446087cb5383b4bae6e1"
-            allow="fullscreen"
-            loading="lazy"
-            className={styles.notionIframe}
-            title="프로젝트"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation"
-          />
+        <section className={styles.grid}>
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={setSelectedProject}
+            />
+          ))}
         </section>
       </div>
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </div>
   );
 }
