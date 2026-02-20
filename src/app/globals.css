@@ -129,7 +129,7 @@ img {
 .btn-primary:hover {
   background: #00cc6e;
   color: var(--background);
-  transform: translateY(-2px);
+  transform: scale(1.04);
   box-shadow: 0 10px 30px var(--accent-glow);
 }
 
@@ -142,6 +142,7 @@ img {
 .btn-secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
+  transform: scale(1.04);
 }
 
 /* Highlight */

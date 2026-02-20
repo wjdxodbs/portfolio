@@ -14,11 +14,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
-      ellipse at 20% 50%,
-      var(--accent-glow) 0%,
-      transparent 50%
-    ),
+  background:
+    radial-gradient(ellipse at 20% 50%, var(--accent-glow) 0%, transparent 50%),
     radial-gradient(
       ellipse at 80% 80%,
       rgba(0, 212, 255, 0.1) 0%,
@@ -96,14 +93,6 @@
   gap: 8px;
 }
 
-.arrow {
-  transition: transform var(--transition-fast);
-}
-
-.btnPrimary:hover .arrow {
-  transform: translateX(4px);
-}
-
 .btnSecondary {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -113,6 +102,15 @@
 .btnSecondary:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: var(--accent);
+}
+
+.btnResume {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .visual {
