@@ -20,7 +20,7 @@
   border: 1px solid var(--border);
   border-radius: 20px;
   width: min(calc(100vw - 48px), calc((1200px - 96px) / 3 * 2.5 + 24px * 1.5));
-  height: 96vh;
+  height: 96dvh;
   overflow-y: auto;
   position: relative;
   scrollbar-width: thin;
@@ -474,7 +474,7 @@
 
   .modal {
     width: calc(100vw - 32px);
-    height: 96vh;
+    height: 96dvh;
     border-radius: 20px 20px 0 0;
   }
 
