@@ -18,22 +18,22 @@ function GitHubIcon() {
 
 export default function ContactPage() {
   return (
-    <div className={styles.page}>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <span className={styles.label}>Contact</span>
+    <main className="page-layout">
+      <div className="container">
+        <header className="section-header">
+          <span className="section-label">Contact</span>
           <h1 className={styles.title}>연락하기</h1>
           <p className={styles.subtitle}>
             궁금한 점이 있으시거나 함께 일하고 싶으시다면 언제든 연락해 주세요!
           </p>
-        </div>
+        </header>
 
         <div className={styles.content}>
-          <div className={styles.contactSection}>
+          <section className={styles.contactSection}>
             <h2 className={styles.sectionTitle}>연락처 정보</h2>
-            <div className={styles.contactList}>
+            <ul className={styles.contactList}>
               {contactInfo.map((item) => (
-                <div key={item.label} className={styles.contactItem}>
+                <li key={item.label} className={styles.contactItem}>
                   <span className={styles.contactIcon}>{item.icon}</span>
                   <div className={styles.contactInfo}>
                     <span className={styles.contactLabel}>{item.label}</span>
@@ -50,39 +50,40 @@ export default function ContactPage() {
                   {["Email", "Phone"].includes(item.label) && (
                     <CopyButton value={item.value} />
                   )}
-                </div>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </section>
 
-          <div className={styles.socialSection}>
+          <section className={styles.socialSection}>
             <h2 className={styles.sectionTitle}>소셜 링크</h2>
-            <div className={styles.socialList}>
+            <ul className={styles.socialList}>
               {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialCard}
-                >
-                  <span className={styles.socialIcon}>
-                    {link.icon === "github" ? <GitHubIcon /> : link.icon}
-                  </span>
-                  <div className={styles.socialInfo}>
-                    <span className={styles.socialName}>{link.name}</span>
-                    <span className={styles.socialDescription}>
-                      {link.description}
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialCard}
+                  >
+                    <span className={styles.socialIcon}>
+                      {link.icon === "github" ? <GitHubIcon /> : link.icon}
                     </span>
-                  </div>
-                  <span className={styles.arrow}>→</span>
-                </a>
+                    <div className={styles.socialInfo}>
+                      <span className={styles.socialName}>{link.name}</span>
+                      <span className={styles.socialDescription}>
+                        {link.description}
+                      </span>
+                    </div>
+                    <span className={styles.arrow}>→</span>
+                  </a>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </section>
         </div>
 
-        <div className={styles.cta}>
+        <aside className={styles.cta}>
           <div className={styles.ctaContent}>
             <h2 className={styles.ctaTitle}>함께 일하고 싶으시다면?</h2>
             <p className={styles.ctaDescription}>
@@ -93,8 +94,8 @@ export default function ContactPage() {
               이메일 보내기 ✉️
             </a>
           </div>
-        </div>
+        </aside>
       </div>
-    </div>
+    </main>
   );
 }

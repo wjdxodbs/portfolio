@@ -12,7 +12,7 @@ export default function SkillCard({ skill }: SkillCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div
+    <li
       className={`${styles.skillCard} ${isOpen ? styles.skillCardOpen : ""}`}
     >
       <button
@@ -61,6 +61,6 @@ export default function SkillCard({ skill }: SkillCardProps) {
           </ul>
         </div>
       </div>
-    </div>
+    </li>
   );
 }

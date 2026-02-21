@@ -13,13 +13,13 @@ export default function Experience() {
 
   return (
     <section id="experience" className={styles.experience}>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <span className={styles.label}>Experience</span>
+      <div className="container">
+        <header className="section-header">
+          <span className="section-label">Experience</span>
           <h2 className={styles.title}>경력 & 경험</h2>
-        </div>
+        </header>
 
-        <div className={styles.tabs}>
+        <nav className={styles.tabs} aria-label="경험 카테고리">
           {categories.map((category) => (
             <button
               key={category.id}
@@ -32,16 +32,16 @@ export default function Experience() {
               <span className={styles.tabLabel}>{category.label}</span>
             </button>
           ))}
-        </div>
+        </nav>
 
         <div className={styles.content}>
           {currentCategory && (
-            <div className={styles.itemsGrid}>
+            <ul className={styles.itemsGrid}>
               {currentCategory.items.map((item, index) => (
-                <div key={index} className={styles.card}>
-                  <div className={styles.cardHeader}>
+                <li key={index} className={styles.card}>
+                  <header className={styles.cardHeader}>
                     <span className={styles.period}>{item.period}</span>
-                  </div>
+                  </header>
 
                   <h3 className={styles.cardTitle}>{item.title}</h3>
                   <p className={styles.organization}>{item.organization}</p>
@@ -55,9 +55,9 @@ export default function Experience() {
                       ))}
                     </ul>
                   )}
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </div>
       </div>

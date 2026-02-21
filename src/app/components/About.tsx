@@ -4,14 +4,14 @@ import styles from "./About.module.css";
 export default function About() {
   return (
     <section id="about" className={styles.about}>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <span className={styles.label}>About Me</span>
+      <div className="container">
+        <header className="section-header">
+          <span className="section-label">About Me</span>
           <h2 className={styles.title}>저를 소개합니다</h2>
-        </div>
+        </header>
 
         <div className={styles.content}>
-          <div className={styles.imageContainer}>
+          <figure className={styles.imageContainer}>
             <Image
               src="/id_photo.jpg"
               alt="프로필 이미지"
@@ -20,7 +20,7 @@ export default function About() {
               priority
               className={styles.profileImage}
             />
-          </div>
+          </figure>
 
           <div className={styles.info}>
             <p className={styles.intro}>

@@ -35,7 +35,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
 
   return (
     <article ref={cardRef} className={styles.card} onClick={handleClick}>
-      <div
+      <figure
         className={styles.thumbnail}
         style={project.thumbnailBg ? { background: project.thumbnailBg } : undefined}
       >
@@ -58,7 +58,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
         <div className={styles.thumbnailOverlay}>
           <span className={styles.overlayText}>클릭하여 자세히 보기</span>
         </div>
-      </div>
+      </figure>
 
       <div className={styles.content}>
         <h3 className={styles.title}>{project.title}</h3>
@@ -69,11 +69,11 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
           <span className={styles.duration}>{project.duration}</span>
         </div>
 
-        <div className={styles.techStack}>
+        <ul className={styles.techStack}>
           {project.techStack.map((tech) => {
             const icon = getTechIcon(tech);
             return (
-              <div key={tech} className={styles.techItem}>
+              <li key={tech} className={styles.techItem}>
                 <div className={styles.techIconWrapper}>
                   {icon.iconUrl ? (
                     <Image
@@ -88,10 +88,10 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
                   )}
                 </div>
                 <span className={styles.tooltip}>{tech}</span>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </article>
   );

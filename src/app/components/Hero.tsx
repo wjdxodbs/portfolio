@@ -56,7 +56,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className={styles.visual}>
+        <figure className={styles.visual}>
           <div className={styles.codeBlock}>
             <div className={styles.codeHeader}>
               <span className={styles.dot}></span>
@@ -74,7 +74,7 @@ export default function Hero() {
               </code>
             </pre>
           </div>
-        </div>
+        </figure>
       </div>
 
       <div className={styles.scrollIndicator}>
