@@ -89,6 +89,3 @@ export function getTechIcon(techName: string): TechIcon {
   );
 }
 
-export function getAllTechIcons(): Record<string, TechIcon> {
-  return TECH_ICONS;
-}

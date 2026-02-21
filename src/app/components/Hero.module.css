@@ -40,14 +40,6 @@
   animation: fadeInUp 0.8s ease forwards;
 }
 
-.greeting {
-  font-size: 1.1rem;
-  color: var(--accent);
-  font-weight: 500;
-  margin-bottom: 16px;
-  letter-spacing: 0.05em;
-}
-
 .name {
   margin-bottom: 24px;
 }
@@ -68,19 +60,6 @@
   margin-top: 8px;
 }
 
-.description {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: var(--foreground-secondary);
-  margin-bottom: 32px;
-  max-width: 500px;
-}
-
-.highlight {
-  color: var(--accent);
-  font-weight: 500;
-}
-
 .cta {
   display: flex;
   gap: 16px;
@@ -91,17 +70,6 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-}
-
-.btnSecondary {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.btnSecondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: var(--accent);
 }
 
 .btnResume {
@@ -240,10 +208,6 @@
 
   .role {
     font-size: 1.2rem;
-  }
-
-  .description {
-    font-size: 1rem;
   }
 
   .cta {

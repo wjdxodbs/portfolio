@@ -11,7 +11,6 @@
 
   /* Accent Colors */
   --accent: #00ff88;
-  --accent-secondary: #00d4ff;
   --accent-glow: rgba(0, 255, 136, 0.15);
 
   /* Borders */
@@ -164,6 +163,29 @@ img {
   transform: translateY(-4px);
 }
 
+/* Page Layout */
+.page-layout {
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: var(--section-padding);
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {
@@ -183,35 +205,6 @@ img {
   to {
     opacity: 1;
   }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease forwards;
 }
 
 /* Responsive */
