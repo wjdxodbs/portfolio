@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { Project } from "@/types/project";
 import type { CardRect } from "./ProjectCard";
-import { getTechIcon } from "@/utils/techIcons";
+import TechBadge from "./TechBadge";
 import styles from "./ProjectModal.module.css";
 
 interface ProjectModalProps {
@@ -13,7 +13,11 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-export default function ProjectModal({ project, originRect, onClose }: ProjectModalProps) {
+export default function ProjectModal({
+  project,
+  originRect,
+  onClose,
+}: ProjectModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -34,7 +38,7 @@ export default function ProjectModal({ project, originRect, onClose }: ProjectMo
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [project]);
 
   const handleClose = () => {
@@ -144,25 +148,7 @@ export default function ProjectModal({ project, originRect, onClose }: ProjectMo
             </div>
             <h2 className={styles.title}>{project.title}</h2>
             <p className={styles.description}>{project.description}</p>
-            <div className={styles.techStack}>
-              {project.techStack.map((tech) => {
-                const icon = getTechIcon(tech);
-                return (
-                  <div key={tech} className={styles.techChip}>
-                    {icon.iconUrl && (
-                      <Image
-                        src={icon.iconUrl}
-                        alt={tech}
-                        width={16}
-                        height={16}
-                        className={styles.techIcon}
-                      />
-                    )}
-                    <span>{tech}</span>
-                  </div>
-                );
-              })}
-            </div>
+            <TechBadge techStack={project.techStack} variant="chip" />
           </div>
 
           {/* 상세 정보 */}
@@ -205,7 +191,13 @@ export default function ProjectModal({ project, originRect, onClose }: ProjectMo
                       <div className={styles.itemImages}>
                         {item.images.map((src, idx) => (
                           <div key={idx} className={styles.itemImageWrapper}>
-                            <Image src={src} alt={`${item.title} 이미지 ${idx + 1}`} width={400} height={800} className={styles.itemImage} />
+                            <Image
+                              src={src}
+                              alt={`${item.title} 이미지 ${idx + 1}`}
+                              width={400}
+                              height={800}
+                              className={styles.itemImage}
+                            />
                           </div>
                         ))}
                       </div>
@@ -235,7 +227,13 @@ export default function ProjectModal({ project, originRect, onClose }: ProjectMo
                       <div className={styles.itemImages}>
                         {item.images.map((src, idx) => (
                           <div key={idx} className={styles.itemImageWrapper}>
-                            <Image src={src} alt={`${item.title} 이미지 ${idx + 1}`} width={400} height={800} className={styles.itemImage} />
+                            <Image
+                              src={src}
+                              alt={`${item.title} 이미지 ${idx + 1}`}
+                              width={400}
+                              height={800}
+                              className={styles.itemImage}
+                            />
                           </div>
                         ))}
                       </div>

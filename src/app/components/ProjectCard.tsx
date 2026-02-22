@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import type { Project } from "@/types/project";
-import { getTechIcon } from "@/utils/techIcons";
+import TechBadge from "./TechBadge";
 import styles from "./ProjectCard.module.css";
 
 export interface CardRect {
@@ -69,29 +69,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
           <span className={styles.duration}>{project.duration}</span>
         </div>
 
-        <ul className={styles.techStack}>
-          {project.techStack.map((tech) => {
-            const icon = getTechIcon(tech);
-            return (
-              <li key={tech} className={styles.techItem}>
-                <div className={styles.techIconWrapper}>
-                  {icon.iconUrl ? (
-                    <Image
-                      src={icon.iconUrl}
-                      alt={tech}
-                      width={20}
-                      height={20}
-                      className={styles.techIcon}
-                    />
-                  ) : (
-                    <span className={styles.techFallback}>{icon.abbr ?? tech[0]}</span>
-                  )}
-                </div>
-                <span className={styles.tooltip}>{tech}</span>
-              </li>
-            );
-          })}
-        </ul>
+        <TechBadge techStack={project.techStack} variant="icon" />
       </div>
     </article>
   );

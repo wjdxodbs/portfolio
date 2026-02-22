@@ -172,32 +172,6 @@
   line-height: 1.7;
 }
 
-.techStack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
-}
-
-.techChip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 10px;
-  background: var(--background-tertiary);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  color: var(--foreground-secondary);
-  font-weight: 500;
-}
-
-.techIcon {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-}
-
 /* Info Grid */
 .infoGrid {
   display: flex;
