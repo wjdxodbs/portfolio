@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     description: "프론트엔드 개발자 정태윤의 포트폴리오입니다.",
     url: "https://wjdxodbs-portfolio.vercel.app/",
     siteName: "정태윤 포트폴리오",
-    images: [
-      {
-        url: "https://wjdxodbs-portfolio.vercel.app/id_photo.jpg",
-        width: 1200,
-        height: 630,
-        alt: "정태윤 - 프론트엔드 개발자",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "https://wjdxodbs-portfolio.vercel.app/id_photo.jpg",
+    //     width: 1200,
+    //     height: 630,
+    //     alt: "정태윤 - 프론트엔드 개발자",
+    //   },
+    // ],
     locale: "ko_KR",
     type: "website",
   },
