@@ -49,6 +49,7 @@
   font-size: 1.5rem;
   width: 48px;
   height: 48px;
+  min-width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,6 +61,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
 }
 
 .contactLabel {
@@ -73,12 +75,16 @@
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--accent);
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 .contactValueText {
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--foreground);
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 .socialSection {
@@ -92,6 +98,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  overflow: hidden;
 }
 
 .socialCard {
@@ -115,6 +122,7 @@
   font-size: 1.5rem;
   width: 48px;
   height: 48px;
+  min-width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,6 +225,29 @@
 
   .contactSection,
   .socialSection {
-    padding: 24px;
+    padding: 20px;
+  }
+
+  .contactItem {
+    gap: 12px;
+  }
+
+  .contactIcon,
+  .socialIcon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+  }
+
+  .contactValue,
+  .contactValueText {
+    font-size: 0.95rem;
+  }
+
+  .socialCard {
+    gap: 12px;
+    padding: 16px;
   }
 }
