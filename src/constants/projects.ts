@@ -224,18 +224,76 @@ export const projects: Project[] = [
       },
     ],
   },
-  // {
-  //   id: "project-3",
-  //   title: "Portfolio",
-  //   description: "개인 포트폴리오 웹사이트 (현재 사이트)",
-  //   period: "2024.06 - 2024.07",
-  //   duration: "총 4주",
-  //   thumbnailUrl: "/portfolio.png",
-  //   techStack: ["Next.js", "TypeScript", "CSS"],
-  //   type: "personal",
-  //   teamSize: "개인",
-  //   role: "개인",
-  //   achievements: [],
-  //   overview: [],
-  // },
+  {
+    id: "project-3",
+    title: "Portfolio",
+    description: "개인 포트폴리오 웹사이트 (현재 사이트)",
+    period: "2025.11 - 현재",
+    duration: "지속 개선 중",
+    thumbnailUrl: "/portfolio.png",
+    techStack: ["Next.js", "TypeScript", "CSS"],
+    type: "personal",
+    teamSize: "프론트엔드 1명",
+    role: "프론트엔드",
+    achievements: [],
+    overview: [
+      {
+        title: "페이지 구성",
+        details: [
+          "홈(/), 프로젝트(/projects), 연락처(/contact) 페이지 분리를 통한 목적별 탐색 구조 구성",
+          "홈의 Hero, About, Skills, Experience 섹션을 통한 개발자 정보·경험의 단계적 확인 흐름 제공",
+        ],
+      },
+      {
+        title: "프로젝트 탐색",
+        details: [
+          "프로젝트 페이지(/projects)에서 카드 그리드 나열을 통해 작업 목록을 한눈에 파악할 수 있도록 구성",
+          "상세 화면에서 기술 스택, 기간, 역할, 주요 성과와 개요/담당업무/고민했던 점/회고를 함께 확인할 수 있도록 구성",
+        ],
+      },
+      {
+        title: "연락처 정보",
+        details: [
+          "연락처 페이지(/contact)에서 이메일·전화번호·소셜 링크를 한 화면에서 확인할 수 있도록 구성",
+          "이메일/전화 직접 연결과 복사·외부 링크 동선으로 다양한 연락 방식 지원",
+        ],
+      },
+    ],
+    tasks: [
+      {
+        title: "프로젝트 모달 전환",
+        details: [
+          "클릭한 카드의 위치/크기를 기준으로 모달이 펼쳐지는 전환 애니메이션을 구현해 맥락 전환의 이질감을 줄였습니다.",
+          "ESC, 오버레이 클릭, 닫기 버튼 등 다양한 닫기 동작을 지원하고 스크롤 잠금 처리로 모달 사용성을 높였습니다.",
+        ],
+      },
+      {
+        title: "모바일 반응형 대응",
+        details: [
+          "페이지 전반에 공통 브레이크포인트 기준을 정리해 화면 크기 변화에 일관되게 대응했습니다.",
+          "모바일 실기기 기준으로 주소창 높이 변화와 가로 스크롤 이슈를 점검·보완해 화면 안정성을 확보했습니다.",
+        ],
+      },
+      {
+        title: "검색 노출 및 공유 설정",
+        details: [
+          "Google Search Console 검증 파일 추가, sitemap/robots 설정으로 크롤링 가능 상태를 정비했습니다.",
+          "페이지 메타데이터를 정리해 검색 결과 제목/설명 및 공유 미리보기의 일관성을 개선했습니다.",
+        ],
+      },
+    ],
+    concerns: [
+      {
+        title: "검색 노출 우선순위 설정",
+        details: [
+          "구글 검색 노출을 위해 어떤 요소부터 우선 적용해야 할지 고민했습니다.",
+          "초기에는 검색 등록·사이트맵·로봇 설정으로 인덱싱 기반을 먼저 갖추고, 이후 메타데이터·시맨틱 구조·접근성 개선을 순차 적용했습니다.",
+        ],
+      },
+    ],
+    retrospect: [
+      "포트폴리오에서 기능 추가보다 정보 배치와 페이지 구조를 먼저 정리해 구현 과정의 혼선을 줄일 수 있었습니다.",
+      "SEO, 접근성, 반응형 같은 기본기를 초기에 함께 챙길수록 배포 이후 수정 비용이 줄어든다는 점을 확인했습니다.",
+    ],
+  },
 ];
