@@ -119,25 +119,6 @@ img {
   transform: scale(1.04);
 }
 
-/* Highlight */
-.highlight {
-  color: var(--accent);
-}
-
-/* Card */
-.card {
-  background: var(--background-secondary);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-  transition: all var(--transition-normal);
-}
-
-.card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-4px);
-}
-
 /* Page Layout */
 .page-layout {
   min-height: 100vh;
