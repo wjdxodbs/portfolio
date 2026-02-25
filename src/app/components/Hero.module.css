@@ -186,7 +186,7 @@
   }
 }
 
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
   .container {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -203,11 +203,11 @@
 
 @media (max-width: 480px) {
   .firstName {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .role {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 
   .cta {
@@ -219,7 +219,7 @@
   }
 
   .code {
-    font-size: 0.75rem; /* 모바일용 더 작은 크기 */
-    padding: 16px; /* 패딩도 조정 */
+    font-size: 0.75rem;
+    padding: 16px;
   }
 }

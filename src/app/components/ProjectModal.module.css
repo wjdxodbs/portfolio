@@ -353,22 +353,28 @@
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes expandFromCard {
   from {
     opacity: 0.6;
-    transform:
-      translate(var(--origin-tx, 0px), var(--origin-ty, 0px))
-      scaleX(var(--origin-scale-x, 0.3))
-      scaleY(var(--origin-scale-y, 0.15));
+    transform: translate(var(--origin-tx, 0px), var(--origin-ty, 0px))
+      scaleX(var(--origin-scale-x, 0.3)) scaleY(var(--origin-scale-y, 0.15));
     border-radius: 16px;
   }
   to {
@@ -386,27 +392,13 @@
   }
   to {
     opacity: 0;
-    transform:
-      translate(var(--origin-tx, 0px), var(--origin-ty, 0px))
-      scaleX(var(--origin-scale-x, 0.3))
-      scaleY(var(--origin-scale-y, 0.15));
+    transform: translate(var(--origin-tx, 0px), var(--origin-ty, 0px))
+      scaleX(var(--origin-scale-x, 0.3)) scaleY(var(--origin-scale-y, 0.15));
     border-radius: 16px;
   }
 }
 
 @media (max-width: 768px) {
-  .title {
-    font-size: 1.7rem;
-  }
-  .description {
-    font-size: 0.975rem;
-  }
-  .overviewLabel {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 640px) {
   .modal {
     width: calc(100vw - 48px);
   }
@@ -414,22 +406,22 @@
     padding: 28px;
   }
   .title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   .description {
     font-size: 0.95rem;
+  }
+  .overviewLabel {
+    font-size: 1.1rem;
+  }
+  .overviewDetail {
+    font-size: 0.9rem;
   }
   .infoValue {
     font-size: 0.95rem;
   }
   .achievementItem {
     font-size: 0.95rem;
-  }
-  .overviewLabel {
-    font-size: 1rem;
-  }
-  .overviewDetail {
-    font-size: 0.9rem;
   }
 }
 
@@ -438,9 +430,6 @@
     flex: 1 1 100%;
     border-right: none;
   }
-}
-
-@media (max-width: 480px) {
   .overlay {
     padding: 16px;
     align-items: flex-end;
@@ -473,11 +462,11 @@
   .overviewLabel {
     font-size: 0.95rem;
   }
-  .overviewTitle, .taskTitle {
+  .overviewTitle,
+  .taskTitle {
     font-size: 0.9rem;
   }
   .overviewDetail {
     font-size: 0.85rem;
   }
 }
-

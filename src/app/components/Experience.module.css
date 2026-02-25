@@ -121,10 +121,6 @@
 }
 
 @media (max-width: 768px) {
-  .tabs {
-    gap: 8px;
-  }
-
   .tab {
     padding: 12px 16px;
     font-size: 0.9rem;
@@ -132,10 +128,6 @@
 
   .tabIcon {
     font-size: 1.1rem;
-  }
-
-  .tabLabel {
-    display: none;
   }
 
   .card {
@@ -150,6 +142,10 @@
 
   .tab {
     padding: 10px 14px;
+  }
+
+  .tabLabel {
+    display: none;
   }
 
   .cardTitle {
