@@ -7,7 +7,7 @@
   --background-tertiary: #1a1a1a;
   --foreground: #ededed;
   --foreground-secondary: #a0a0a0;
-  --foreground-muted: #666666;
+  --foreground-muted: #767676;
 
   /* Accent Colors */
   --accent: #00ff88;
@@ -83,31 +83,6 @@ img {
   padding: 0 24px;
 }
 
-/* Section */
-.section {
-  padding: var(--section-padding) 0;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  background: linear-gradient(
-    135deg,
-    var(--foreground) 0%,
-    var(--foreground-secondary) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: var(--foreground-secondary);
-  margin-bottom: 48px;
-}
-
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -170,22 +145,6 @@ img {
   padding-bottom: var(--section-padding);
 }
 
-/* Section Header */
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-label {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  margin-bottom: 12px;
-}
-
 /* Animations */
 @keyframes fadeInUp {
   from {
@@ -211,10 +170,6 @@ img {
 @media (max-width: 768px) {
   :root {
     --section-padding: 60px;
-  }
-
-  .section-title {
-    font-size: 2rem;
   }
 
   .container {

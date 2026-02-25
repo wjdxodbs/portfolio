@@ -3,12 +3,6 @@
   background: var(--background);
 }
 
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
 /* Tabs */
 .tabs {
   display: flex;
@@ -136,10 +130,6 @@
 }
 
 @media (max-width: 480px) {
-  .title {
-    font-size: 2rem;
-  }
-
   .tab {
     padding: 10px 14px;
   }

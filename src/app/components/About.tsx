@@ -1,14 +1,15 @@
 import Image from "next/image";
 import styles from "./About.module.css";
+import SectionHeader from "./SectionHeader";
 
 export default function About() {
   return (
     <section id="about" className={styles.about}>
       <div className="container">
-        <header className="section-header">
-          <span className="section-label">About Me</span>
-          <h2 className={styles.title}>저를 소개합니다</h2>
-        </header>
+        <SectionHeader
+          label="About Me"
+          title="저를 소개합니다"
+        />
 
         <div className={styles.content}>
           <figure className={styles.imageContainer}>

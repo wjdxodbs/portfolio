@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import { contactInfo, socialLinks } from "@/constants/contact";
 import CopyButton from "@/app/components/CopyButton";
+import SectionHeader from "@/app/components/SectionHeader";
 
 function GitHubIcon() {
   return (
@@ -20,13 +21,12 @@ export default function ContactPage() {
   return (
     <main className="page-layout">
       <div className="container">
-        <header className="section-header">
-          <span className="section-label">Contact</span>
-          <h1 className={styles.title}>연락하기</h1>
-          <p className={styles.subtitle}>
-            궁금한 점이 있으시거나 함께 일하고 싶으시다면 언제든 연락해 주세요!
-          </p>
-        </header>
+        <SectionHeader
+          label="Contact"
+          title="연락하기"
+          subtitle="궁금한 점이 있으시거나 함께 일하고 싶으시다면 언제든 연락해 주세요!"
+          as="h1"
+        />
 
         <div className={styles.content}>
           <section className={styles.contactSection}>

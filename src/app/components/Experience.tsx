@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./Experience.module.css";
 import type { CategoryType } from "@/types/experience";
 import { categories } from "@/constants/experiences";
+import SectionHeader from "./SectionHeader";
 
 export default function Experience() {
   const [activeCategory, setActiveCategory] =
@@ -14,10 +15,10 @@ export default function Experience() {
   return (
     <section id="experience" className={styles.experience}>
       <div className="container">
-        <header className="section-header">
-          <span className="section-label">Experience</span>
-          <h2 className={styles.title}>경력 & 경험</h2>
-        </header>
+        <SectionHeader
+          label="Experience"
+          title="경력 & 경험"
+        />
 
         <nav className={styles.tabs} aria-label="경험 카테고리">
           {categories.map((category) => (

@@ -5,6 +5,7 @@ import { projects } from "@/constants/projects";
 import type { Project } from "@/types/project";
 import ProjectCard, { type CardRect } from "@/app/components/ProjectCard";
 import ProjectModal from "@/app/components/ProjectModal";
+import SectionHeader from "@/app/components/SectionHeader";
 import styles from "./page.module.css";
 
 export default function ProjectsPage() {
@@ -24,13 +25,12 @@ export default function ProjectsPage() {
   return (
     <main className="page-layout">
       <div className="container">
-        <header className="section-header">
-          <span className="section-label">Projects</span>
-          <h1 className={styles.title}>프로젝트</h1>
-          <p className={styles.subtitle}>
-            지금까지 진행한 개인 프로젝트와 팀 프로젝트입니다.
-          </p>
-        </header>
+        <SectionHeader
+          label="Projects"
+          title="프로젝트"
+          subtitle="지금까지 진행한 개인 프로젝트와 팀 프로젝트입니다."
+          as="h1"
+        />
 
         <section className={styles.grid}>
           {projects.map((project) => (
