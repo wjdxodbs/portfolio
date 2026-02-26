@@ -7,6 +7,7 @@ export interface OverviewItem {
 export interface Project {
   id: string;
   title: string;
+  githubUrl?: string;
   description: string;
   period: string;
   duration: string;

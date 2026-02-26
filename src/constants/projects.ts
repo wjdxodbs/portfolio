@@ -227,6 +227,7 @@ export const projects: Project[] = [
   {
     id: "project-3",
     title: "Portfolio",
+    githubUrl: "https://github.com/wjdxodbs/portfolio",
     description: "개인 포트폴리오 웹사이트 (현재 사이트)",
     period: "2025.11 - 현재",
     duration: "지속 개선 중",
@@ -299,9 +300,10 @@ export const projects: Project[] = [
   {
     id: "project-4",
     title: "CINEMA",
+    githubUrl: "https://github.com/wjdxodbs/cinema",
     description: "TMDB API 기반 영화/TV 탐색 서비스",
     period: "2026.02 - 2026.02",
-    duration: "총 1주",
+    duration: "총 2주",
     thumbnailUrl: "/cinema.png",
     techStack: [
       "Next.js",
