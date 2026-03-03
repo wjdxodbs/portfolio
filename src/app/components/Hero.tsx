@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TypewriterRole from "@/app/components/TypewriterRole";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -8,7 +9,7 @@ export default function Hero() {
         <div className={styles.content}>
           <h1 className={styles.name}>
             <span className={styles.firstName}>정태윤</span>
-            <span className={styles.role}>Frontend Developer</span>
+            <TypewriterRole />
           </h1>
           <div className={styles.cta}>
             <Link
