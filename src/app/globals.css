@@ -83,42 +83,6 @@ img {
   padding: 0 24px;
 }
 
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: all var(--transition-normal);
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: var(--background);
-}
-
-.btn-primary:hover {
-  background: #00cc6e;
-  color: var(--background);
-  transform: scale(1.04);
-  box-shadow: 0 10px 30px var(--accent-glow);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--foreground);
-  border: 1px solid var(--border);
-}
-
-.btn-secondary:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: scale(1.04);
-}
-
 /* Page Layout */
 .page-layout {
   min-height: 100vh;
