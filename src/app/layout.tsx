@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Header from "./components/Header";
-import ScrollProgress from "./components/ScrollProgress";
+import Header from "@/components/layout/Header";
+import ScrollProgress from "@/components/layout/ScrollProgress";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wjdxodbs-portfolio.vercel.app/"),

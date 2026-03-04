@@ -1,0 +1,95 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  transition: all var(--transition-normal);
+}
+
+.button:hover {
+  transform: scale(1.04);
+}
+
+/* size */
+.sm {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  gap: 6px;
+}
+
+.md {
+  padding: 11px 22px;
+  border-radius: 7px;
+  font-size: 0.9375rem;
+  gap: 7px;
+}
+
+.lg {
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  gap: 8px;
+}
+
+.xl {
+  padding: 17px 34px;
+  border-radius: 9px;
+  font-size: 1.25rem;
+}
+
+.card {
+  width: 100%;
+  padding: 0;
+  gap: 16px;
+  justify-content: flex-start;
+  border-radius: 0;
+  border: none;
+}
+
+.button.card:hover {
+  transform: none;
+}
+
+/* primary */
+.primary {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.primary:hover {
+  background: #00cc6e;
+  color: var(--background);
+  box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+/* secondary */
+.secondary {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* outline */
+.outline {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: var(--foreground);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .card {
+    gap: 12px;
+  }
+}
