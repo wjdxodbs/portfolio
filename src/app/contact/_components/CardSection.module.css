@@ -1,0 +1,19 @@
+.cardSection {
+  background: var(--background-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--foreground);
+}
+
+@media (max-width: 480px) {
+  .cardSection {
+    padding: 20px;
+  }
+}
