@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { projects } from "@/constants/projects";
-import type { Project } from "@/types/project";
-import ProjectCard, { type CardRect } from "@/app/components/ProjectCard";
-import ProjectModal from "@/app/components/ProjectModal";
-import SectionHeader from "@/app/components/SectionHeader";
+import { projects } from "@/app/projects/_constants/projects";
+import type { Project } from "@/app/projects/_types/project";
+import ProjectCard, { type CardRect } from "@/app/projects/_components/ProjectCard";
+import ProjectModal from "@/app/projects/_components/ProjectModal";
+import SectionHeader from "@/components/common/SectionHeader";
 import styles from "./page.module.css";
 
 export default function ProjectsPage() {
