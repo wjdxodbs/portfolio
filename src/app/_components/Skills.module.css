@@ -1,0 +1,21 @@
+.skills {
+  padding: var(--section-padding) 0;
+  background: var(--background-secondary);
+}
+
+/* Skills Grid */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+}
