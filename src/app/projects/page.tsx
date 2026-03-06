@@ -1,27 +1,7 @@
-"use client";
-
-import { useState } from "react";
-import { projects } from "@/app/projects/_constants/projects";
-import type { Project } from "@/app/projects/_types/project";
-import ProjectCard, { type CardRect } from "@/app/projects/_components/ProjectCard";
-import ProjectModal from "@/app/projects/_components/ProjectModal";
+import ProjectCardGrid from "./_components/ProjectCardGrid";
 import SectionHeader from "@/components/common/SectionHeader";
-import styles from "./page.module.css";
 
 export default function ProjectsPage() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [originRect, setOriginRect] = useState<CardRect | null>(null);
-
-  const handleCardClick = (project: Project, rect: CardRect) => {
-    setOriginRect(rect);
-    setSelectedProject(project);
-  };
-
-  const handleClose = () => {
-    setSelectedProject(null);
-    setOriginRect(null);
-  };
-
   return (
     <main className="page-layout">
       <div className="container">
@@ -32,22 +12,8 @@ export default function ProjectsPage() {
           as="h1"
         />
 
-        <section className={styles.grid}>
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              onClick={handleCardClick}
-            />
-          ))}
-        </section>
+        <ProjectCardGrid />
       </div>
-
-      <ProjectModal
-        project={selectedProject}
-        originRect={originRect}
-        onClose={handleClose}
-      />
     </main>
   );
 }
