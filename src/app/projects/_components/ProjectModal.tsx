@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import type { Project } from "@/app/projects/_types/project";
 import type { CardRect } from "./ProjectCard";
@@ -79,7 +80,7 @@ export default function ProjectModal({
     isClosing ? styles.modalClosing : styles.modalOpening,
   ].join(" ");
 
-  return (
+  const modalContent = (
     <div
       className={`${styles.overlay} ${isClosing ? styles.overlayClosing : ""}`}
       onClick={handleClose}
@@ -299,4 +300,6 @@ export default function ProjectModal({
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }
