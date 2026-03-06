@@ -5,7 +5,8 @@ import styles from "./Experience.module.css";
 import type { CategoryType } from "@/app/_types/experience";
 import { categories } from "@/app/_constants/experiences";
 import SectionHeader from "@/components/common/SectionHeader";
-import CtaButton from "@/components/ui/CtaButton";
+import ExperienceTabs from "./ExperienceTabs";
+import ExperienceList from "./ExperienceList";
 
 export default function Experience() {
   const [activeCategory, setActiveCategory] =
@@ -21,46 +22,15 @@ export default function Experience() {
           title="경력 & 경험"
         />
 
-        <nav className={styles.tabs} aria-label="경험 카테고리">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              type="button"
-              className={activeCategory === category.id ? styles.tabActive : ""}
-              onClick={() => setActiveCategory(category.id)}
-            >
-              <CtaButton variant="secondary" size="md">
-                <span className={styles.tabIcon}>{category.icon}</span>
-                <span className={styles.tabLabel}>{category.label}</span>
-              </CtaButton>
-            </button>
-          ))}
-        </nav>
+        <ExperienceTabs
+          categories={categories}
+          activeCategory={activeCategory}
+          onSelect={setActiveCategory}
+        />
 
         <div className={styles.content}>
           {currentCategory && (
-            <ul className={styles.itemsGrid}>
-              {currentCategory.items.map((item, index) => (
-                <li key={index} className={styles.card}>
-                  <header className={styles.cardHeader}>
-                    <span className={styles.period}>{item.period}</span>
-                  </header>
-
-                  <h3 className={styles.cardTitle}>{item.title}</h3>
-                  <p className={styles.organization}>{item.organization}</p>
-
-                  {item.highlights.length > 0 && (
-                    <ul className={styles.highlights}>
-                      {item.highlights.map((highlight, i) => (
-                        <li key={i} className={styles.highlightItem}>
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
+            <ExperienceList items={currentCategory.items} />
           )}
         </div>
       </div>
