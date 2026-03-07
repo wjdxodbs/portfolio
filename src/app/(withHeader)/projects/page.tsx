@@ -3,7 +3,7 @@ import SectionHeader from "@/components/common/SectionHeader";
 
 export default function ProjectsPage() {
   return (
-    <main className="page-layout">
+    <div className="page-layout">
       <div className="container">
         <SectionHeader
           label="Projects"
@@ -14,6 +14,6 @@ export default function ProjectsPage() {
 
         <ProjectCardGrid />
       </div>
-    </main>
+    </div>
   );
 }

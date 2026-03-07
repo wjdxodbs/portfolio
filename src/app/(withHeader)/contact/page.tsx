@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { contactInfo, socialLinks } from "@/app/contact/_constants/contact";
+import { contactInfo, socialLinks } from "@/app/(withHeader)/contact/_constants/contact";
 import CardSection from "./_components/CardSection";
 import CopyButton from "./_components/CopyButton";
 import CtaButton from "@/components/ui/CtaButton";
@@ -8,7 +8,7 @@ import SectionHeader from "@/components/common/SectionHeader";
 
 export default function ContactPage() {
   return (
-    <main className="page-layout">
+    <div className="page-layout">
       <div className="container">
         <SectionHeader
           label="Contact"
@@ -109,6 +109,6 @@ export default function ContactPage() {
           </div>
         </aside>
       </div>
-    </main>
+    </div>
   );
 }

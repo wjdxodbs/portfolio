@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTechIcon } from "@/app/projects/_utils/techIcons";
+import { getTechIcon } from "@/app/(withHeader)/projects/_utils/techIcons";
 import styles from "./TechBadge.module.css";
 
 interface TechBadgeProps {

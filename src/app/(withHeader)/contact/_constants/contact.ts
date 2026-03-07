@@ -1,4 +1,4 @@
-import type { ContactInfo, SocialLink } from "@/app/contact/_types/contact";
+import type { ContactInfo, SocialLink } from "@/app/(withHeader)/contact/_types/contact";
 
 export const contactInfo: ContactInfo[] = [
   {

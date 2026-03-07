@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import type { Project } from "@/app/projects/_types/project";
+import type { Project } from "@/app/(withHeader)/projects/_types/project";
 import type { CardRect } from "./ProjectCard";
 import TechBadge from "./TechBadge";
 import styles from "./ProjectModal.module.css";

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import type { Project } from "@/app/projects/_types/project";
+import type { Project } from "@/app/(withHeader)/projects/_types/project";
 import TechBadge from "./TechBadge";
 import styles from "./ProjectCard.module.css";
 
