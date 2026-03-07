@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import CtaButton from "@/components/ui/CtaButton";
+import { useCopyToClipboard } from "../_hooks/useCopyToClipboard";
 import styles from "./CopyButton.module.css";
 
 const CopyIcon = () => (
@@ -25,22 +25,16 @@ interface CopyButtonProps {
 }
 
 export default function CopyButton({ value }: CopyButtonProps) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("복사 실패:", err);
-    }
-  };
+  const { copied, copyToClipboard } = useCopyToClipboard();
 
   return (
     <div className={styles.copyWrapper}>
       {copied && <span className={styles.copiedToast}>복사됨!</span>}
-      <button type="button" onClick={handleCopy} aria-label="복사">
+      <button
+        type="button"
+        onClick={() => copyToClipboard(value)}
+        aria-label="복사"
+      >
         <CtaButton variant="secondary" size="sm">
           <CopyIcon />
         </CtaButton>
