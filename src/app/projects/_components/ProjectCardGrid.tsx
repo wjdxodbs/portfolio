@@ -10,15 +10,22 @@ import styles from "./ProjectCardGrid.module.css";
 export default function ProjectCardGrid() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [originRect, setOriginRect] = useState<CardRect | null>(null);
+  const [triggerElement, setTriggerElement] = useState<HTMLElement | null>(null);
 
-  const handleCardClick = (project: Project, rect: CardRect) => {
+  const handleCardClick = (
+    project: Project,
+    rect: CardRect,
+    triggerEl: HTMLElement | null
+  ) => {
     setOriginRect(rect);
+    setTriggerElement(triggerEl);
     setSelectedProject(project);
   };
 
   const handleClose = () => {
     setSelectedProject(null);
     setOriginRect(null);
+    setTriggerElement(null);
   };
 
   return (
@@ -36,6 +43,7 @@ export default function ProjectCardGrid() {
       <ProjectModal
         project={selectedProject}
         originRect={originRect}
+        triggerElement={triggerElement}
         onClose={handleClose}
       />
     </>

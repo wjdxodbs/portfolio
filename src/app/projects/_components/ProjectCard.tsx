@@ -15,7 +15,7 @@ export interface CardRect {
 
 interface ProjectCardProps {
   project: Project;
-  onClick: (project: Project, rect: CardRect) => void;
+  onClick: (project: Project, rect: CardRect, triggerEl: HTMLElement | null) => void;
 }
 
 export default function ProjectCard({ project, onClick }: ProjectCardProps) {
@@ -29,12 +29,27 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
         left: rect.left,
         width: rect.width,
         height: rect.height,
-      });
+      }, cardRef.current);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleClick();
     }
   };
 
   return (
-    <article ref={cardRef} className={styles.card} onClick={handleClick}>
+    <article
+      ref={cardRef}
+      className={styles.card}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="button"
+      aria-label={`${project.title} 프로젝트 자세히 보기`}
+    >
       <figure
         className={styles.thumbnail}
         style={project.thumbnailBg ? { background: project.thumbnailBg } : undefined}
