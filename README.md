@@ -23,33 +23,46 @@
 portfolio/
 ├── public/                   # 정적 자산 (이미지, PDF, 아이콘)
 └── src/
-    ├── app/
-    │   ├── components/       # UI 컴포넌트
-    │   │   ├── Header.tsx
-    │   │   ├── ScrollProgress.tsx
-    │   │   ├── Hero.tsx
-    │   │   ├── About.tsx
-    │   │   ├── Skills.tsx
-    │   │   ├── SkillCard.tsx
-    │   │   ├── Experience.tsx
-    │   │   ├── ProjectCard.tsx
-    │   │   ├── ProjectModal.tsx
-    │   │   └── CopyButton.tsx
-    │   ├── contact/          # 연락처 페이지
-    │   ├── projects/         # 프로젝트 페이지
-    │   ├── globals.css       # 전역 스타일 및 공통 클래스
-    │   ├── layout.tsx        # 전역 레이아웃 + 메타데이터
-    │   ├── page.tsx          # 홈 페이지
-    │   ├── sitemap.ts        # 자동 sitemap.xml 생성
-    │   └── robots.ts         # robots.txt 생성
-    ├── constants/            # 정적 데이터
-    │   ├── projects.ts
-    │   ├── skills.ts
-    │   ├── experiences.ts
-    │   └── contact.ts
-    ├── types/                # TypeScript 타입 정의
-    └── utils/
-        └── techIcons.ts      # 기술 아이콘 매핑
+    ├── components/           # 공통 UI 컴포넌트
+    │   ├── layout/           # Header, ScrollProgress
+    │   ├── ui/               # CtaButton
+    │   └── common/           # SectionHeader
+    └── app/
+        ├── _components/      # 홈페이지 전용 컴포넌트
+        │   ├── Hero.tsx
+        │   ├── About.tsx
+        │   ├── Skills.tsx
+        │   ├── SkillCard.tsx
+        │   ├── Experience.tsx
+        │   ├── ExperienceList.tsx
+        │   ├── ExperienceTabs.tsx
+        │   └── TypewriterRole.tsx
+        ├── _constants/       # 홈페이지 전용 정적 데이터
+        │   ├── skills.ts
+        │   └── experiences.ts
+        ├── _types/           # 홈페이지 전용 타입 정의
+        │   ├── skill.ts
+        │   └── experience.ts
+        ├── _hooks/           # 홈페이지 전용 훅
+        │   └── useTypewriter.ts
+        ├── (withHeader)/     # 헤더 포함 라우트 그룹
+        │   ├── layout.tsx
+        │   ├── page.tsx      # 홈 페이지
+        │   ├── contact/      # 연락처 페이지 전용
+        │   │   ├── _components/
+        │   │   ├── _constants/
+        │   │   ├── _types/
+        │   │   └── _hooks/
+        │   └── projects/     # 프로젝트 페이지 전용
+        │       ├── _components/
+        │       ├── _constants/
+        │       ├── _types/
+        │       └── _utils/
+        ├── globals.css       # 전역 스타일 및 공통 클래스
+        ├── layout.tsx        # 전역 레이아웃 + 메타데이터
+        ├── not-found.tsx     # 404 페이지
+        ├── sitemap.ts        # 자동 sitemap.xml 생성
+        └── robots.ts         # robots.txt 생성
 ```
 
 ---
