@@ -11,13 +11,23 @@ interface SkillCardProps {
 export default function SkillCard({ skill }: SkillCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleToggle = () => setIsOpen(!isOpen);
+
   return (
     <li
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleToggle();
+        }
+      }}
       className={`${styles.skillCard} ${isOpen ? styles.skillCardOpen : ""}`}
     >
       <button
+        tabIndex={-1}
         className={styles.skillHeader}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
         aria-expanded={isOpen}
       >
         <div className={styles.skillMain}>
