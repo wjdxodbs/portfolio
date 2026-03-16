@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--background-tertiary) 0%, #1f1f1f 100%);
+  background: linear-gradient(135deg, var(--background-tertiary) 0%, var(--background-elevated) 100%);
 }
 
 .placeholderText {
@@ -73,7 +73,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #fff;
+  color: var(--foreground-bright);
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -98,9 +98,9 @@
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 20px;
-  background: #1a1a1a;
-  border: 1px solid #3a3a3a;
-  color: #e0e0e0;
+  background: var(--background-tertiary);
+  border: 1px solid var(--border-hover);
+  color: var(--foreground);
   letter-spacing: 0.03em;
   z-index: 1;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);

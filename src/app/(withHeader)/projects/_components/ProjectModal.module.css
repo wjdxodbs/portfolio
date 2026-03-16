@@ -16,7 +16,7 @@
 }
 
 .modal {
-  background: #161616;
+  background: var(--background-secondary);
   border: 1px solid var(--border);
   border-radius: 20px;
   width: min(calc(100vw - 48px), calc((1200px - 96px) / 3 * 2.5 + 24px * 1.5));
@@ -62,7 +62,7 @@
   background: rgba(0, 0, 0, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  color: #fff;
+  color: var(--foreground-bright);
   cursor: pointer;
   transition: all var(--transition-fast);
   z-index: 10;
@@ -99,7 +99,7 @@
   background: linear-gradient(
     135deg,
     var(--background-tertiary) 0%,
-    #1f1f1f 100%
+    var(--background-elevated) 100%
   );
 }
 
@@ -269,7 +269,7 @@
 
 .achievementItem {
   font-size: 1rem;
-  color: #ffffff;
+  color: var(--foreground-bright);
   line-height: 1.6;
   padding-left: 14px;
   position: relative;
@@ -317,7 +317,7 @@
 .overviewTitle {
   font-size: 1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--foreground-bright);
 }
 
 .overviewDetails {
@@ -381,7 +381,7 @@
 .taskTitle {
   font-size: 1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--foreground-bright);
 }
 
 /* Animations */

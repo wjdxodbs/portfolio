@@ -58,7 +58,7 @@
 }
 
 .primary:hover {
-  background: #00cc6e;
+  background: var(--accent-hover);
   color: var(--background);
   box-shadow: 0 10px 30px var(--accent-glow);
 }
