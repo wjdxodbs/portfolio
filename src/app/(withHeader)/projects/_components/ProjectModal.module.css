@@ -25,16 +25,15 @@
   position: relative;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
-  transform-origin: center center;
+  will-change: transform, opacity;
 }
 
 .modalOpening {
-  animation: expandFromCard 0.35s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+  animation: fadeIn 0.1s ease forwards;
 }
 
 .modalClosing {
-  animation: collapseToCard 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
-  overflow: hidden;
+  animation: fadeOut 0.1s ease forwards;
 }
 
 .modal::-webkit-scrollbar {
@@ -139,34 +138,6 @@
   }
   to {
     opacity: 0;
-  }
-}
-
-@keyframes expandFromCard {
-  from {
-    opacity: 0.6;
-    transform: translate(var(--origin-tx, 0px), var(--origin-ty, 0px))
-      scaleX(var(--origin-scale-x, 0.3)) scaleY(var(--origin-scale-y, 0.15));
-    border-radius: 16px;
-  }
-  to {
-    opacity: 1;
-    transform: translate(0, 0) scaleX(1) scaleY(1);
-    border-radius: 20px;
-  }
-}
-
-@keyframes collapseToCard {
-  from {
-    opacity: 1;
-    transform: translate(0, 0) scaleX(1) scaleY(1);
-    border-radius: 20px;
-  }
-  to {
-    opacity: 0;
-    transform: translate(var(--origin-tx, 0px), var(--origin-ty, 0px))
-      scaleX(var(--origin-scale-x, 0.3)) scaleY(var(--origin-scale-y, 0.15));
-    border-radius: 16px;
   }
 }
 

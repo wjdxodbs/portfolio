@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import type { Project } from "@/app/(withHeader)/projects/_types/project";
-import type { CardRect } from "./ProjectCard";
 import ProjectModalHeader from "./ProjectModalHeader";
 import ProjectModalInfoGrid from "./ProjectModalInfoGrid";
 import ProjectModalSection from "./ProjectModalSection";
@@ -35,22 +34,11 @@ export default function ProjectModal({
   const overlayRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [isClosing, setIsClosing] = useState(false);
-  const originRectRef = useRef<CardRect | null>(null);
 
   useEffect(() => {
     if (!project) {
       setIsClosing(false);
       return;
-    }
-
-    if (triggerElement) {
-      const r = triggerElement.getBoundingClientRect();
-      originRectRef.current = {
-        top: r.top,
-        left: r.left,
-        width: r.width,
-        height: r.height,
-      };
     }
 
     closeButtonRef.current?.focus();
@@ -104,30 +92,6 @@ export default function ProjectModal({
     }, 300);
   };
 
-  const getOriginStyle = (): React.CSSProperties => {
-    const originRect = originRectRef.current;
-    if (!originRect) return {};
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    const centerX = vw / 2;
-    const centerY = vh / 2;
-    const cardCenterX = originRect.left + originRect.width / 2;
-    const cardCenterY = originRect.top + originRect.height / 2;
-    const tx = cardCenterX - centerX;
-    const ty = cardCenterY - centerY;
-
-    const modalW = Math.min(vw - 48, 800);
-    const scaleX = originRect.width / modalW;
-    const scaleY = originRect.height / (vh * 0.96);
-
-    return {
-      "--origin-tx": `${tx}px`,
-      "--origin-ty": `${ty}px`,
-      "--origin-scale-x": scaleX,
-      "--origin-scale-y": scaleY,
-    } as React.CSSProperties;
-  };
-
   if (!project) return null;
 
   const modalClass = [
@@ -146,7 +110,6 @@ export default function ProjectModal({
       <div
         ref={modalRef}
         className={modalClass}
-        style={getOriginStyle()}
         onClick={(e) => e.stopPropagation()}
       >
         <button
