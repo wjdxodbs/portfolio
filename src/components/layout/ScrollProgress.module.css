@@ -1,6 +1,6 @@
 .scrollProgress {
   position: fixed;
-  top: 72px;
+  top: var(--header-height);
   left: 0;
   right: 0;
   width: 100%;
@@ -33,6 +33,6 @@
 
 @media (max-width: 768px) {
   .scrollProgress {
-    top: 64px;
+    top: var(--header-height);
   }
 }

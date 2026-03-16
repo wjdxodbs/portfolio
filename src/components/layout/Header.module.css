@@ -13,7 +13,7 @@
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 24px;
-  height: 72px;
+  height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -62,7 +62,7 @@
 @media (max-width: 768px) {
   .nav {
     padding: 0 16px;
-    height: 64px;
+    height: var(--header-height);
   }
 
   .navList {

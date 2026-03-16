@@ -11,17 +11,31 @@
 
   /* Accent Colors */
   --accent: #00ff88;
+  --accent-hover: #00cc6e;
   --accent-glow: rgba(0, 255, 136, 0.15);
 
   /* Borders */
   --border: #2a2a2a;
   --border-hover: #3a3a3a;
 
+  /* Extended Foreground */
+  --foreground-bright: #ffffff;
+
+  /* Extended Background */
+  --background-elevated: #1f1f1f;
+
+  /* UI Colors */
+  --star-color: #ffd700;
+  --dot-red: #ff5f57;
+  --dot-yellow: #febc2e;
+  --dot-green: #28c840;
+
   /* Typography */
   --font-sans: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   /* Spacing */
+  --header-height: 72px;
   --section-padding: 100px;
   --container-width: 1200px;
 
@@ -66,6 +80,16 @@ button {
   background: none;
 }
 
+/* Focus styles */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 ul,
 ol {
   list-style: none;
@@ -90,30 +114,10 @@ img {
   padding-bottom: var(--section-padding);
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   :root {
+    --header-height: 64px;
     --section-padding: 60px;
   }
 
