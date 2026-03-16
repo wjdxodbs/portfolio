@@ -15,22 +15,14 @@ export interface CardRect {
 
 interface ProjectCardProps {
   project: Project;
-  onClick: (project: Project, rect: CardRect, triggerEl: HTMLElement | null) => void;
+  onClick: (project: Project, triggerEl: HTMLElement | null) => void;
 }
 
 export default function ProjectCard({ project, onClick }: ProjectCardProps) {
   const cardRef = useRef<HTMLElement>(null);
 
   const handleClick = () => {
-    if (cardRef.current) {
-      const rect = cardRef.current.getBoundingClientRect();
-      onClick(project, {
-        top: rect.top,
-        left: rect.left,
-        width: rect.width,
-        height: rect.height,
-      }, cardRef.current);
-    }
+    onClick(project, cardRef.current);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

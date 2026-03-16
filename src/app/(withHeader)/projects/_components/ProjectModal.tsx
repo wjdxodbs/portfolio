@@ -19,14 +19,12 @@ function getFocusableElements(container: HTMLElement): HTMLElement[] {
 
 interface ProjectModalProps {
   project: Project | null;
-  originRect: CardRect | null;
   triggerElement: HTMLElement | null;
   onClose: () => void;
 }
 
 export default function ProjectModal({
   project,
-  originRect,
   triggerElement,
   onClose,
 }: ProjectModalProps) {
@@ -34,11 +32,22 @@ export default function ProjectModal({
   const overlayRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [isClosing, setIsClosing] = useState(false);
+  const originRectRef = useRef<CardRect | null>(null);
 
   useEffect(() => {
     if (!project) {
       setIsClosing(false);
       return;
+    }
+
+    if (triggerElement) {
+      const r = triggerElement.getBoundingClientRect();
+      originRectRef.current = {
+        top: r.top,
+        left: r.left,
+        width: r.width,
+        height: r.height,
+      };
     }
 
     closeButtonRef.current?.focus();
@@ -81,7 +90,7 @@ export default function ProjectModal({
       document.body.style.overflow = "";
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [project]);
+  }, [project, triggerElement]);
 
   const handleClose = () => {
     setIsClosing(true);
@@ -93,6 +102,7 @@ export default function ProjectModal({
   };
 
   const getOriginStyle = (): React.CSSProperties => {
+    const originRect = originRectRef.current;
     if (!originRect) return {};
     const vw = window.innerWidth;
     const vh = window.innerHeight;
