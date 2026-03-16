@@ -8,8 +8,8 @@ interface ExperienceListProps {
 export default function ExperienceList({ items }: ExperienceListProps) {
   return (
     <ul className={styles.itemsGrid}>
-      {items.map((item, index) => (
-        <li key={index} className={styles.card}>
+      {items.map((item) => (
+        <li key={item.title} className={styles.card}>
           <header className={styles.cardHeader}>
             <span className={styles.period}>{item.period}</span>
           </header>
@@ -19,8 +19,8 @@ export default function ExperienceList({ items }: ExperienceListProps) {
 
           {item.highlights.length > 0 && (
             <ul className={styles.highlights}>
-              {item.highlights.map((highlight, i) => (
-                <li key={i} className={styles.highlightItem}>
+              {item.highlights.map((highlight) => (
+                <li key={highlight} className={styles.highlightItem}>
                   {highlight}
                 </li>
               ))}

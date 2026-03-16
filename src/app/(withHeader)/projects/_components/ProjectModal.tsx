@@ -239,8 +239,8 @@ export default function ProjectModal({
                 <div className={`${styles.infoItem} ${styles.full}`}>
                   <span className={styles.infoLabel}>성과</span>
                   <ul className={styles.achievementList}>
-                    {project.achievements.map((item, idx) => (
-                      <li key={idx} className={styles.achievementItem}>
+                    {project.achievements.map((item) => (
+                      <li key={item} className={styles.achievementItem}>
                         {item}
                       </li>
                     ))}
@@ -260,7 +260,7 @@ export default function ProjectModal({
                     {item.images && item.images.length > 0 && (
                       <div className={styles.itemImages}>
                         {item.images.map((src, idx) => (
-                          <div key={idx} className={styles.itemImageWrapper}>
+                          <div key={src} className={styles.itemImageWrapper}>
                             <Image
                               src={src}
                               alt={`${item.title} 이미지 ${idx + 1}`}
@@ -273,8 +273,8 @@ export default function ProjectModal({
                       </div>
                     )}
                     <ul className={styles.overviewDetails}>
-                      {item.details.map((detail, idx) => (
-                        <li key={idx} className={styles.overviewDetail}>
+                      {item.details.map((detail) => (
+                        <li key={detail} className={styles.overviewDetail}>
                           {detail}
                         </li>
                       ))}
@@ -295,7 +295,7 @@ export default function ProjectModal({
                     {item.images && item.images.length > 0 && (
                       <div className={styles.itemImages}>
                         {item.images.map((src, idx) => (
-                          <div key={idx} className={styles.itemImageWrapper}>
+                          <div key={src} className={styles.itemImageWrapper}>
                             <Image
                               src={src}
                               alt={`${item.title} 이미지 ${idx + 1}`}
@@ -308,8 +308,8 @@ export default function ProjectModal({
                       </div>
                     )}
                     <ul className={styles.overviewDetails}>
-                      {item.details.map((detail, idx) => (
-                        <li key={idx} className={styles.overviewDetail}>
+                      {item.details.map((detail) => (
+                        <li key={detail} className={styles.overviewDetail}>
                           {detail}
                         </li>
                       ))}
@@ -342,8 +342,8 @@ export default function ProjectModal({
             <div className={styles.overviewSection}>
               <span className={styles.overviewLabel}>프로젝트 회고</span>
               <ul className={styles.overviewDetails}>
-                {project.retrospect.map((item, idx) => (
-                  <li key={idx} className={styles.overviewDetail}>
+                {project.retrospect.map((item) => (
+                  <li key={item} className={styles.overviewDetail}>
                     {item}
                   </li>
                 ))}
