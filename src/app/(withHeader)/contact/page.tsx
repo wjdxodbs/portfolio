@@ -1,10 +1,29 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import styles from "./page.module.css";
-import { contactInfo, socialLinks } from "@/app/(withHeader)/contact/_constants/contact";
+import {
+  contactInfo,
+  socialLinks,
+} from "@/app/(withHeader)/contact/_constants/contact";
 import CardSection from "./_components/CardSection";
 import CopyButton from "./_components/CopyButton";
 import CtaButton from "@/components/ui/CtaButton";
 import SectionHeader from "@/components/common/SectionHeader";
+
+export const metadata: Metadata = {
+  title: "Contact | 정태윤 포트폴리오",
+  description:
+    "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
+  alternates: {
+    canonical: "https://wjdxodbs-portfolio.vercel.app/contact",
+  },
+  openGraph: {
+    title: "Contact | 정태윤 포트폴리오",
+    description:
+      "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
+    url: "https://wjdxodbs-portfolio.vercel.app/contact",
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -87,7 +106,10 @@ export default function ContactPage() {
               함께 성장하고 싶습니다.
             </p>
             <a
-              href={contactInfo.find((c) => c.label === "Email")?.href ?? "mailto:wjdxodbs52@naver.com"}
+              href={
+                contactInfo.find((c) => c.label === "Email")?.href ??
+                "mailto:wjdxodbs52@naver.com"
+              }
             >
               <CtaButton variant="primary" size="lg">
                 <svg
