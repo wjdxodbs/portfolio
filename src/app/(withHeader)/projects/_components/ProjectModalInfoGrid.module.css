@@ -1,0 +1,107 @@
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--background-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.infoRow {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
+  flex: 1 1 200px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: -1px;
+}
+
+.infoItem:last-child {
+  border-right: none;
+}
+
+.infoItem.full {
+  flex: 1 1 100%;
+  border-right: none;
+}
+
+.infoLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--foreground-muted);
+}
+
+.infoValue {
+  font-size: 1rem;
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.achievementList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.achievementItem {
+  font-size: 1rem;
+  color: var(--foreground-bright);
+  line-height: 1.6;
+  padding-left: 14px;
+  position: relative;
+  font-weight: 500;
+}
+
+.achievementItem::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.6rem;
+  top: 4px;
+}
+
+@media (max-width: 768px) {
+  .infoValue {
+    font-size: 0.95rem;
+  }
+
+  .achievementItem {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoItem {
+    flex: 1 1 100%;
+    border-right: none;
+  }
+
+  .infoLabel {
+    font-size: 0.75rem;
+  }
+
+  .infoValue {
+    font-size: 0.9rem;
+  }
+
+  .achievementItem {
+    font-size: 0.9rem;
+  }
+}

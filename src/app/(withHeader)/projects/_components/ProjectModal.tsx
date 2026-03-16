@@ -5,7 +5,10 @@ import { createPortal } from "react-dom";
 import Image from "next/image";
 import type { Project } from "@/app/(withHeader)/projects/_types/project";
 import type { CardRect } from "./ProjectCard";
-import TechBadge from "./TechBadge";
+import ProjectModalHeader from "./ProjectModalHeader";
+import ProjectModalInfoGrid from "./ProjectModalInfoGrid";
+import ProjectModalSection from "./ProjectModalSection";
+import sectionStyles from "./ProjectModalSection.module.css";
 import styles from "./ProjectModal.module.css";
 
 const FOCUSABLE_SELECTOR =
@@ -169,11 +172,7 @@ export default function ProjectModal({
 
         <div
           className={styles.thumbnail}
-          style={
-            project.thumbnailBg
-              ? { background: project.thumbnailBg }
-              : undefined
-          }
+          style={project.thumbnailBg ? { background: project.thumbnailBg } : undefined}
         >
           {project.thumbnailUrl ? (
             <Image
@@ -191,159 +190,18 @@ export default function ProjectModal({
         </div>
 
         <div className={styles.body}>
-          <div className={styles.header}>
-            <div className={styles.headerMeta}>
-              <span className={styles.typeBadge}>
-                {project.type === "team" ? "팀 프로젝트" : "개인 프로젝트"}
-              </span>
-              <span className={styles.period}>
-                {project.period} · {project.duration}
-              </span>
-            </div>
-            <div className={styles.titleRow}>
-              <h2 className={styles.title}>{project.title}</h2>
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.githubButton}
-                  aria-label={`${project.title} GitHub 저장소 열기`}
-                >
-                  <img
-                    src="/icons/github.svg"
-                    alt=""
-                    className={styles.githubIcon}
-                    aria-hidden="true"
-                  />
-                </a>
-              )}
-            </div>
-            <p className={styles.description}>{project.description}</p>
-            <TechBadge techStack={project.techStack} variant="chip" />
-          </div>
-
-          <div className={styles.infoGrid}>
-            <div className={styles.infoRow}>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>개발 인원</span>
-                <span className={styles.infoValue}>{project.teamSize}</span>
-              </div>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>역할</span>
-                <span className={styles.infoValue}>{project.role}</span>
-              </div>
-            </div>
-            {project.achievements.length > 0 && (
-              <div className={styles.infoRow}>
-                <div className={`${styles.infoItem} ${styles.full}`}>
-                  <span className={styles.infoLabel}>성과</span>
-                  <ul className={styles.achievementList}>
-                    {project.achievements.map((item) => (
-                      <li key={item} className={styles.achievementItem}>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {project.overview.length > 0 && (
-            <div className={styles.overviewSection}>
-              <span className={styles.overviewLabel}>프로젝트 개요</span>
-              <div className={styles.overviewList}>
-                {project.overview.map((item) => (
-                  <div key={item.title} className={styles.overviewItem}>
-                    <span className={styles.overviewTitle}>{item.title}</span>
-                    {item.images && item.images.length > 0 && (
-                      <div className={styles.itemImages}>
-                        {item.images.map((src, idx) => (
-                          <div key={src} className={styles.itemImageWrapper}>
-                            <Image
-                              src={src}
-                              alt={`${item.title} 이미지 ${idx + 1}`}
-                              width={400}
-                              height={800}
-                              className={styles.itemImage}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    <ul className={styles.overviewDetails}>
-                      {item.details.map((detail) => (
-                        <li key={detail} className={styles.overviewDetail}>
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {project.tasks.length > 0 && (
-            <div className={styles.overviewSection}>
-              <span className={styles.overviewLabel}>담당 업무</span>
-              <div className={styles.overviewList}>
-                {project.tasks.map((item) => (
-                  <div key={item.title} className={styles.taskItem}>
-                    <span className={styles.taskTitle}>{item.title}</span>
-                    {item.images && item.images.length > 0 && (
-                      <div className={styles.itemImages}>
-                        {item.images.map((src, idx) => (
-                          <div key={src} className={styles.itemImageWrapper}>
-                            <Image
-                              src={src}
-                              alt={`${item.title} 이미지 ${idx + 1}`}
-                              width={400}
-                              height={800}
-                              className={styles.itemImage}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    <ul className={styles.overviewDetails}>
-                      {item.details.map((detail) => (
-                        <li key={detail} className={styles.overviewDetail}>
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {project.concerns && project.concerns.length > 0 && (
-            <div className={styles.overviewSection}>
-              <span className={styles.overviewLabel}>고민했던 점</span>
-              {project.concerns.map((item) => (
-                <div key={item.title} className={styles.taskItem}>
-                  <span className={styles.taskTitle}>{item.title}</span>
-                  <ul className={styles.overviewDetails}>
-                    {item.details.map((detail, idx) => (
-                      <li key={idx} className={styles.overviewDetail}>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          )}
+          <ProjectModalHeader project={project} />
+          <ProjectModalInfoGrid project={project} />
+          <ProjectModalSection label="프로젝트 개요" items={project.overview} />
+          <ProjectModalSection label="담당 업무" items={project.tasks} />
+          <ProjectModalSection label="고민했던 점" items={project.concerns} />
 
           {project.retrospect && project.retrospect.length > 0 && (
-            <div className={styles.overviewSection}>
-              <span className={styles.overviewLabel}>프로젝트 회고</span>
-              <ul className={styles.overviewDetails}>
+            <div className={sectionStyles.overviewSection}>
+              <span className={sectionStyles.overviewLabel}>프로젝트 회고</span>
+              <ul className={sectionStyles.overviewDetails}>
                 {project.retrospect.map((item) => (
-                  <li key={item} className={styles.overviewDetail}>
+                  <li key={item} className={sectionStyles.overviewDetail}>
                     {item}
                   </li>
                 ))}
