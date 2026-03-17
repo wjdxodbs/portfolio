@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { projects } from "@/app/(withHeader)/projects/_constants/projects";
 import type { Project } from "@/app/(withHeader)/projects/_types/project";
 import ProjectCard from "./ProjectCard";
-import ProjectModal from "./ProjectModal";
 import styles from "./ProjectCardGrid.module.css";
+
+const ProjectModal = dynamic(() => import("./ProjectModal"), { ssr: false });
 
 export default function ProjectCardGrid() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);

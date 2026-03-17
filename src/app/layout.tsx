@@ -84,7 +84,6 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      data-scroll-behavior="smooth"
       className={`${outfit.variable} ${jetbrainsMono.variable}`}
     >
       <body>{children}</body>
