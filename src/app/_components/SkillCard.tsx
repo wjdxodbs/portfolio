@@ -22,18 +22,23 @@ export default function SkillCard({ skill }: SkillCardProps) {
       >
         <div className={styles.skillMain}>
           <span className={styles.skillName}>{skill.name}</span>
-          <div className={styles.skillLevel}>
+          <div
+            className={styles.skillLevel}
+            role="img"
+            aria-label={`숙련도 ${skill.level}/5`}
+          >
             {[1, 2, 3, 4, 5].map((star) => (
               <span
                 key={star}
                 className={`${styles.star} ${
                   star <= skill.level ? styles.starFilled : ""
                 }`}
+                aria-hidden="true"
               >
                 ★
               </span>
             ))}
-            <span className={styles.levelText}>{skill.level}/5</span>
+            <span className={styles.levelText} aria-hidden="true">{skill.level}/5</span>
           </div>
         </div>
         <span
