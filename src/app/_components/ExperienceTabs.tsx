@@ -16,11 +16,13 @@ export default function ExperienceTabs({
   onSelect,
 }: ExperienceTabsProps) {
   return (
-    <nav className={styles.tabs} aria-label="경험 카테고리">
+    <nav className={styles.tabs} aria-label="경험 카테고리" role="tablist">
       {categories.map((category) => (
         <button
           key={category.id}
           type="button"
+          role="tab"
+          aria-selected={activeCategory === category.id}
           className={activeCategory === category.id ? styles.tabActive : ""}
           onClick={() => onSelect(category.id)}
         >

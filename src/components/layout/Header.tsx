@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <nav className={styles.nav}>
+      <nav className={styles.nav} aria-label="메인 네비게이션">
         <Link href="/" className={styles.logo}>
           <span className={styles.logoAccent}>&lt;</span>
           Portfolio

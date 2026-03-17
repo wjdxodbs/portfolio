@@ -82,7 +82,7 @@ export default function Hero() {
         </figure>
       </div>
 
-      <div className={styles.scrollIndicator}>
+      <div className={styles.scrollIndicator} aria-hidden="true">
         <span className={styles.scrollText}>Scroll</span>
         <div className={styles.scrollLine}></div>
       </div>

@@ -106,6 +106,7 @@ export default function ProjectModal({
       onClick={handleClose}
       role="dialog"
       aria-modal="true"
+      aria-labelledby="modal-title"
     >
       <div
         ref={modalRef}

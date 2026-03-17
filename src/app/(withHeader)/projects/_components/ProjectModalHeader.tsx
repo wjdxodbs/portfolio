@@ -18,7 +18,7 @@ export default function ProjectModalHeader({ project }: ProjectModalHeaderProps)
         </span>
       </div>
       <div className={styles.titleRow}>
-        <h2 className={styles.title}>{project.title}</h2>
+        <h2 id="modal-title" className={styles.title}>{project.title}</h2>
         {project.githubUrl && (
           <a
             href={project.githubUrl}
