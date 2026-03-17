@@ -89,25 +89,28 @@
 
 /* Skill Content (Expandable) */
 .skillContent {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
   overflow: hidden;
-  transition: max-height 0.4s ease;
+  transition: grid-template-rows 0.35s ease;
 }
 
 .skillContentOpen {
-  max-height: 1000px;
+  grid-template-rows: 1fr;
   border-top: 1px solid var(--border);
 }
 
 /* Capabilities */
 .capabilities {
-  padding: 20px;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .capabilitiesList {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 20px;
 }
 
 .capabilityItem {
@@ -149,9 +152,8 @@
     font-size: 0.85rem;
   }
 
-  .capabilities {
-    padding: 14px;
-    margin: 0 16px 16px;
+  .capabilitiesList {
+    padding: 14px 16px 16px;
   }
 
   .capabilityItem {
