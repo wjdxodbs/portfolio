@@ -41,7 +41,7 @@ export default function ContactPage() {
             <ul className={styles.contactList}>
               {contactInfo.map((item) => (
                 <li key={item.label} className={styles.contactItem}>
-                  <span className={styles.contactIcon}>{item.icon}</span>
+                  <span className={styles.iconBox}>{item.icon}</span>
                   <div className={styles.contactInfo}>
                     <span className={styles.contactLabel}>{item.label}</span>
                     {item.href ? (
@@ -72,7 +72,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className={styles.socialCard}
                   >
-                    <span className={styles.socialIcon} aria-hidden>
+                    <span className={styles.iconBox} aria-hidden>
                       {link.icon === "github" ? (
                         <Image
                           src="/icons/github.svg"
