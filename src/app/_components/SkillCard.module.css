@@ -12,6 +12,11 @@
   box-shadow: 0 4px 20px var(--accent-glow);
 }
 
+.skillCard:has(:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 /* Skill Header (Button) */
 .skillHeader {
   width: 100%;
@@ -27,6 +32,10 @@
 
 .skillHeader:hover {
   background: var(--background-secondary);
+}
+
+.skillHeader:focus-visible {
+  outline: none;
 }
 
 .skillMain {
