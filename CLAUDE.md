@@ -33,12 +33,20 @@ Shared components live in `src/components/` (layout, ui, common).
 
 ### Server vs Client Components
 - Default to **React Server Components**. Add `"use client"` only for components with event handlers or hooks.
+- When a section needs interactivity, split it: keep the outer section as a Server Component and extract only the interactive part into a `*Interactive.tsx` Client Component (e.g., `Experience.tsx` → `ExperienceInteractive.tsx`).
 - All interactive components (modals, cards with toggle, copy buttons, typewriter) are client components.
+- Heavy client-only components (e.g., `ProjectModal`) use `next/dynamic` with `ssr: false` to exclude them from the initial bundle.
 
 ### Styling
 - **CSS Modules only** — one `.module.css` per component.
 - CSS class names use **camelCase** (e.g., `.skillCard`) for dot-notation access (`styles.skillCard`).
 - Design tokens (colors, spacing, etc.) are defined as CSS variables in `globals.css`. Always use `var(--token-name)` instead of hardcoded values.
+- Accordion/expand animations use `grid-template-rows: 0fr → 1fr` pattern (not `max-height`).
+
+### Component Patterns
+- **`CtaButton`** supports an `as` prop (polymorphic) — use `as="a"` or `as="button"` to avoid nesting interactive elements. Never wrap `<CtaButton>` in a `<button>` or `<a>` tag.
+- **`SectionHeader`** accepts an `as` prop to control the heading level (`as="h1"` on page-level sections).
+- Static data (projects, skills, experience) lives in `_constants/` and is imported directly — no props drilling.
 
 ### TypeScript Conventions
 - No `any`. Use proper types.
