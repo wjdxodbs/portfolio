@@ -16,12 +16,12 @@ export default function TechBadge({
       {techStack.map((tech) => {
         const icon = getTechIcon(tech);
         return (
-          <li key={tech} className={styles.techItem}>
-            <div className={styles.iconWrapper}>
+          <li key={tech} className={styles.techItem} aria-label={tech}>
+            <div className={styles.iconWrapper} aria-hidden="true">
               {icon.iconUrl ? (
                 <Image
                   src={icon.iconUrl}
-                  alt={tech}
+                  alt=""
                   width={variant === "icon" ? 20 : 16}
                   height={variant === "icon" ? 20 : 16}
                   className={styles.techIcon}
@@ -30,9 +30,9 @@ export default function TechBadge({
                 <span className={styles.fallback}>{icon.abbr ?? tech[0]}</span>
               )}
             </div>
-            {variant === "chip" && <span className={styles.label}>{tech}</span>}
+            {variant === "chip" && <span className={styles.label} aria-hidden="true">{tech}</span>}
             {variant === "icon" && (
-              <span className={styles.tooltip}>{tech}</span>
+              <span className={styles.tooltip} aria-hidden="true">{tech}</span>
             )}
           </li>
         );
