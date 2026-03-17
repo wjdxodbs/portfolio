@@ -1,10 +1,23 @@
 import type { Metadata, Viewport } from "next";
+import { Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wjdxodbs-portfolio.vercel.app/"),
   title: "정태윤 | Frontend Developer Portfolio",
-  description: "프론트엔드 개발자 정태윤의 포트폴리오입니다. ",
+  description: "프론트엔드 개발자 정태윤의 포트폴리오입니다.",
   keywords: [
     "프론트엔드",
     "프론트엔드 개발자",
@@ -69,7 +82,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" data-scroll-behavior="smooth">
+    <html
+      lang="ko"
+      data-scroll-behavior="smooth"
+      className={`${outfit.variable} ${jetbrainsMono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
