@@ -52,12 +52,16 @@ export default function Hero() {
                 프로젝트 보기
               </CtaButton>
             </Link>
-            <a href="/resume.pdf" download="프론트엔드 개발자 정태윤 이력서.pdf">
-              <CtaButton variant="outline" size="lg">
-                <DownloadIcon />
-                이력서 다운로드
-              </CtaButton>
-            </a>
+            <CtaButton
+              as="a"
+              href="/resume.pdf"
+              download="프론트엔드 개발자 정태윤 이력서.pdf"
+              variant="outline"
+              size="lg"
+            >
+              <DownloadIcon />
+              이력서 다운로드
+            </CtaButton>
           </div>
         </div>
 

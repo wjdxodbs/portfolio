@@ -7,14 +7,11 @@
 }
 
 .tabs button {
-  padding: 0;
-  border: none;
-  background: none;
   cursor: pointer;
   font: inherit;
 }
 
-.tabs button.tabActive > div {
+.tabs .tabActive {
   background: var(--accent-glow);
   border-color: var(--accent);
   color: var(--accent);

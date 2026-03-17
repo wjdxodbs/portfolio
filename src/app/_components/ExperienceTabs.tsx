@@ -18,19 +18,20 @@ export default function ExperienceTabs({
   return (
     <nav className={styles.tabs} aria-label="경험 카테고리" role="tablist">
       {categories.map((category) => (
-        <button
+        <CtaButton
           key={category.id}
+          as="button"
           type="button"
           role="tab"
           aria-selected={activeCategory === category.id}
-          className={activeCategory === category.id ? styles.tabActive : ""}
+          className={activeCategory === category.id ? styles.tabActive : undefined}
           onClick={() => onSelect(category.id)}
+          variant="secondary"
+          size="md"
         >
-          <CtaButton variant="secondary" size="md">
-            <span className={styles.tabIcon}>{category.icon}</span>
-            <span className={styles.tabLabel}>{category.label}</span>
-          </CtaButton>
-        </button>
+          <span className={styles.tabIcon}>{category.icon}</span>
+          <span className={styles.tabLabel}>{category.label}</span>
+        </CtaButton>
       ))}
     </nav>
   );
