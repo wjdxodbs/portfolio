@@ -42,8 +42,21 @@ Shared components live in `src/components/` (layout, ui, common, icons).
 - CSS class names use **camelCase** (e.g., `.skillCard`) for dot-notation access (`styles.skillCard`).
 - Design tokens (colors, spacing, etc.) are defined as CSS variables in `globals.css`. Always use `var(--token-name)` instead of hardcoded values.
 - Badge/chip padding uses `--badge-padding-sm` (3px 8px) or `--badge-padding-md` (4px 10px). Pick the appropriate size — don't hardcode.
-- **Dark theme shadow policy**: black `box-shadow` is nearly invisible on `#0a0a0a`. Use `--accent-shadow` (`rgba(0,255,136,0.12)`) for colored glows, or omit shadows entirely.
+- **Dark theme shadow policy**: black `box-shadow` is nearly invisible on `#0a0a0a`. For **glow effects** (box-shadow, text-shadow, border) use green `rgba(0, 255, 136, ...)` only. Cyan `rgba(0, 212, 255, ...)` is acceptable in **background radial gradients** (section `::before` pseudo-elements) for visual depth, but not in interactive or visible glow effects.
 - Accordion/expand animations use `grid-template-rows: 0fr → 1fr` pattern (not `max-height`).
+
+#### Glassmorphism Card Pattern
+Cards use a consistent glassmorphism treatment:
+```css
+background: rgba(17, 17, 17, 0.6);
+backdrop-filter: blur(12px);
+border: 1px solid rgba(255, 255, 255, 0.07);
+box-shadow: var(--glass-highlight); /* inset 0 1px 0 rgba(255,255,255,0.05) */
+```
+On hover, add a multi-layer accent glow using `--card-glow` or similar rgba chains. The `var(--glass-highlight)` token simulates a glass surface top-edge reflection.
+
+#### Section Background Pattern
+Each home page section uses `border-top: 1px solid var(--border)` for separation, and `position: relative` + `::before` pseudo-element with a `radial-gradient` accent glow positioned at different corners per section for visual rhythm. Skills uses `--background-secondary` as base.
 
 #### CSS Keyframe Rule — Critical
 CSS Modules scope `@keyframes` names locally. A CSS Module **cannot** reliably reference keyframes defined in `globals.css`. Any `@keyframes` used within a `.module.css` file must be **defined in that same file**. `globals.css` may also define them for reference, but each module needs its own copy.
