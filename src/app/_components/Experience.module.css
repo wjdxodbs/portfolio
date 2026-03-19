@@ -1,5 +1,15 @@
 .experience {
   padding: var(--section-padding) 0;
   background: var(--background);
+  position: relative;
+  border-top: 1px solid var(--border);
+}
+
+.experience::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 30%, rgba(0, 255, 136, 0.05) 0%, transparent 55%);
+  pointer-events: none;
 }
 
