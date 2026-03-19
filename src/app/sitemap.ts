@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
-import { SITE_URL } from "@/app/_utils/metadata";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
