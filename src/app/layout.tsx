@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit, JetBrains_Mono } from "next/font/google";
-import { SITE_URL } from "@/app/_utils/metadata";
 import "./globals.css";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -75,10 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="ko"
-      className={`${outfit.variable} ${jetbrainsMono.variable}`}
-    >
+    <html lang="ko" className={`${outfit.variable} ${jetbrainsMono.variable}`}>
       <body>{children}</body>
     </html>
   );

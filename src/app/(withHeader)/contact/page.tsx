@@ -4,18 +4,23 @@ import {
   contactInfo,
   socialLinks,
 } from "@/app/(withHeader)/contact/_constants/contact";
-import { createPageMetadata } from "@/app/_utils/metadata";
+import type { Metadata } from "next";
 import CardSection from "./_components/CardSection";
 import CopyButton from "./_components/CopyButton";
 import CtaButton from "@/components/ui/CtaButton";
 import { Mail } from "lucide-react";
 import SectionHeader from "@/components/common/SectionHeader";
 
-export const metadata = createPageMetadata(
-  "Contact | 정태윤 포트폴리오",
-  "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
-  "/contact"
-);
+export const metadata: Metadata = {
+  title: "Contact | 정태윤 포트폴리오",
+  description: "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
+  alternates: { canonical: "https://wjdxodbs-portfolio.vercel.app/contact" },
+  openGraph: {
+    title: "Contact | 정태윤 포트폴리오",
+    description: "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
+    url: "https://wjdxodbs-portfolio.vercel.app/contact",
+  },
+};
 
 export default function ContactPage() {
   return (
