@@ -37,7 +37,8 @@
 }
 
 .content {
-  animation: fadeInUp 0.8s ease forwards;
+  animation: fadeInUp var(--transition-slower) 0.2s forwards;
+  opacity: 0;
 }
 
 .name {
@@ -59,7 +60,7 @@
 }
 
 .visual {
-  animation: fadeInUp 0.8s ease 0.2s forwards;
+  animation: fadeInUp var(--transition-slower) 0.3s forwards;
   opacity: 0;
 }
 
@@ -68,7 +69,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 20px 60px var(--shadow-color-medium);
+
 }
 
 .codeHeader {
@@ -116,8 +117,6 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  animation: fadeIn 1s ease 1s forwards;
-  opacity: 0;
 }
 
 .scrollText {
@@ -131,18 +130,7 @@
   width: 1px;
   height: 40px;
   background: linear-gradient(to bottom, var(--accent), transparent);
-  animation: scrollPulse 2s ease infinite;
-}
-
-/* CSS Modules는 @keyframes를 로컬 스코프로 처리하므로, globals.css에 동일한
-   keyframe이 있더라도 이 모듈 내에서 사용하려면 반드시 여기서 재정의해야 합니다. */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  animation: scrollPulse var(--transition-loop) infinite;
 }
 
 @keyframes fadeInUp {
