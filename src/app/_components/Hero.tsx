@@ -1,8 +1,7 @@
 import Link from "next/link";
 import TypewriterRole from "./TypewriterRole";
 import CtaButton from "@/components/ui/CtaButton";
-import MonitorIcon from "@/components/icons/MonitorIcon";
-import DownloadIcon from "@/components/icons/DownloadIcon";
+import { Monitor, Download } from "lucide-react";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -16,7 +15,7 @@ export default function Hero() {
           </h1>
           <div className={styles.cta}>
             <CtaButton as={Link} href="/projects" variant="primary" size="lg">
-              <MonitorIcon />
+              <Monitor size={16} aria-hidden="true" />
               프로젝트 보기
             </CtaButton>
             <CtaButton
@@ -26,7 +25,7 @@ export default function Hero() {
               variant="outline"
               size="lg"
             >
-              <DownloadIcon />
+              <Download size={16} aria-hidden="true" />
               이력서 다운로드
             </CtaButton>
           </div>
