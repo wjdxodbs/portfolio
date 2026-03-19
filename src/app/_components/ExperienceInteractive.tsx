@@ -20,7 +20,12 @@ export default function ExperienceInteractive() {
         activeCategory={activeCategory}
         onSelect={setActiveCategory}
       />
-      <div className={styles.content}>
+      <div
+        id={`experience-panel-${activeCategory}`}
+        role="tabpanel"
+        aria-label={currentCategory?.label}
+        className={styles.content}
+      >
         {currentCategory && <ExperienceList items={currentCategory.items} />}
       </div>
     </>

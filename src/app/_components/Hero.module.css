@@ -18,7 +18,7 @@
     radial-gradient(ellipse at 20% 50%, var(--accent-glow) 0%, transparent 50%),
     radial-gradient(
       ellipse at 80% 80%,
-      rgba(0, 212, 255, 0.1) 0%,
+      var(--accent-glow-secondary) 0%,
       transparent 50%
     );
   pointer-events: none;
@@ -58,11 +58,6 @@
   flex-wrap: wrap;
 }
 
-.cta a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .visual {
   animation: fadeInUp 0.8s ease 0.2s forwards;
   opacity: 0;
@@ -71,9 +66,9 @@
 .codeBlock {
   background: var(--background-secondary);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px var(--shadow-color-medium);
 }
 
 .codeHeader {
@@ -139,6 +134,17 @@
   animation: scrollPulse 2s ease infinite;
 }
 
+/* CSS Modules는 @keyframes를 로컬 스코프로 처리하므로, globals.css에 동일한
+   keyframe이 있더라도 이 모듈 내에서 사용하려면 반드시 여기서 재정의해야 합니다. */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -147,12 +153,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
   }
 }
 
@@ -191,7 +191,7 @@
   .cta {
     flex-direction: column;
 
-    & div{
+    & > * {
       width: 100%;
     }
   }

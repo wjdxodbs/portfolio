@@ -24,6 +24,7 @@ export default function ExperienceTabs({
           type="button"
           role="tab"
           aria-selected={activeCategory === category.id}
+          aria-controls={`experience-panel-${category.id}`}
           className={activeCategory === category.id ? styles.tabActive : undefined}
           onClick={() => onSelect(category.id)}
           variant="secondary"

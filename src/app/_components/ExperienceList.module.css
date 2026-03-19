@@ -7,7 +7,7 @@
 .card {
   background: var(--background-secondary);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 28px;
   transition: all var(--transition-normal);
 }
@@ -15,7 +15,7 @@
 .card:hover {
   border-color: var(--border-hover);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px var(--shadow-color-light);
 }
 
 .cardHeader {
@@ -55,7 +55,7 @@
 .highlightItem {
   padding: 6px 14px;
   background: var(--background-tertiary);
-  border-radius: 20px;
+  border-radius: var(--radius-full);
   font-size: 0.85rem;
   color: var(--foreground-secondary);
 }

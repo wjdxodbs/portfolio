@@ -19,6 +19,7 @@ export default function SkillCard({ skill }: SkillCardProps) {
         className={styles.skillHeader}
         onClick={handleToggle}
         aria-expanded={isOpen}
+        aria-label={`${skill.name} 세부 내용 ${isOpen ? "접기" : "펼치기"}`}
       >
         <div className={styles.skillMain}>
           <span className={styles.skillName}>{skill.name}</span>
@@ -45,6 +46,7 @@ export default function SkillCard({ skill }: SkillCardProps) {
           className={`${styles.expandIcon} ${
             isOpen ? styles.expandIconOpen : ""
           }`}
+          aria-hidden="true"
         >
           ▼
         </span>
