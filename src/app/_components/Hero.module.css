@@ -10,17 +10,22 @@
 .hero::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, var(--accent-glow) 0%, transparent 50%),
-    radial-gradient(
-      ellipse at 80% 80%,
-      var(--accent-glow-secondary) 0%,
-      transparent 50%
-    );
+    radial-gradient(ellipse at 15% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 90%, rgba(0, 255, 136, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
 }
 
