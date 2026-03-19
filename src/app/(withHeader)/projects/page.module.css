@@ -1,0 +1,12 @@
+.page {
+  position: relative;
+}
+
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 15% 15%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
