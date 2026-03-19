@@ -9,7 +9,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--foreground-secondary);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
 }
 

@@ -11,6 +11,9 @@
   --accent: #00ff88;
   --accent-hover: #00cc6e;
   --accent-glow: rgba(0, 255, 136, 0.15);
+  --accent-glow-secondary: rgba(0, 212, 255, 0.1);
+  --accent-border: rgba(0, 255, 136, 0.3);
+  --accent-shadow: rgba(0, 255, 136, 0.12);
 
   /* Borders */
   --border: #2a2a2a;
@@ -21,6 +24,17 @@
 
   /* Extended Background */
   --background-elevated: #1f1f1f;
+  --overlay-bg: rgba(0, 0, 0, 0.55);
+
+  /* Modal Close Button */
+  --close-btn-border: rgba(255, 255, 255, 0.2);
+  --close-btn-border-hover: rgba(255, 255, 255, 0.35);
+  --close-btn-bg-hover: rgba(0, 0, 0, 0.75);
+
+  /* Glass Effect */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-bg-faint: rgba(255, 255, 255, 0.08);
 
   /* UI Colors */
   --star-color: #ffd700;
@@ -28,6 +42,20 @@
   --dot-yellow: #febc2e;
   --dot-green: #28c840;
 
+
+  /* Box Shadow Colors */
+  --shadow-color-subtle: rgba(0, 0, 0, 0.1);
+  --shadow-color-light: rgba(0, 0, 0, 0.2);
+  --shadow-color-medium: rgba(0, 0, 0, 0.3);
+  --shadow-color-heavy: rgba(0, 0, 0, 0.5);
+  --shadow-color-deep: rgba(0, 0, 0, 0.6);
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
 
   /* Spacing */
   --header-height: 72px;
@@ -38,6 +66,11 @@
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
+  --transition-expand: 0.35s ease;
+
+  /* Animation Durations (JS 타이머와 반드시 동기화) */
+  --toast-duration: 2s;        /* useCopyToClipboard: TOAST_DURATION = 2000 */
+  --modal-close-duration: 0.3s; /* ProjectModal: MODAL_CLOSE_DURATION = 300 */
 }
 
 * {
@@ -118,5 +151,37 @@ img {
 
   .container {
     padding: 0 16px;
+  }
+}
+
+/* Shared Keyframes (참조용)
+   CSS Modules는 @keyframes를 로컬 스코프로 처리하기 때문에 각 .module.css 파일이
+   사용하는 keyframe을 직접 재정의해야 합니다. 아래는 참조 목적의 원본 정의입니다. */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

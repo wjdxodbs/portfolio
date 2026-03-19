@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit, JetBrains_Mono } from "next/font/google";
+import { SITE_URL } from "@/app/_utils/metadata";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -15,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wjdxodbs-portfolio.vercel.app/"),
+  metadataBase: new URL(SITE_URL),
   title: "정태윤 | Frontend Developer Portfolio",
   description: "프론트엔드 개발자 정태윤의 포트폴리오입니다.",
   keywords: [
@@ -35,21 +36,13 @@ export const metadata: Metadata = {
   creator: "정태윤",
   publisher: "정태윤",
   alternates: {
-    canonical: "https://wjdxodbs-portfolio.vercel.app/",
+    canonical: SITE_URL,
   },
   openGraph: {
     title: "정태윤 | Frontend Developer Portfolio",
     description: "프론트엔드 개발자 정태윤의 포트폴리오입니다.",
-    url: "https://wjdxodbs-portfolio.vercel.app/",
+    url: SITE_URL,
     siteName: "정태윤 포트폴리오",
-    // images: [
-    //   {
-    //     url: "https://wjdxodbs-portfolio.vercel.app/id_photo.jpg",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "정태윤 - 프론트엔드 개발자",
-    //   },
-    // ],
     locale: "ko_KR",
     type: "website",
   },
@@ -57,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "정태윤 | Frontend Developer Portfolio",
     description: "프론트엔드 개발자 정태윤의 포트폴리오입니다.",
-    images: ["https://wjdxodbs-portfolio.vercel.app/id_photo.jpg"],
+    images: [`${SITE_URL}/id_photo.jpg`],
   },
   robots: {
     index: true,

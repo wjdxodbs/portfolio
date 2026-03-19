@@ -22,7 +22,7 @@ export default function CtaButton<T extends ElementType = "div">({
       className={[styles.button, styles[variant], styles[size], className]
         .filter(Boolean)
         .join(" ")}
-      {...(rest as object)}
+      {...(rest as ComponentPropsWithoutRef<T>)}
     >
       {children}
     </Tag>
