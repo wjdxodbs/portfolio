@@ -2,7 +2,6 @@
 
 import CtaButton from "@/components/ui/CtaButton";
 import { Copy } from "lucide-react";
-import { COPY_SUCCESS_LABEL } from "@/app/_constants/labels";
 import { useCopyToClipboard } from "../_hooks/useCopyToClipboard";
 import styles from "./CopyButton.module.css";
 
@@ -12,6 +11,7 @@ interface CopyButtonProps {
 
 export default function CopyButton({ value }: CopyButtonProps) {
   const { copied, copyToClipboard } = useCopyToClipboard();
+  const COPY_SUCCESS_LABEL = "복사됨!";
 
   return (
     <div className={styles.copyWrapper}>
@@ -19,7 +19,11 @@ export default function CopyButton({ value }: CopyButtonProps) {
       <span role="status" aria-live="polite" className={styles.srAnnouncement}>
         {copied ? COPY_SUCCESS_LABEL : ""}
       </span>
-      {copied && <span className={styles.copiedToast} aria-hidden="true">{COPY_SUCCESS_LABEL}</span>}
+      {copied && (
+        <span className={styles.copiedToast} aria-hidden="true">
+          {COPY_SUCCESS_LABEL}
+        </span>
+      )}
       <CtaButton
         as="button"
         type="button"

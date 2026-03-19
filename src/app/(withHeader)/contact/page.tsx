@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="page-layout">
+    <div className={`page-layout ${styles.page}`}>
       <div className="container">
         <SectionHeader
           label="Contact"
