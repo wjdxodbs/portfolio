@@ -15,29 +15,24 @@ export default function ProjectThumbnail({
   variant,
   children,
 }: ProjectThumbnailProps) {
-  const wrapperClass = variant === "card" ? styles.wrapperCard : styles.wrapperModal;
+  const wrapperClass =
+    variant === "card" ? styles.wrapperCard : styles.wrapperModal;
   const imageClass = variant === "card" ? styles.imageCard : styles.imageModal;
-  const placeholderTextClass =
-    variant === "card" ? styles.placeholderTextCard : styles.placeholderTextModal;
 
   return (
     <div
       className={wrapperClass}
-      style={project.thumbnailBg ? { background: project.thumbnailBg } : undefined}
+      style={
+        project.thumbnailBg ? { background: project.thumbnailBg } : undefined
+      }
     >
-      {project.thumbnailUrl ? (
-        <Image
-          src={project.thumbnailUrl}
-          alt={project.title}
-          fill
-          sizes={sizes}
-          className={imageClass}
-        />
-      ) : (
-        <div className={styles.placeholder}>
-          <span className={placeholderTextClass}>{project.title[0]}</span>
-        </div>
-      )}
+      <Image
+        src={project.thumbnailUrl}
+        alt={project.title}
+        fill
+        sizes={sizes}
+        className={imageClass}
+      />
       {children}
     </div>
   );
