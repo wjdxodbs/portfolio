@@ -1,4 +1,5 @@
 import type { Project } from "@/app/(withHeader)/projects/_types/project";
+import { PROJECT_TYPE_LABEL } from "@/app/_constants/labels";
 import TechBadge from "./TechBadge";
 import styles from "./ProjectModalHeader.module.css";
 
@@ -11,7 +12,7 @@ export default function ProjectModalHeader({ project }: ProjectModalHeaderProps)
     <div className={styles.header}>
       <div className={styles.headerMeta}>
         <span className={styles.typeBadge}>
-          {project.type === "team" ? "팀 프로젝트" : "개인 프로젝트"}
+          {PROJECT_TYPE_LABEL[project.type]}
         </span>
         <span className={styles.period}>
           {project.period} · {project.duration}

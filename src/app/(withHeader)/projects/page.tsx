@@ -1,19 +1,12 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/app/_utils/metadata";
 import ProjectCardGrid from "./_components/ProjectCardGrid";
 import SectionHeader from "@/components/common/SectionHeader";
 
-export const metadata: Metadata = {
-  title: "Projects | 정태윤 포트폴리오",
-  description: "정태윤이 진행한 개인 프로젝트와 팀 프로젝트를 소개합니다.",
-  alternates: {
-    canonical: "https://wjdxodbs-portfolio.vercel.app/projects",
-  },
-  openGraph: {
-    title: "Projects | 정태윤 포트폴리오",
-    description: "정태윤이 진행한 개인 프로젝트와 팀 프로젝트를 소개합니다.",
-    url: "https://wjdxodbs-portfolio.vercel.app/projects",
-  },
-};
+export const metadata = createPageMetadata(
+  "Projects | 정태윤 포트폴리오",
+  "정태윤이 진행한 개인 프로젝트와 팀 프로젝트를 소개합니다.",
+  "/projects"
+);
 
 export default function ProjectsPage() {
   return (

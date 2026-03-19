@@ -1,0 +1,68 @@
+/* Shared wrapper base */
+.wrapper {
+  position: relative;
+  width: 100%;
+  background: var(--background-tertiary);
+  overflow: hidden;
+}
+
+.wrapperCard {
+  composes: wrapper;
+  aspect-ratio: 16 / 9;
+}
+
+.wrapperModal {
+  composes: wrapper;
+  height: 200px;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+/* Image */
+.image {
+  object-fit: contain;
+}
+
+.imageCard {
+  composes: image;
+  padding: 12px;
+  transition: transform var(--transition-slow);
+}
+
+.wrapperCard:hover .imageCard {
+  transform: scale(1.05);
+}
+
+.imageModal {
+  composes: image;
+  padding: 16px;
+}
+
+/* Placeholder */
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--background-tertiary) 0%,
+    var(--background-elevated) 100%
+  );
+}
+
+.placeholderTextCard {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.4;
+  font-family: var(--font-mono);
+}
+
+.placeholderTextModal {
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: var(--font-mono);
+}

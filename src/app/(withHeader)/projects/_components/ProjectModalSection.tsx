@@ -7,15 +7,18 @@ interface ProjectModalSectionProps {
   items: OverviewItem[];
 }
 
-export default function ProjectModalSection({ label, items }: ProjectModalSectionProps) {
+export default function ProjectModalSection({
+  label,
+  items,
+}: ProjectModalSectionProps) {
   if (items.length === 0) return null;
 
   return (
     <div className={styles.overviewSection}>
       <span className={styles.overviewLabel}>{label}</span>
       <div className={styles.overviewList}>
-        {items.map((item) => (
-          <div key={item.title} className={styles.overviewItem}>
+        {items.map((item, idx) => (
+          <div key={idx} className={styles.overviewItem}>
             <span className={styles.overviewTitle}>{item.title}</span>
             {item.images && item.images.length > 0 && (
               <div className={styles.itemImages}>
@@ -24,8 +27,8 @@ export default function ProjectModalSection({ label, items }: ProjectModalSectio
                     <Image
                       src={src}
                       alt={`${item.title} 이미지 ${idx + 1}`}
-                      width={400}
-                      height={800}
+                      fill
+                      sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
                       className={styles.itemImage}
                     />
                   </div>

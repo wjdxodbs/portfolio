@@ -1,24 +1,44 @@
+/* CSS Modules는 @keyframes를 로컬 스코프로 처리하므로, globals.css에 동일한
+   keyframe이 있더라도 이 모듈 내에서 사용하려면 반드시 여기서 재정의해야 합니다. */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: var(--overlay-bg);
   backdrop-filter: blur(6px);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
-  animation: fadeIn 0.3s ease forwards;
+  animation: fadeIn var(--transition-normal) forwards;
 }
 
 .overlayClosing {
-  animation: fadeOut 0.3s ease forwards;
+  animation: fadeOut var(--transition-normal) forwards;
 }
 
 .modal {
   background: var(--background-secondary);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   width: min(calc(100vw - 48px), calc((1200px - 96px) / 3 * 2.5 + 24px * 1.5));
   height: 96dvh;
   overflow-y: auto;
@@ -29,11 +49,11 @@
 }
 
 .modalOpening {
-  animation: fadeIn 0.1s ease forwards;
+  animation: fadeIn var(--modal-close-duration) ease forwards;
 }
 
 .modalClosing {
-  animation: fadeOut 0.1s ease forwards;
+  animation: fadeOut var(--modal-close-duration) ease forwards;
 }
 
 .modal::-webkit-scrollbar {
@@ -58,8 +78,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--overlay-bg);
+  border: 1px solid var(--close-btn-border);
   border-radius: 50%;
   color: var(--foreground-bright);
   cursor: pointer;
@@ -70,44 +90,8 @@
 }
 
 .closeButton:hover {
-  background: rgba(0, 0, 0, 0.75);
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
-/* Thumbnail */
-.thumbnail {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  background: var(--background-tertiary);
-  overflow: hidden;
-  border-radius: 20px 20px 0 0;
-}
-
-.thumbnailImage {
-  object-fit: contain;
-  padding: 16px;
-}
-
-.thumbnailPlaceholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(
-    135deg,
-    var(--background-tertiary) 0%,
-    var(--background-elevated) 100%
-  );
-}
-
-.placeholderText {
-  font-size: 5rem;
-  font-weight: 700;
-  color: var(--accent);
-  opacity: 0.3;
-  font-family: var(--font-mono);
+  background: var(--close-btn-bg-hover);
+  border-color: var(--close-btn-border-hover);
 }
 
 /* Body */
@@ -120,25 +104,6 @@
 
 .body > * + * {
   margin-top: 24px;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
 }
 
 @media (max-width: 768px) {
@@ -160,6 +125,6 @@
   .modal {
     width: calc(100vw - 32px);
     height: 96dvh;
-    border-radius: 20px 20px 0 0;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   }
 }

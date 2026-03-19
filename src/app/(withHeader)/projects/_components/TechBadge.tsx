@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { getTechIcon } from "@/app/(withHeader)/projects/_utils/techIcons";
+import type { TechName } from "@/app/(withHeader)/projects/_utils/techIcons";
 import styles from "./TechBadge.module.css";
 
 interface TechBadgeProps {
-  techStack: string[];
+  techStack: TechName[];
   variant?: "icon" | "chip";
 }
 

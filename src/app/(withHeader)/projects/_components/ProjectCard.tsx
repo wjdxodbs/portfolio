@@ -1,17 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import type { Project } from "@/app/(withHeader)/projects/_types/project";
+import { PROJECT_TYPE_LABEL } from "@/app/_constants/labels";
+import ProjectThumbnail from "./ProjectThumbnail";
 import TechBadge from "./TechBadge";
 import styles from "./ProjectCard.module.css";
-
-export interface CardRect {
-  top: number;
-  left: number;
-  width: number;
-  height: number;
-}
 
 interface ProjectCardProps {
   project: Project;
@@ -32,30 +26,18 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       onClick={handleClick}
       aria-label={`${project.title} 프로젝트 자세히 보기`}
     >
-        <figure
-          className={styles.thumbnail}
-          style={project.thumbnailBg ? { background: project.thumbnailBg } : undefined}
+        <ProjectThumbnail
+          project={project}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          variant="card"
         >
-          {project.thumbnailUrl ? (
-            <Image
-              src={project.thumbnailUrl}
-              alt={project.title}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className={styles.thumbnailImage}
-            />
-          ) : (
-            <div className={styles.thumbnailPlaceholder}>
-              <span className={styles.placeholderText}>{project.title[0]}</span>
-            </div>
-          )}
           <span className={styles.typeBadge}>
-            {project.type === "team" ? "팀 프로젝트" : "개인 프로젝트"}
+            {PROJECT_TYPE_LABEL[project.type]}
           </span>
           <div className={styles.thumbnailOverlay}>
             <span className={styles.overlayText}>클릭하여 자세히 보기</span>
           </div>
-        </figure>
+        </ProjectThumbnail>
 
         <div className={styles.content}>
           <h3 className={styles.title}>{project.title}</h3>

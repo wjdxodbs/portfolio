@@ -5,7 +5,7 @@ export interface TechIcon {
   abbr?: string;
 }
 
-const TECH_ICONS: Record<string, TechIcon> = {
+const TECH_ICONS = {
   React: {
     name: "React",
     iconUrl:
@@ -95,9 +95,11 @@ const TECH_ICONS: Record<string, TechIcon> = {
   },
 };
 
+export type TechName = keyof typeof TECH_ICONS;
+
 export function getTechIcon(techName: string): TechIcon {
   return (
-    TECH_ICONS[techName] ?? {
+    (TECH_ICONS as Record<string, TechIcon>)[techName] ?? {
       name: techName,
       iconUrl: "",
       color: "#a0a0a0",

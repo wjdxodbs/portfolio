@@ -1,3 +1,5 @@
+import type { TechName } from "@/app/(withHeader)/projects/_utils/techIcons";
+
 export interface OverviewItem {
   title: string;
   details: string[];
@@ -13,7 +15,7 @@ export interface Project {
   duration: string;
   thumbnailUrl: string;
   thumbnailBg?: string;
-  techStack: string[];
+  techStack: TechName[];
   type: "personal" | "team";
   teamSize: string;
   role: string;
