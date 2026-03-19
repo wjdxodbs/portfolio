@@ -14,7 +14,7 @@
 .typeBadge {
   font-size: 0.85rem;
   font-weight: 600;
-  padding: 3px 10px;
+  padding: var(--badge-padding-md);
   border-radius: var(--radius-full);
   background: var(--accent-glow);
   border: 1px solid var(--accent-border);
@@ -58,7 +58,7 @@
 
 .githubButton:hover {
   opacity: 0.8;
-  transform: scale(1.1);
+  transform: scale(var(--scale-md));
 }
 
 .githubIcon {

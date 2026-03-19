@@ -92,7 +92,7 @@
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;
-  transition: grid-template-rows var(--transition-expand);
+  transition: grid-template-rows var(--transition-normal);
 }
 
 .skillContentOpen {

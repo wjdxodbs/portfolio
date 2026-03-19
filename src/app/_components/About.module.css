@@ -20,7 +20,6 @@
   overflow: hidden;
   position: relative;
   z-index: 1;
-  box-shadow: 0 25px 50px var(--shadow-color-heavy);
 }
 
 .profileImage {

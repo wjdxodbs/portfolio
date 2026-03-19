@@ -4,7 +4,6 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }

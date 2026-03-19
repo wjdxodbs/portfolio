@@ -15,7 +15,6 @@
 .card:hover {
   border-color: var(--border-hover);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px var(--shadow-color-light);
 }
 
 .cardHeader {
@@ -53,7 +52,7 @@
 }
 
 .highlightItem {
-  padding: 6px 14px;
+  padding: var(--badge-padding-md);
   background: var(--background-tertiary);
   border-radius: var(--radius-full);
   font-size: 0.85rem;

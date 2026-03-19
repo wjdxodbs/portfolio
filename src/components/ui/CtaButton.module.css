@@ -9,28 +9,28 @@
 /* size */
 .sm {
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   font-size: 0.875rem;
   gap: 6px;
 }
 
 .md {
   padding: 11px 22px;
-  border-radius: 7px;
+  border-radius: var(--radius-sm);
   font-size: 0.9375rem;
   gap: 7px;
 }
 
 .lg {
   padding: 14px 28px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-size: 1rem;
   gap: 8px;
 }
 
 .xl {
   padding: 17px 34px;
-  border-radius: 9px;
+  border-radius: var(--radius-sm);
   font-size: 1.25rem;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .button:not(.card):hover {
-  transform: scale(1.04);
+  transform: scale(var(--scale-sm));
 }
 
 .button.card:hover {

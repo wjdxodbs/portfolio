@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 
-// globals.css --toast-duration 값과 반드시 동기화
 const TOAST_DURATION = 2000;
 
 export function useCopyToClipboard() {

@@ -4,7 +4,7 @@
   gap: 0;
   background: var(--background-tertiary);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
@@ -55,7 +55,7 @@
 .achievementList {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
   margin-top: 2px;
 }
 

@@ -10,7 +10,7 @@
 }
 
 .caret {
-  animation: blink 0.9s steps(1, end) infinite;
+  animation: blink var(--transition-slower) infinite;
 }
 
 @keyframes blink {

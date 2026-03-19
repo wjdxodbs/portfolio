@@ -20,14 +20,14 @@
   position: absolute;
   right: 100%;
   margin-right: 8px;
-  padding: 6px 12px;
+  padding: var(--badge-padding-md);
   background: var(--accent);
   color: var(--background);
   font-size: 0.8rem;
   font-weight: 600;
   border-radius: var(--radius-sm);
   white-space: nowrap;
-  animation: fadeInOut var(--toast-duration) ease forwards;
+  animation: fadeInOut var(--transition-loop) forwards;
 }
 
 @keyframes fadeInOut {
