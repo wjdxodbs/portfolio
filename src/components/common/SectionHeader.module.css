@@ -11,6 +11,9 @@
   letter-spacing: 0.15em;
   color: var(--accent);
   margin-bottom: 12px;
+  text-shadow:
+    0 0 12px rgba(0, 255, 136, 0.7),
+    0 0 28px rgba(0, 255, 136, 0.3);
 }
 
 .title {

@@ -60,7 +60,7 @@
 .primary:hover {
   background: var(--accent-hover);
   color: var(--background);
-  box-shadow: 0 10px 30px var(--accent-glow);
+  box-shadow: var(--card-glow);
 }
 
 /* secondary */
@@ -73,6 +73,7 @@
 .secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
+  box-shadow: var(--card-glow);
 }
 
 /* outline */
@@ -86,6 +87,7 @@
 .outline:hover {
   border-color: var(--accent);
   color: var(--accent);
+  box-shadow: var(--card-glow);
 }
 
 @media (max-width: 480px) {
