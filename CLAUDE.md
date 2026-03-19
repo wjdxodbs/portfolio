@@ -17,7 +17,6 @@ No test framework is configured.
 ### Routing & Layout
 - **App Router** with a `(withHeader)` route group — pages inside inherit the header layout automatically. Pages outside (e.g., `not-found.tsx`) render without the header.
 - Pages: `/` (Home), `/projects`, `/contact`
-- Error boundaries: `error.tsx` (route-level, no `<html><body>`) and `global-error.tsx` (root-level, must include `<html><body>` and import `./globals.css` explicitly since the root layout is bypassed).
 
 ### File Colocation Pattern
 Each page owns its dependencies inside its folder:
@@ -42,6 +41,8 @@ Shared components live in `src/components/` (layout, ui, common, icons).
 - **CSS Modules only** — one `.module.css` per component.
 - CSS class names use **camelCase** (e.g., `.skillCard`) for dot-notation access (`styles.skillCard`).
 - Design tokens (colors, spacing, etc.) are defined as CSS variables in `globals.css`. Always use `var(--token-name)` instead of hardcoded values.
+- Badge/chip padding uses `--badge-padding-sm` (3px 8px) or `--badge-padding-md` (4px 10px). Pick the appropriate size — don't hardcode.
+- **Dark theme shadow policy**: black `box-shadow` is nearly invisible on `#0a0a0a`. Use `--accent-shadow` (`rgba(0,255,136,0.12)`) for colored glows, or omit shadows entirely.
 - Accordion/expand animations use `grid-template-rows: 0fr → 1fr` pattern (not `max-height`).
 
 #### CSS Keyframe Rule — Critical
@@ -58,12 +59,11 @@ CSS Modules scope `@keyframes` names locally. A CSS Module **cannot** reliably r
 This is especially dangerous when `opacity: 0` is set explicitly — without the animation running, the element is permanently invisible.
 
 #### JS/CSS Duration Sync
-When a JS timer and a CSS animation must share the same duration (e.g., toast, modal close), both are declared in `globals.css` as variables with a comment referencing the JS constant, and in the JS file with a comment referencing the CSS variable:
-```css
-/* globals.css */
---toast-duration: 2s;        /* useCopyToClipboard: TOAST_DURATION = 2000 */
---modal-close-duration: 0.3s; /* ProjectModal: MODAL_CLOSE_DURATION = 300 */
-```
+When a JS timer and a CSS animation must share the same duration, sync them via an existing transition token — don't hardcode the value in both places:
+- `TOAST_DURATION = 2000` (ms) ↔ `var(--transition-loop)` = 2s
+- `MODAL_CLOSE_DURATION = 300` (ms) ↔ `var(--transition-normal)` = 0.3s
+
+If no existing token matches, add a named variable to `globals.css` and reference it in both the CSS and the JS constant's comment.
 
 ### Component Patterns
 - **`CtaButton`** supports an `as` prop (polymorphic) — renders as any element or component. Use `as="a"`, `as="button"`, or `as={Link}` for Next.js navigation. **Never wrap `<CtaButton>` in a `<button>`, `<a>`, or `<Link>` tag** — `Link` renders as `<a>`, which is the same violation.
@@ -77,9 +77,10 @@ When a JS timer and a CSS animation must share the same duration (e.g., toast, m
 `ProjectModal` is the reference implementation for accessible modals:
 1. Loaded via `next/dynamic` with `ssr: false` (excludes from initial bundle).
 2. Rendered via `createPortal` into `document.body`.
-3. **Focus trap**: `useFocusTrap({ isActive, containerRef, initialFocusRef, onEscape })` — traps Tab/Shift+Tab within the container and calls `onEscape` on Escape key. The hook stores `onEscape` in a `useRef` internally to avoid stale closure; do **not** add it to the effect's dependency array.
-4. **Focus restore**: the opener element (`triggerElement`) is stored in parent state. On close, call `triggerElement?.focus()` before clearing state so keyboard users return to where they were.
-5. **Exit animation**: `isClosing` state drives a CSS exit class. A `setTimeout` matching `MODAL_CLOSE_DURATION` (synced with `--modal-close-duration` in `globals.css`) delays the actual unmount.
+3. **Structure**: `.modal` uses `display: flex; flex-direction: column`. The close button sits at `position: absolute` inside `.modal`, and `.scrollArea` (`flex: 1; overflow-y: auto`) wraps the thumbnail + body so the button stays visible while content scrolls.
+4. **Focus trap**: `useFocusTrap({ isActive, containerRef, initialFocusRef, onEscape })` — traps Tab/Shift+Tab within the container and calls `onEscape` on Escape key. The hook stores `onEscape` in a `useRef` internally to avoid stale closure; do **not** add it to the effect's dependency array.
+5. **Focus restore**: the opener element (`triggerElement`) is stored in parent state. On close, call `triggerElement?.focus()` before clearing state so keyboard users return to where they were.
+6. **Exit animation**: `isClosing` state drives a CSS exit class on the **overlay** (not the modal). The overlay `fadeIn/fadeOut` carries the modal as a child. A `setTimeout` matching `MODAL_CLOSE_DURATION` (synced with `var(--transition-normal)`) delays the actual unmount.
 
 ### WAI-ARIA Patterns
 - **Tabs** (`ExperienceTabs` / `ExperienceInteractive`): tabs container has `role="tablist"`, each tab button has `role="tab"`, `aria-selected`, and `aria-controls="experience-panel-{id}"`. The panel has `id="experience-panel-{id}"` and `role="tabpanel"`.
@@ -87,7 +88,7 @@ When a JS timer and a CSS animation must share the same duration (e.g., toast, m
 - **Dialog** (`ProjectModal`): the modal content div carries `role="dialog"`, `aria-modal="true"`, and `aria-labelledby` pointing to the visible `<h2 id="modal-title">` inside the modal. Do **not** put `role="dialog"` on the backdrop/overlay div.
 
 ### Metadata
-Use `createPageMetadata(title, description, path)` from `src/app/_utils/metadata.ts` for all page-level metadata exports. It handles `alternates.canonical` and `openGraph` automatically. The root layout (`layout.tsx`) owns the site-wide `metadataBase` and default metadata.
+Each page declares its own `export const metadata: Metadata` inline with `title`, `description`, `alternates.canonical`, and `openGraph` fields. The root layout (`layout.tsx`) owns the site-wide `metadataBase` and default metadata. `sitemap.ts` and `robots.ts` define their own local `SITE_URL` constant.
 
 ### Performance Memoization — Do Not Overuse
 Do **not** reach for `React.memo`, `useCallback`, or `useMemo` by default. Only add them when a real performance problem has been observed and measured.
