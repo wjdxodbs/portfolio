@@ -68,12 +68,32 @@ When a JS timer and a CSS animation must share the same duration (e.g., toast, m
 ### Component Patterns
 - **`CtaButton`** supports an `as` prop (polymorphic) — renders as any element or component. Use `as="a"`, `as="button"`, or `as={Link}` for Next.js navigation. **Never wrap `<CtaButton>` in a `<button>`, `<a>`, or `<Link>` tag** — `Link` renders as `<a>`, which is the same violation.
 - **`SectionHeader`** accepts an `as` prop to control the heading level (`as="h1"` on page-level sections).
-- SVG icons live in `src/components/icons/` as individual React components (e.g., `MonitorIcon`, `MailIcon`). Add new icons there instead of inlining SVGs.
+- **`ProjectThumbnail`** is the shared thumbnail component used by both `ProjectCard` and `ProjectModal`. Pass `variant="card"` (16:9 aspect ratio, hover scale) or `variant="modal"` (fixed height, rounded). Overlay badges/CTAs go in `children`.
+- Icons use **lucide-react**. Import named exports directly: `import { Mail, X } from "lucide-react"`. Always pass `size` and `aria-hidden="true"` props (e.g., `<Mail size={16} aria-hidden="true" />`). Do not create custom SVG icon components or inline SVGs.
 - Static data (projects, skills, experience) lives in `_constants/` and is imported directly — no props drilling.
 - Shared UI strings (labels, button text) live in `src/app/_constants/labels.ts`.
 
+### Modal Pattern
+`ProjectModal` is the reference implementation for accessible modals:
+1. Loaded via `next/dynamic` with `ssr: false` (excludes from initial bundle).
+2. Rendered via `createPortal` into `document.body`.
+3. **Focus trap**: `useFocusTrap({ isActive, containerRef, initialFocusRef, onEscape })` — traps Tab/Shift+Tab within the container and calls `onEscape` on Escape key. The hook stores `onEscape` in a `useRef` internally to avoid stale closure; do **not** add it to the effect's dependency array.
+4. **Focus restore**: the opener element (`triggerElement`) is stored in parent state. On close, call `triggerElement?.focus()` before clearing state so keyboard users return to where they were.
+5. **Exit animation**: `isClosing` state drives a CSS exit class. A `setTimeout` matching `MODAL_CLOSE_DURATION` (synced with `--modal-close-duration` in `globals.css`) delays the actual unmount.
+
+### WAI-ARIA Patterns
+- **Tabs** (`ExperienceTabs` / `ExperienceInteractive`): tabs container has `role="tablist"`, each tab button has `role="tab"`, `aria-selected`, and `aria-controls="experience-panel-{id}"`. The panel has `id="experience-panel-{id}"` and `role="tabpanel"`.
+- **Accordion** (`SkillCard`): toggle button has `aria-expanded={isOpen}` and a descriptive `aria-label`.
+- **Dialog** (`ProjectModal`): the modal content div carries `role="dialog"`, `aria-modal="true"`, and `aria-labelledby` pointing to the visible `<h2 id="modal-title">` inside the modal. Do **not** put `role="dialog"` on the backdrop/overlay div.
+
 ### Metadata
 Use `createPageMetadata(title, description, path)` from `src/app/_utils/metadata.ts` for all page-level metadata exports. It handles `alternates.canonical` and `openGraph` automatically. The root layout (`layout.tsx`) owns the site-wide `metadataBase` and default metadata.
+
+### Performance Memoization — Do Not Overuse
+Do **not** reach for `React.memo`, `useCallback`, or `useMemo` by default. Only add them when a real performance problem has been observed and measured.
+- **Skip them for**: simple prop passing, lightweight renders, static data display — which covers nearly everything in this portfolio.
+- **Acceptable when**: a genuinely expensive computation (filtering, sorting large lists) needs caching, or a callback passed to a `memo`-wrapped child is causing measurable unnecessary re-renders.
+- Reflexively wrapping every function in `useCallback` and every value in `useMemo` hurts readability and adds memoization overhead without benefit.
 
 ### TypeScript Conventions
 - No `any`. Use proper types.
