@@ -1,7 +1,7 @@
 "use client";
 
 import CtaButton from "@/components/ui/CtaButton";
-import CopyIcon from "@/components/icons/CopyIcon";
+import { Copy } from "lucide-react";
 import { COPY_SUCCESS_LABEL } from "@/app/_constants/labels";
 import { useCopyToClipboard } from "../_hooks/useCopyToClipboard";
 import styles from "./CopyButton.module.css";
@@ -28,7 +28,7 @@ export default function CopyButton({ value }: CopyButtonProps) {
         onClick={() => copyToClipboard(value)}
         aria-label="복사"
       >
-        <CopyIcon />
+        <Copy size={16} aria-hidden="true" />
       </CtaButton>
     </div>
   );

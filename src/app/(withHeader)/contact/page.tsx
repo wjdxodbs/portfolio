@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/app/_utils/metadata";
 import CardSection from "./_components/CardSection";
 import CopyButton from "./_components/CopyButton";
 import CtaButton from "@/components/ui/CtaButton";
-import MailIcon from "@/components/icons/MailIcon";
+import { Mail } from "lucide-react";
 import SectionHeader from "@/components/common/SectionHeader";
 
 export const metadata = createPageMetadata(
@@ -103,7 +103,7 @@ export default function ContactPage() {
               variant="primary"
               size="lg"
             >
-              <MailIcon />
+              <Mail size={16} aria-hidden="true" />
               이메일 보내기
             </CtaButton>
           </div>
