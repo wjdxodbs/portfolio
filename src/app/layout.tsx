@@ -76,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${outfit.variable} ${jetbrainsMono.variable}`}>
+    <html lang="ko" className={`${outfit.variable} ${jetbrainsMono.variable}`} data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   );
