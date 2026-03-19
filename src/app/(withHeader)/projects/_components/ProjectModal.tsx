@@ -12,7 +12,6 @@ import ProjectModalSection from "./ProjectModalSection";
 import ProjectModalRetrospect from "./ProjectModalRetrospect";
 import styles from "./ProjectModal.module.css";
 
-// globals.css --modal-close-duration 값과 반드시 동기화
 const MODAL_CLOSE_DURATION = 300;
 
 interface ProjectModalProps {
@@ -49,10 +48,7 @@ export default function ProjectModal({
 
   if (!project) return null;
 
-  const modalClass = [
-    styles.modal,
-    isClosing ? styles.modalClosing : styles.modalOpening,
-  ].join(" ");
+  const modalClass = styles.modal;
 
   const modalContent = (
     <div
@@ -77,20 +73,25 @@ export default function ProjectModal({
           <X size={20} aria-hidden="true" />
         </button>
 
-        <ProjectThumbnail
-          project={project}
-          sizes="(max-width: 480px) 100vw, (max-width: 640px) calc(100vw - 48px), 800px"
-          variant="modal"
-        />
+        <div className={styles.scrollArea}>
+          <ProjectThumbnail
+            project={project}
+            sizes="(max-width: 480px) 100vw, (max-width: 640px) calc(100vw - 48px), 800px"
+            variant="modal"
+          />
 
-        <div className={styles.body}>
-          <ProjectModalHeader project={project} />
-          <ProjectModalInfoGrid project={project} />
-          <ProjectModalSection label="프로젝트 개요" items={project.overview} />
-          <ProjectModalSection label="담당 업무" items={project.tasks} />
-          <ProjectModalSection label="고민했던 점" items={project.concerns} />
+          <div className={styles.body}>
+            <ProjectModalHeader project={project} />
+            <ProjectModalInfoGrid project={project} />
+            <ProjectModalSection
+              label="프로젝트 개요"
+              items={project.overview}
+            />
+            <ProjectModalSection label="담당 업무" items={project.tasks} />
+            <ProjectModalSection label="고민했던 점" items={project.concerns} />
 
-          <ProjectModalRetrospect items={project.retrospect ?? []} />
+            <ProjectModalRetrospect items={project.retrospect ?? []} />
+          </div>
         </div>
       </div>
     </div>
