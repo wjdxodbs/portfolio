@@ -23,7 +23,7 @@ export default function ProjectModalSection({
             {item.images && item.images.length > 0 && (
               <div className={styles.itemImages}>
                 {item.images.map((src, idx) => (
-                  <div key={src} className={styles.itemImageWrapper}>
+                  <div key={idx} className={styles.itemImageWrapper}>
                     <Image
                       src={src}
                       alt={`${item.title} 이미지 ${idx + 1}`}

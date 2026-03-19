@@ -78,6 +78,12 @@
   border-top-color: var(--border-hover);
 }
 
+.icon .techItem:focus-within .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
 @media (hover: hover) {
   .icon .techItem:hover .tooltip {
     opacity: 1;

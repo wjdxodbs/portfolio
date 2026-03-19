@@ -59,8 +59,8 @@ export default function SkillCard({ skill }: SkillCardProps) {
       >
         <div className={styles.capabilities}>
           <ul className={styles.capabilitiesList}>
-            {skill.capabilities.map((cap) => (
-              <li key={cap} className={styles.capabilityItem}>
+            {skill.capabilities.map((cap, idx) => (
+              <li key={idx} className={styles.capabilityItem}>
                 <span className={styles.checkIcon}>✓</span>
                 <span className={styles.capabilityText}>{cap}</span>
               </li>

@@ -19,8 +19,8 @@ export default function ExperienceList({ items }: ExperienceListProps) {
 
           {item.highlights.length > 0 && (
             <ul className={styles.highlights}>
-              {item.highlights.map((highlight) => (
-                <li key={highlight} className={styles.highlightItem}>
+              {item.highlights.map((highlight, idx) => (
+                <li key={idx} className={styles.highlightItem}>
                   {highlight}
                 </li>
               ))}

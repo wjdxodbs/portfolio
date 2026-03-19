@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Project } from "@/app/(withHeader)/projects/_types/project";
 import { PROJECT_TYPE_LABEL } from "@/app/_constants/labels";
 import TechBadge from "./TechBadge";
@@ -28,11 +29,12 @@ export default function ProjectModalHeader({ project }: ProjectModalHeaderProps)
             className={styles.githubButton}
             aria-label={`${project.title} GitHub 저장소 열기`}
           >
-            <img
+            <Image
               src="/icons/github.svg"
               alt=""
+              width={20}
+              height={20}
               className={styles.githubIcon}
-              aria-hidden="true"
             />
           </a>
         )}

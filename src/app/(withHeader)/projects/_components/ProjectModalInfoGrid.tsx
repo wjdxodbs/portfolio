@@ -23,8 +23,8 @@ export default function ProjectModalInfoGrid({ project }: ProjectModalInfoGridPr
           <div className={`${styles.infoItem} ${styles.full}`}>
             <span className={styles.infoLabel}>성과</span>
             <ul className={styles.achievementList}>
-              {project.achievements.map((item) => (
-                <li key={item} className={styles.achievementItem}>
+              {project.achievements.map((item, idx) => (
+                <li key={idx} className={styles.achievementItem}>
                   {item}
                 </li>
               ))}
