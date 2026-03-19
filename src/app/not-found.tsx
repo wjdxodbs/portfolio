@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./not-found.module.css";
+import CtaButton from "@/components/ui/CtaButton";
 
 export default function NotFound() {
   return (
@@ -10,9 +11,9 @@ export default function NotFound() {
         <p className={styles.description}>
           요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다.
         </p>
-        <Link href="/" className={styles.link}>
+        <CtaButton as={Link} href="/" variant="primary" size="lg">
           홈으로 돌아가기
-        </Link>
+        </CtaButton>
       </div>
     </main>
   );
