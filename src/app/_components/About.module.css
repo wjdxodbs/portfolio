@@ -16,11 +16,11 @@
   aspect-ratio: 3 / 4;
   background: var(--background-secondary);
   border: none;
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
   position: relative;
   z-index: 1;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px var(--shadow-color-heavy);
 }
 
 .profileImage {

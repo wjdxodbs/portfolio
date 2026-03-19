@@ -8,6 +8,7 @@ export interface ContactInfo {
 export interface SocialLink {
   name: string;
   icon: string;
+  iconUrl?: string;
   href: string;
   description: string;
 }

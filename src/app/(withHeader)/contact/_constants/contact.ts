@@ -24,7 +24,8 @@ export const contactInfo: ContactInfo[] = [
 export const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
-    icon: "github",
+    icon: "GitHub",
+    iconUrl: "/icons/github.svg",
     href: "https://github.com/wjdxodbs",
     description: "코드와 프로젝트를 확인하세요",
   },

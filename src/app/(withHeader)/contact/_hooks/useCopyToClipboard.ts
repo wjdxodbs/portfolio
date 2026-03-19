@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
+// globals.css --toast-duration 값과 반드시 동기화
 const TOAST_DURATION = 2000;
 
 export function useCopyToClipboard() {
@@ -25,7 +26,9 @@ export function useCopyToClipboard() {
       }
       timerRef.current = setTimeout(() => setCopied(false), TOAST_DURATION);
     } catch (err) {
-      console.error("복사 실패:", err);
+      if (process.env.NODE_ENV !== "production") {
+        console.error("복사 실패:", err);
+      }
     }
   };
 

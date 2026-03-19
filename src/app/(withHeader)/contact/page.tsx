@@ -1,29 +1,21 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import styles from "./page.module.css";
 import {
   contactInfo,
   socialLinks,
 } from "@/app/(withHeader)/contact/_constants/contact";
+import { createPageMetadata } from "@/app/_utils/metadata";
 import CardSection from "./_components/CardSection";
 import CopyButton from "./_components/CopyButton";
 import CtaButton from "@/components/ui/CtaButton";
+import MailIcon from "@/components/icons/MailIcon";
 import SectionHeader from "@/components/common/SectionHeader";
 
-export const metadata: Metadata = {
-  title: "Contact | 정태윤 포트폴리오",
-  description:
-    "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
-  alternates: {
-    canonical: "https://wjdxodbs-portfolio.vercel.app/contact",
-  },
-  openGraph: {
-    title: "Contact | 정태윤 포트폴리오",
-    description:
-      "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
-    url: "https://wjdxodbs-portfolio.vercel.app/contact",
-  },
-};
+export const metadata = createPageMetadata(
+  "Contact | 정태윤 포트폴리오",
+  "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
+  "/contact"
+);
 
 export default function ContactPage() {
   return (
@@ -73,9 +65,9 @@ export default function ContactPage() {
                     className={styles.socialCard}
                   >
                     <span className={styles.iconBox} aria-hidden>
-                      {link.icon === "github" ? (
+                      {link.iconUrl ? (
                         <Image
-                          src="/icons/github.svg"
+                          src={link.iconUrl}
                           alt=""
                           width={24}
                           height={24}
@@ -107,26 +99,11 @@ export default function ContactPage() {
             </p>
             <CtaButton
               as="a"
-              href={
-                contactInfo.find((c) => c.label === "Email")?.href ??
-                "mailto:wjdxodbs52@naver.com"
-              }
+              href={contactInfo.find((c) => c.label === "Email")?.href ?? ""}
               variant="primary"
               size="lg"
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-              </svg>
+              <MailIcon />
               이메일 보내기
             </CtaButton>
           </div>
