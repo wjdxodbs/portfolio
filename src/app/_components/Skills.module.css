@@ -9,7 +9,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 10% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 60%);
+  background: radial-gradient(
+    ellipse at 10% 50%,
+    rgba(0, 212, 255, 0.05) 0%,
+    transparent 60%
+  );
   pointer-events: none;
 }
 
@@ -24,7 +28,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .skillsGrid {
     grid-template-columns: 1fr;
   }
