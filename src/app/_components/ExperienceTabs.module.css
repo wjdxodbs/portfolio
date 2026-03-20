@@ -8,7 +8,6 @@
 
 .tabs button {
   cursor: pointer;
-  font: inherit;
 }
 
 .tabs .tabActive {
@@ -23,12 +22,6 @@
 
 .tabLabel {
   font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .tabIcon {
-    font-size: 1.1rem;
-  }
 }
 
 @media (max-width: 480px) {

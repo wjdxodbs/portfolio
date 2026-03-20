@@ -12,9 +12,21 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 15% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 60% 90%, rgba(0, 255, 136, 0.05) 0%, transparent 45%);
+    radial-gradient(
+      ellipse at 15% 50%,
+      rgba(0, 255, 136, 0.05) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 85% 20%,
+      rgba(0, 212, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 60% 90%,
+      rgba(0, 255, 136, 0.05) 0%,
+      transparent 45%
+    );
   pointer-events: none;
 }
 
@@ -32,7 +44,6 @@
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -52,7 +63,7 @@
 
 .firstName {
   display: block;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -74,7 +85,6 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-
 }
 
 .codeHeader {
@@ -167,12 +177,19 @@
     gap: 40px;
   }
 
-  .firstName {
-    font-size: 3rem;
-  }
-
   .visual {
     order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .firstName {
+    font-size: 2.7rem;
+  }
+
+  .code {
+    padding: 20px;
+    font-size: 0.8rem;
   }
 }
 
@@ -181,20 +198,20 @@
     font-size: 2.25rem;
   }
 
-  .cta {
+  /* .cta {
     flex-direction: column;
 
     & > * {
       width: 100%;
     }
-  }
+  } */
 
   .scrollIndicator {
     display: none;
   }
 
   .code {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     padding: 16px;
   }
 }

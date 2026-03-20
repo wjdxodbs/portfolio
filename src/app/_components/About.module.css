@@ -9,7 +9,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 90% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 60%);
+  background: radial-gradient(
+    ellipse at 90% 50%,
+    rgba(0, 255, 136, 0.05) 0%,
+    transparent 60%
+  );
   pointer-events: none;
 }
 
@@ -55,7 +59,7 @@
 }
 
 .description {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.8;
   color: var(--foreground-secondary);
 }
@@ -70,10 +74,26 @@
   .imageContainer {
     max-width: 280px;
   }
+
+  .intro {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .imageContainer {
+    max-width: 250px;
+  }
+
   .intro {
     font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
   }
 }

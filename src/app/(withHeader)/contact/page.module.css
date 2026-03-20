@@ -6,7 +6,11 @@
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(ellipse at 85% 15%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+  background: radial-gradient(
+    ellipse at 85% 15%,
+    rgba(0, 212, 255, 0.05) 0%,
+    transparent 50%
+  );
   pointer-events: none;
   z-index: 0;
 }
@@ -149,20 +153,16 @@
 }
 
 .ctaTitle {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 16px;
 }
 
 .ctaDescription {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--foreground-secondary);
   margin-bottom: 32px;
-}
-
-.cta a {
-  text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -176,6 +176,10 @@
 
   .ctaTitle {
     font-size: 1.5rem;
+  }
+
+  .ctaDescription {
+    font-size: 0.9rem;
   }
 }
 
@@ -200,5 +204,13 @@
   .socialCard {
     gap: 12px;
     padding: 16px;
+  }
+
+  .ctaTitle {
+    font-size: 1.2rem;
+  }
+
+  .ctaDescription {
+    font-size: 0.8rem;
   }
 }

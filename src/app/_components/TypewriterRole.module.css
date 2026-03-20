@@ -24,8 +24,14 @@
   }
 }
 
+@media (max-width: 768px) {
+  .typewriter {
+    font-size: 1.35rem;
+  }
+}
+
 @media (max-width: 480px) {
   .typewriter {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 }
