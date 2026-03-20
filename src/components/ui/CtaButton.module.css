@@ -28,27 +28,14 @@
   gap: 8px;
 }
 
-.xl {
-  padding: 17px 34px;
+.icon {
+  padding: 11px;
   border-radius: var(--radius-sm);
-  font-size: 1.25rem;
+  justify-content: center;
 }
 
-.card {
-  width: 100%;
-  padding: 0;
-  gap: 16px;
-  justify-content: flex-start;
-  border-radius: 0;
-  border: none;
-}
-
-.button:not(.card):hover {
+.button:hover {
   transform: scale(var(--scale-sm));
-}
-
-.button.card:hover {
-  transform: none;
 }
 
 /* primary */
@@ -91,7 +78,17 @@
 }
 
 @media (max-width: 480px) {
-  .card {
-    gap: 12px;
+  .lg {
+    padding: 11px 22px;
+    font-size: 0.9375rem;
+  }
+
+  .md {
+    padding: 9px 18px;
+    font-size: 0.875rem;
+  }
+
+  .icon {
+    padding: 8px;
   }
 }

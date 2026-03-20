@@ -28,7 +28,7 @@ export default function CopyButton({ value }: CopyButtonProps) {
         as="button"
         type="button"
         variant="secondary"
-        size="sm"
+        size="icon"
         onClick={() => copyToClipboard(value)}
         aria-label="복사"
       >

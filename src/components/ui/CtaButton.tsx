@@ -4,7 +4,7 @@ import styles from "./CtaButton.module.css";
 type CtaButtonProps<T extends ElementType = "div"> = {
   as?: T;
   variant?: "primary" | "secondary" | "outline";
-  size?: "sm" | "md" | "lg" | "xl" | "card";
+  size?: "sm" | "md" | "lg" | "icon";
   children: ReactNode;
 } & Omit<ComponentPropsWithoutRef<T>, "as" | "children" | "variant" | "size">;
 
