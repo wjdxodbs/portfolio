@@ -93,6 +93,18 @@ const TECH_ICONS = {
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
     color: "#ffffff",
   },
+  "React Native": {
+    name: "React Native",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    color: "#61DAFB",
+  },
+  Expo: {
+    name: "Expo",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/expo/expo-original.svg",
+    color: "#ffffff",
+  },
 };
 
 export type TechName = keyof typeof TECH_ICONS;

@@ -269,6 +269,13 @@ export const projects: Project[] = [
         ],
       },
       {
+        title: "프로젝트 모달 구현",
+        details: [
+          "next/dynamic으로 초기 번들에서 제외하고, createPortal로 document.body에 렌더링해 z-index 충돌 없이 전체 화면을 덮도록 구현했습니다.",
+          "모달 닫기 시 exit 애니메이션이 완료된 뒤 언마운트되도록, 애니메이션 진행 중 상태를 별도로 관리해 타이밍을 제어했습니다.",
+        ],
+      },
+      {
         title: "접근성 구현",
         details: [
           '탭에 role="tablist"/"tab"/"tabpanel", 아코디언에 aria-expanded, 모달에 role="dialog"와 aria-modal을 적용해 키보드와 보조 기술로 각 컴포넌트를 탐색할 수 있도록 했습니다.',
@@ -306,8 +313,8 @@ export const projects: Project[] = [
       },
     ],
     retrospect: [
-      "구현 도중 디자인 방향이 바뀌면서 작성한 코드를 반복적으로 수정하는 경험을 했습니다. 페이지 구조와 색상 체계 같은 설계 기준을 먼저 정해두고 시작했을 때 불필요한 수정이 줄어든다는 것을 느꼈습니다.",
-      "SEO, 접근성, 반응형 같은 기본기를 초기에 함께 챙길수록 배포 이후 수정 비용이 줄어든다는 점을 확인했습니다.",
+      "모달 하나를 구현하면서 포커스 트랩·exit 애니메이션·스크롤 잠금·언마운트 타이밍까지 고려할 요소가 예상보다 많았습니다. 각 요소가 서로 간섭하지 않도록 구현 순서를 신경 쓰는 경험이 복잡한 컴포넌트 설계에 대한 시야를 넓혀줬습니다.",
+      "SEO와 접근성을 나중에 적용하려 하자, 기존 마크업 구조를 수정해야 하는 경우가 생겨 예상보다 작업 범위가 넓어졌습니다. 기본기를 개발 초반에 함께 고려할수록 배포 이후 수정 비용이 줄어든다는 점을 체감했습니다.",
     ],
   },
   {
@@ -402,6 +409,120 @@ export const projects: Project[] = [
     retrospect: [
       "서버 프리패치와 클라이언트 하이드레이션을 함께 적용할 때는 Query Key와 캐시 복원 범위를 먼저 맞춰야 중복 요청 없이 일관된 데이터 흐름을 유지할 수 있다는 점을 배웠습니다.",
       "shadcn/ui를 처음 적용하며 화면별 커스터마이징을 하다 보니 스타일 편차가 생겼고, 이를 줄이기 위해 공통 컴포넌트 조합 기준을 정리했습니다. 이 과정을 통해 초기 기준 정리가 이후 UI 확장과 일관성 유지에 중요한 역할을 한다는 점을 배웠습니다.",
+    ],
+  },
+  {
+    id: "project-5",
+    title: "Fillit",
+    githubUrl: "https://github.com/wjdxodbs/fillit",
+    description:
+      "GitHub 잔디 형식으로 연도 진행률과 목표 달성률을 시각화하는 모바일 앱",
+    period: "2026.02 - 현재",
+    duration: "지속 개선 중",
+    thumbnailUrl: "/fillit.png",
+    techStack: ["React Native", "Expo", "TypeScript", "Zustand"],
+    type: "personal",
+    teamSize: "개인 프로젝트",
+    role: "프론트엔드",
+    achievements: [],
+    overview: [
+      {
+        title: "연도 잔디 그리드",
+        details: [
+          "1월 1일부터 오늘까지의 날짜를 GitHub 잔디 형식의 그리드로 시각화",
+          "연도 전체 대비 현재 날짜의 진행률을 퍼센트로 표시",
+        ],
+      },
+      {
+        title: "목표일 관리",
+        details: [
+          "제목·시작일·목표일로 목표를 등록·수정·삭제 및 상세 조회",
+          "목표 기간에 해당하는 잔디 그리드를 별도로 시각화하여 진행 상황 확인",
+        ],
+      },
+      {
+        title: "Android 홈 화면 위젯",
+        details: [
+          "현재 연도 진행률을 Android 홈 화면 위젯으로 제공",
+          "자정(KST) 기준으로 위젯이 자동 갱신되어 항상 최신 진행률 표시",
+        ],
+      },
+      {
+        title: "다크 테마",
+        details: ["시스템 설정에 따라 다크/라이트 테마를 자동 적용"],
+      },
+    ],
+    tasks: [
+      {
+        title: "연도 잔디 그리드 구현",
+        images: ["/projects/fillit/main-1.jpg"],
+        details: [
+          "자정 이후 화면 재진입 시 오늘 날짜를 갱신해 항상 정확한 진행률이 표시되도록 했습니다.",
+          "윤년 여부에 따라 365/366일을 분기 처리하고, useMemo와 React.memo로 불필요한 재렌더링을 방지했습니다.",
+        ],
+      },
+      {
+        title: "목표일 관리 구현",
+        images: [
+          "/projects/fillit/objective-1.jpg",
+          "/projects/fillit/objective-2.jpg",
+          "/projects/fillit/objective-3.jpg",
+        ],
+        details: [
+          "AsyncStorage로 목표 CRUD를 구현하고, useRef로 콜백 내 stale closure를 방지해 항상 최신 데이터를 참조하도록 했습니다.",
+          "기준일·목표일 유효성 검사로 잘못된 날짜 입력을 방지하고, 목표 기간을 잔디 그리드에 별도 시각화했습니다.",
+          "expo-notifications로 목표 등록·수정 시 알림을 자동 등록하고, 삭제 시 취소했습니다.",
+        ],
+      },
+      {
+        title: "Android 홈 화면 위젯 구현",
+        images: ["/projects/fillit/widget-1.jpg"],
+        details: [
+          "react-native-android-widget으로 연도 모드·목표 모드 두 가지 위젯을 구현했습니다.",
+          "자정(KST) 자동 갱신을 Kotlin BroadcastReceiver와 AlarmManager로 처리하고, 재부팅 후에도 알람이 복원되도록 했습니다.",
+          "딥링크 스킴으로 위젯 클릭 시 앱 내 해당 화면으로 이동하고, 목표 삭제 시 해당 위젯을 자동으로 연도 모드로 전환했습니다.",
+        ],
+      },
+      {
+        title: "테마 시스템 구현",
+        images: [
+          "/projects/fillit/theme-1.jpg",
+          "/projects/fillit/theme-2.jpg",
+          "/projects/fillit/theme-3.jpg",
+        ],
+        details: [
+          "Zustand persist 미들웨어와 AsyncStorage를 조합해 light·dark·system 세 가지 테마 모드를 전역 관리하고 선택값을 유지했습니다.",
+          "system 모드에서는 useColorScheme으로 OS 설정을 읽어 자동 적용하고, useTheme 훅으로 색상 토큰을 컴포넌트에 전달했습니다.",
+        ],
+      },
+    ],
+    concerns: [
+      {
+        title: "위젯 자정 자동 갱신",
+        details: [
+          "React Native에서 앱이 백그라운드 상태일 때 JS 코드 실행에 제약이 있어, 자정에 위젯을 자동 갱신하는 로직을 구현하기 어려웠습니다.",
+          "Kotlin BroadcastReceiver와 AlarmManager로 자정(KST) 알람을 등록하고, BOOT_COMPLETED 이벤트를 수신해 재부팅 후에도 알람이 복원되도록 해결했습니다.",
+        ],
+      },
+      {
+        title: "AsyncStorage 콜백의 stale closure",
+        details: [
+          "AsyncStorage 기반 CRUD 콜백 내부에서 오래된 state를 참조하는 stale closure 문제가 발생해, 목표 삭제·수정 후 목록이 올바르게 반영되지 않았습니다.",
+          "state와 동기화된 useRef로 콜백에서 항상 최신 데이터를 참조하도록 수정해 해결했습니다.",
+        ],
+      },
+      {
+        title: "Expo 환경에서 native Android 모듈 통합",
+        details: [
+          "react-native-android-widget은 AndroidManifest 수정 등 native 설정이 필요한데, Expo managed workflow에서는 이를 직접 편집할 수 없었습니다.",
+          "Expo config plugin을 직접 작성해 빌드 시 native 설정이 자동으로 주입되도록 해결했습니다.",
+        ],
+      },
+    ],
+    retrospect: [
+      "처음으로 React Native로 모바일 앱을 개발하며 웹과 다른 빌드 환경과 네이티브 모듈 통합 방식을 경험했습니다. JS 레이어만으로 해결할 수 없는 문제에서 플랫폼에 맞는 도구를 선택하는 것이 중요하다는 점을 배웠습니다.",
+      "네이티브 설정을 수동으로 관리하면 환경이 달라질 때 누락이 생기기 쉽다는 것을 느꼈습니다. config plugin으로 빌드 시 자동 주입하면서, 빌드 환경의 재현성을 코드로 보장하는 것이 더 안정적이라는 점을 배웠습니다.",
+      "직접 매일 사용하는 앱이다 보니 실사용 중 발견한 불편함을 바로 개선할 수 있었습니다. 사용자 입장에서 기능을 바라보는 시각이 설계 결정에 도움이 되었습니다.",
     ],
   },
 ];
