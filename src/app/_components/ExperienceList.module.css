@@ -12,6 +12,8 @@
   padding: 28px;
   transition: all var(--transition-normal);
   box-shadow: var(--glass-highlight);
+  content-visibility: auto;
+  contain-intrinsic-size: 0 200px;
 }
 
 .card:hover {
