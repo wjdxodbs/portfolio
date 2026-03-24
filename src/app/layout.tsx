@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, JetBrains_Mono } from "next/font/google";
+import { IBM_Plex_Sans_KR, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
-const outfit = Outfit({
+const ibmPlexSansKR = IBM_Plex_Sans_KR({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
@@ -76,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${outfit.variable} ${jetbrainsMono.variable}`} data-scroll-behavior="smooth">
+    <html lang="ko" className={`${ibmPlexSansKR.variable} ${jetbrainsMono.variable}`} data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   );
