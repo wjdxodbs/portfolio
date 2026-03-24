@@ -3,8 +3,9 @@
 import { useTypewriter } from "@/app/_hooks/useTypewriter";
 import styles from "./TypewriterRole.module.css";
 
+const ROLE_TEXTS = ["Frontend Developer", "Web Engineer"] as const;
+
 export default function TypewriterRole() {
-  const ROLE_TEXTS = ["Frontend Developer", "Web Engineer"] as const;
   const displayRole = useTypewriter(ROLE_TEXTS);
 
   return (

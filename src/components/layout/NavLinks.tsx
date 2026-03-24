@@ -4,14 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./NavLinks.module.css";
 
+const NAV_ITEMS = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
 export default function NavLinks() {
   const pathname = usePathname();
-
-  const NAV_ITEMS = [
-    { href: "/", label: "Home" },
-    { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
-  ] as const;
 
   return (
     <ul className={styles.navList}>

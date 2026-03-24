@@ -4,6 +4,8 @@ import { useState } from "react";
 import styles from "./SkillCard.module.css";
 import type { Skill } from "@/app/_types/skill";
 
+const STAR_INDICES = [1, 2, 3, 4, 5] as const;
+
 interface SkillCardProps {
   skill: Skill;
 }
@@ -28,7 +30,7 @@ export default function SkillCard({ skill }: SkillCardProps) {
             role="img"
             aria-label={`숙련도 ${skill.level}/5`}
           >
-            {[1, 2, 3, 4, 5].map((star) => (
+            {STAR_INDICES.map((star) => (
               <span
                 key={star}
                 className={`${styles.star} ${
