@@ -16,7 +16,7 @@ export default function ExperienceTabs({
   onSelect,
 }: ExperienceTabsProps) {
   return (
-    <nav className={styles.tabs} aria-label="경험 카테고리" role="tablist">
+    <div className={styles.tabs} role="tablist" aria-label="경험 카테고리">
       {categories.map((category) => (
         <CtaButton
           key={category.id}
@@ -34,6 +34,6 @@ export default function ExperienceTabs({
           <span className={styles.tabLabel}>{category.label}</span>
         </CtaButton>
       ))}
-    </nav>
+    </div>
   );
 }
