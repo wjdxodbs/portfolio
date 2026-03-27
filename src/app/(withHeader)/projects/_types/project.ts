@@ -10,6 +10,7 @@ export interface Project {
   id: string;
   title: string;
   githubUrl?: string;
+  liveUrl?: string;
   description: string;
   period: string;
   duration: string;

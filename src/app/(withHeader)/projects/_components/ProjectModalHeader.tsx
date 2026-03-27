@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Globe } from "lucide-react";
 import type { Project } from "@/app/(withHeader)/projects/_types/project";
 import { PROJECT_TYPE_LABEL } from "@/app/_constants/labels";
 import TechBadge from "./TechBadge";
@@ -26,16 +27,27 @@ export default function ProjectModalHeader({ project }: ProjectModalHeaderProps)
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.githubButton}
+            className={styles.iconButton}
             aria-label={`${project.title} GitHub 저장소 열기`}
           >
             <Image
               src="/icons/github.svg"
               alt=""
-              width={20}
-              height={20}
+              width={18}
+              height={18}
               className={styles.githubIcon}
             />
+          </a>
+        )}
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.iconButton}
+            aria-label={`${project.title} 배포 사이트 열기`}
+          >
+            <Globe size={18} aria-hidden="true" />
           </a>
         )}
       </div>
