@@ -235,6 +235,7 @@ export const projects: Project[] = [
     id: "project-3",
     title: "Portfolio",
     githubUrl: "https://github.com/wjdxodbs/portfolio",
+    liveUrl: "https://wjdxodbs-portfolio.vercel.app/",
     description: "개인 포트폴리오 웹사이트 (현재 사이트)",
     period: "2025.11 - 현재",
     duration: "지속 개선 중",
@@ -328,6 +329,7 @@ export const projects: Project[] = [
     id: "project-4",
     title: "CINEMA",
     githubUrl: "https://github.com/wjdxodbs/cinema",
+    liveUrl: "https://wjdxodbs-cinema.vercel.app/",
     description: "TMDB API 기반 영화/TV 탐색 서비스",
     period: "2026.02 - 2026.02",
     duration: "총 2주",
@@ -530,6 +532,104 @@ export const projects: Project[] = [
       "처음으로 React Native로 모바일 앱을 개발하며 웹과 다른 빌드 환경과 네이티브 모듈 통합 방식을 경험했습니다. JS 레이어만으로 해결할 수 없는 문제에서 플랫폼에 맞는 도구를 선택하는 것이 중요하다는 점을 배웠습니다.",
       "네이티브 설정을 수동으로 관리하면 환경이 달라질 때 누락이 생기기 쉽다는 것을 느꼈습니다. config plugin으로 빌드 시 자동 주입하면서, 빌드 환경의 재현성을 코드로 보장하는 것이 더 안정적이라는 점을 배웠습니다.",
       "직접 매일 사용하는 앱이다 보니 실사용 중 발견한 불편함을 바로 개선할 수 있었습니다. 사용자 입장에서 기능을 바라보는 시각이 설계 결정에 도움이 되었습니다.",
+    ],
+  },
+  {
+    id: "project-6",
+    title: "Craftkit",
+    githubUrl: "https://github.com/wjdxodbs/craftkit",
+    liveUrl: "https://wjdxodbs-craftkit.vercel.app/",
+    description: "가입 없이 브라우저에서 바로 쓰는 개발자용 웹 도구 모음",
+    period: "2026.03 - 현재",
+    duration: "지속 개선 중",
+    thumbnailUrl: "/craftkit.png",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+    type: "personal",
+    teamSize: "개인 프로젝트",
+    role: "프론트엔드",
+    achievements: [],
+    overview: [
+      {
+        title: "Favicon 생성기",
+        details: [
+          "업로드한 이미지를 favicon.ico, Apple Touch Icon, Android 아이콘으로 변환",
+          "manifest.json과 함께 ZIP으로 묶어 한 번에 다운로드 가능",
+        ],
+      },
+      {
+        title: "OG 이미지 생성기",
+        details: [
+          "배경색, 로고, 제목, 부제목을 자유롭게 조합해 1200×630 PNG 생성",
+          "SNS 공유 미리보기 규격에 맞춘 소셜 카드 이미지를 즉시 다운로드 가능",
+        ],
+      },
+      {
+        title: "이미지 변환 · 리사이저",
+        details: [
+          "PNG, JPEG, WebP 포맷 변환 및 품질 조절 후 다운로드",
+          "원하는 너비·높이를 지정해 리사이즈하여 다운로드",
+        ],
+      },
+    ],
+    tasks: [
+      {
+        title: "Canvas API 기반 이미지 처리 구현",
+        details: [
+          "서버 업로드 없이 브라우저에서만 이미지를 처리하기 위해 Canvas API를 선택했고, 변환·리사이즈 모두 toBlob()으로 PNG/JPEG/WebP Blob을 추출하는 구조로 통일했습니다.",
+          "canvas.toBlob()의 콜백 기반 API를 Promise로 래핑해 async/await로 일관되게 사용할 수 있도록 했고, Blob이 null로 반환되는 실패 케이스도 명시적으로 reject 처리했습니다.",
+        ],
+      },
+      {
+        title: "파비콘 패키지 생성 구현",
+        details: [
+          "ICO 파일을 외부 라이브러리 없이 직접 바이너리로 인코딩했습니다. ICONDIR 헤더(6바이트)와 이미지별 디렉토리 엔트리(16바이트)를 직접 조립하고, 각 PNG 데이터의 오프셋을 계산해 순서대로 기록하는 방식으로 구현했습니다.",
+          "16·32·48px PNG를 Promise.all()로 병렬 생성한 뒤 ICO로 묶고, Apple Touch Icon(180px)·Android 아이콘(192·512px)·manifest.json과 함께 fflate로 ZIP 압축해 Uint8Array로 생성했습니다.",
+          "URL.createObjectURL()로 다운로드 링크를 동적으로 생성하고 클릭 후 즉시 revokeObjectURL()로 해제해 메모리 누수를 방지했습니다.",
+        ],
+      },
+      {
+        title: "OG 이미지 Canvas 렌더링 구현",
+        details: [
+          "배경색·로고·제목(64px bold)·부제목(32px)을 1200×630 캔버스에 합성하고, Inter·Serif·Mono 세 가지 폰트를 선택할 수 있도록 구현했습니다.",
+          "배경색의 sRGB 상대 휘도를 계산해 밝은 배경이면 어두운 텍스트, 어두운 배경이면 밝은 텍스트를 자동으로 적용해 가독성을 확보했습니다.",
+          "config 상태와 로고 이미지를 useEffect 의존성으로 등록해, 옵션이 변경될 때마다 캔버스를 자동으로 다시 그려 실시간 미리보기가 반영되도록 했습니다.",
+        ],
+      },
+      {
+        title: "FSD 아키텍처 기반 프로젝트 구조 설계",
+        details: [
+          "Feature-Sliced Design을 적용해 app(라우팅), views(페이지 조합), widgets(독립 UI 블록), features(기능 모듈), shared(공통 유틸·컴포넌트) 레이어로 분리했습니다.",
+          "도구가 늘어날 때 기존 레이어를 수정하지 않고 features 레이어에 독립 모듈만 추가하면 되는 구조로 확장성을 확보했습니다.",
+        ],
+      },
+    ],
+    concerns: [
+      {
+        title: "이미지 처리 방식 선택",
+        details: [
+          "서버에서 처리하면 구현이 단순하지만 사용자 이미지가 외부로 전송된다는 부담이 있어, 브라우저에서만 처리하는 방향을 선택했습니다.",
+          "Canvas API와 fflate만으로 변환·리사이즈·ZIP 패키징까지 클라이언트 내에서 완결할 수 있어 서버 없이도 충분하다고 판단했습니다.",
+        ],
+      },
+      {
+        title: "FSD 레이어 경계 설정",
+        details: [
+          "도구별 기능이 늘어날수록 컴포넌트와 로직이 어느 레이어에 위치해야 하는지 기준이 모호해지는 문제가 있었습니다.",
+          "FSD의 단방향 의존성 규칙(상위 레이어가 하위 레이어만 참조)을 기준으로 경계를 명확히 하고, 도구별 진입점은 features, 페이지 조합은 views에 고정했습니다.",
+        ],
+      },
+      {
+        title: "포맷별 품질 옵션 노출 기준",
+        details: [
+          "PNG는 무손실 포맷이라 quality 슬라이더가 의미 없는데, 모든 포맷에 동일하게 노출하면 사용자에게 혼란을 줄 수 있었습니다.",
+          "JPG·WebP 등 손실 포맷에서만 슬라이더를 표시하고 PNG 선택 시 숨기도록 조건부 렌더링을 적용했습니다.",
+        ],
+      },
+    ],
+    retrospect: [
+      "FSD 아키텍처를 적용하면서, 레이어 간 경계를 명확히 지키는 것이 단순한 규칙 이상의 의미가 있다는 점을 다시 확인했습니다. 초기에 기준을 잡아두니 기능이 추가될 때마다 어디에 코드를 놓을지 고민하는 시간이 줄었습니다.",
+      "서버 없이 클라이언트 단에서 이미지 처리를 완결하는 구조를 설계하면서, Canvas API와 Blob 기반 파일 처리에 대한 이해가 깊어졌습니다. 브라우저가 제공하는 API만으로도 충분히 유의미한 도구를 만들 수 있다는 점을 배웠습니다.",
+      "이전 프로젝트에서 base64 변환 방식의 한계를 느끼고 이번에 URL.createObjectURL()을 적용해봤는데, 변환 없이 Blob을 직접 다운로드 링크로 연결할 수 있어 더 간결했습니다.",
     ],
   },
 ];
