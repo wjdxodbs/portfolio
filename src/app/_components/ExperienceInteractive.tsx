@@ -26,7 +26,12 @@ export default function ExperienceInteractive() {
         aria-label={currentCategory?.label}
         className={styles.content}
       >
-        {currentCategory && <ExperienceList items={currentCategory.items} />}
+        {currentCategory && (
+          <ExperienceList
+            items={currentCategory.items}
+            categoryLabel={currentCategory.label}
+          />
+        )}
       </div>
     </>
   );

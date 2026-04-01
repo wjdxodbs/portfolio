@@ -3,29 +3,32 @@ import styles from "./ExperienceList.module.css";
 
 interface ExperienceListProps {
   items: ExperienceItem[];
+  categoryLabel: string;
 }
 
-export default function ExperienceList({ items }: ExperienceListProps) {
+export default function ExperienceList({
+  items,
+  categoryLabel,
+}: ExperienceListProps) {
   return (
-    <ul className={styles.itemsGrid}>
+    <ul className={styles.list}>
       {items.map((item, idx) => (
-        <li key={idx} className={styles.card}>
-          <div className={styles.cardHeader}>
-            <span className={styles.period}>{item.period}</span>
+        <li key={idx} className={styles.row}>
+          <span className={styles.period}>{item.period}</span>
+          <div className={styles.main}>
+            <span className={styles.title}>{item.title}</span>
+            <span className={styles.org}>{item.organization}</span>
+            {item.highlights.length > 0 && (
+              <ul className={styles.highlights}>
+                {item.highlights.map((h, i) => (
+                  <li key={i} className={styles.highlight}>
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-
-          <h3 className={styles.cardTitle}>{item.title}</h3>
-          <p className={styles.organization}>{item.organization}</p>
-
-          {item.highlights.length > 0 && (
-            <ul className={styles.highlights}>
-              {item.highlights.map((highlight, idx) => (
-                <li key={idx} className={styles.highlightItem}>
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-          )}
+          <span className={styles.badge}>{categoryLabel}</span>
         </li>
       ))}
     </ul>
