@@ -11,7 +11,7 @@
   inset: 0;
   background: radial-gradient(
     ellipse at 90% 50%,
-    rgba(0, 255, 136, 0.05) 0%,
+    rgba(129, 140, 248, 0.05) 0%,
     transparent 60%
   );
   pointer-events: none;
@@ -19,20 +19,28 @@
 
 .content {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 60px;
-  align-items: center;
+  grid-template-columns: 200px 1fr;
+  gap: 52px;
+  align-items: start;
 }
 
 .imageContainer {
-  width: 300px;
+  width: 200px;
   aspect-ratio: 3 / 4;
   background: var(--background-secondary);
-  border: none;
-  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
-  z-index: 1;
+  flex-shrink: 0;
+}
+
+.imageContainer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(13, 13, 17, 0.5) 100%);
+  pointer-events: none;
 }
 
 .profileImage {
@@ -48,52 +56,78 @@
   gap: 20px;
 }
 
-.intro {
-  font-size: 1.3rem;
-  line-height: 1.7;
-  font-weight: 500;
+.quote {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+  color: var(--foreground);
 }
 
-.highlight {
+.accent {
   color: var(--accent);
+  font-style: italic;
 }
 
 .description {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 0.95rem;
+  line-height: 1.85;
   color: var(--foreground-secondary);
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.infoCell {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.infoCell:nth-child(even) {
+  border-right: none;
+}
+
+.infoCell:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+
+.infoKey {
+  font-size: 0.65rem;
+  color: var(--foreground-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.infoVal {
+  font-size: 0.875rem;
+  color: var(--foreground-secondary);
+  font-weight: 500;
+}
+
+.infoValAccent {
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
   .content {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
     justify-items: center;
   }
 
   .imageContainer {
-    max-width: 280px;
+    width: 160px;
   }
 
-  .intro {
-    font-size: 1.2rem;
-  }
-
-  .description {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .imageContainer {
-    max-width: 250px;
-  }
-
-  .intro {
-    font-size: 1.1rem;
-  }
-
-  .description {
-    font-size: 0.9rem;
+  .quote {
+    font-size: 1.3rem;
   }
 }
