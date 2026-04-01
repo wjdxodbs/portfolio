@@ -1,24 +1,24 @@
 :root {
   /* Colors */
-  --background: #0a0a0a;
-  --background-secondary: #111111;
-  --background-tertiary: #1a1a1a;
-  --foreground: #ededed;
-  --foreground-secondary: #a0a0a0;
-  --foreground-muted: #767676;
-  --foreground-bright: #ffffff;
+  --background: #0d0d11;
+  --background-secondary: #1a1a22;
+  --background-tertiary: #24242e;
+  --foreground: #e8e8f0;
+  --foreground-secondary: #94949f;
+  --foreground-muted: #8b8b9f;
+  --foreground-bright: #f0f0f5;
 
-  /* Accent Colors */
-  --accent: #00ff88;
-  --accent-hover: #00cc6e;
-  --accent-glow: rgba(0, 255, 136, 0.15);
-  --accent-glow-secondary: rgba(0, 212, 255, 0.1);
-  --accent-border: rgba(0, 255, 136, 0.3);
-  --accent-shadow: rgba(0, 255, 136, 0.12);
+  /* Accent Colors — green replaced with indigo */
+  --accent: #818cf8;
+  --accent-hover: #6366f1;
+  --accent-glow: rgba(129, 140, 248, 0.12);
+  --accent-glow-secondary: rgba(129, 140, 248, 0.08);
+  --accent-border: rgba(129, 140, 248, 0.25);
+  --accent-shadow: rgba(129, 140, 248, 0.1);
 
   /* Borders */
-  --border: #2a2a2a;
-  --border-hover: #3a3a3a;
+  --border: #24242e;
+  --border-hover: #2a2a36;
 
   /* Extended Background */
   --overlay-bg: rgba(0, 0, 0, 0.55);
@@ -67,10 +67,11 @@
   --scale-lg: 1.12;
 
   /* glass */
-  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   --card-glow:
-    0 0 0 1px rgba(0, 255, 136, 0.2), 0 0 20px rgba(0, 255, 136, 0.15),
-    0 4px 24px rgba(0, 255, 136, 0.1);
+    0 0 0 1px rgba(129, 140, 248, 0.2),
+    0 0 20px rgba(129, 140, 248, 0.12),
+    0 4px 24px rgba(129, 140, 248, 0.08);
 }
 
 * {
