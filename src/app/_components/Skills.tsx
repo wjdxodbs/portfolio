@@ -7,11 +7,7 @@ export default function Skills() {
   return (
     <section id="skills" className={styles.skills}>
       <div className="container">
-        <SectionHeader
-          label="Skills"
-          title="기술 스택"
-          subtitle="각 기술을 클릭하면 상세 설명을 확인할 수 있습니다."
-        />
+        <SectionHeader label="Skills" index="02" />
 
         <ul className={styles.skillsGrid}>
           {skills.map((skill) => (

@@ -6,10 +6,7 @@ export default function About() {
   return (
     <section id="about" className={styles.about}>
       <div className="container">
-        <SectionHeader
-          label="About Me"
-          title="저를 소개합니다"
-        />
+        <SectionHeader label="About" index="01" />
 
         <div className={styles.content}>
           <figure className={styles.imageContainer}>

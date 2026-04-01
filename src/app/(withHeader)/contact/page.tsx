@@ -29,12 +29,7 @@ export default function ContactPage() {
   return (
     <div className={`page-layout ${styles.page}`}>
       <div className="container">
-        <SectionHeader
-          label="Contact"
-          title="연락하기"
-          subtitle="궁금한 점이 있으시거나 함께 일하고 싶으시다면 언제든 연락해 주세요!"
-          as="h1"
-        />
+        <SectionHeader label="Contact" as="h1" />
 
         <div className={styles.content}>
           <CardSection title="연락처 정보">

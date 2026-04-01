@@ -1,62 +1,30 @@
 .header {
-  text-align: center;
-  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.index {
+  font-size: 0.65rem;
+  color: var(--foreground-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  flex-shrink: 0;
 }
 
 .label {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  text-shadow:
-    0 0 12px rgba(0, 255, 136, 0.7),
-    0 0 28px rgba(0, 255, 136, 0.3);
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 1.1rem;
+  font-size: 0.65rem;
   color: var(--foreground-secondary);
-  max-width: 600px;
-  margin: 0 auto;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-  .header {
-    margin-bottom: 40px;
-  }
-
-  .title {
-    font-size: 2.25rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    margin-bottom: 30px;
-  }
-
-  .label {
-    font-size: 0.7rem;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 0.9rem;
-  }
+.rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
 }
