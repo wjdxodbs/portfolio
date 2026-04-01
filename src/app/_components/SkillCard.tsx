@@ -1,75 +1,37 @@
-"use client";
-
-import { useState } from "react";
-import styles from "./SkillCard.module.css";
 import type { Skill } from "@/app/_types/skill";
-
-const STAR_INDICES = [1, 2, 3, 4, 5] as const;
+import styles from "./SkillCard.module.css";
 
 interface SkillCardProps {
   skill: Skill;
 }
 
 export default function SkillCard({ skill }: SkillCardProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleToggle = () => setIsOpen(!isOpen);
-
   return (
-    <li className={`${styles.skillCard} ${isOpen ? styles.skillCardOpen : ""}`}>
-      <button
-        className={styles.skillHeader}
-        onClick={handleToggle}
-        aria-expanded={isOpen}
-        aria-label={`${skill.name} 세부 내용 ${isOpen ? "접기" : "펼치기"}`}
-      >
-        <div className={styles.skillMain}>
-          <span className={styles.skillName}>{skill.name}</span>
-          <div
-            className={styles.skillLevel}
-            role="img"
-            aria-label={`숙련도 ${skill.level}/5`}
-          >
-            {STAR_INDICES.map((star) => (
-              <span
-                key={star}
-                className={`${styles.star} ${
-                  star <= skill.level ? styles.starFilled : ""
-                }`}
-                aria-hidden="true"
-              >
-                ★
-              </span>
-            ))}
-            <span className={styles.levelText} aria-hidden="true">{skill.level}/5</span>
-          </div>
-        </div>
-        <span
-          className={`${styles.expandIcon} ${
-            isOpen ? styles.expandIconOpen : ""
-          }`}
-          aria-hidden="true"
+    <article className={styles.card}>
+      <div className={styles.header}>
+        <span className={styles.name}>{skill.name}</span>
+        <div
+          className={styles.level}
+          role="img"
+          aria-label={`숙련도 ${skill.level} / 5`}
         >
-          ▼
-        </span>
-      </button>
-
-      <div
-        className={`${styles.skillContent} ${
-          isOpen ? styles.skillContentOpen : ""
-        }`}
-      >
-        <div className={styles.capabilities}>
-          <ul className={styles.capabilitiesList}>
-            {skill.capabilities.map((cap, idx) => (
-              <li key={idx} className={styles.capabilityItem}>
-                <span className={styles.checkIcon}>✓</span>
-                <span className={styles.capabilityText}>{cap}</span>
-              </li>
-            ))}
-          </ul>
+          {Array.from({ length: 5 }, (_, i) => (
+            <span
+              key={i}
+              className={i < skill.level ? styles.dotFilled : styles.dot}
+              aria-hidden="true"
+            />
+          ))}
         </div>
       </div>
-    </li>
+
+      <ul className={styles.caps}>
+        {skill.capabilities.map((cap, i) => (
+          <li key={i} className={styles.cap}>
+            {cap}
+          </li>
+        ))}
+      </ul>
+    </article>
   );
 }
