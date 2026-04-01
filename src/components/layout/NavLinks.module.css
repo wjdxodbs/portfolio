@@ -20,8 +20,8 @@
 
 .navLink.active {
   color: var(--accent);
-  background: rgba(0, 255, 136, 0.08);
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+  background: rgba(129, 140, 248, 0.08);
+  text-shadow: 0 0 10px rgba(129, 140, 248, 0.6);
 }
 
 @media (max-width: 768px) {
