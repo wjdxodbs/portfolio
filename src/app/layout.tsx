@@ -46,12 +46,13 @@ export const metadata: Metadata = {
     siteName: "정태윤 포트폴리오",
     locale: "ko_KR",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "정태윤 | Frontend Developer Portfolio",
     description: "프론트엔드 개발자 정태윤의 포트폴리오입니다.",
-    images: [`${SITE_URL}/id_photo.jpg`],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
