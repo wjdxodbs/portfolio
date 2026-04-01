@@ -32,8 +32,6 @@
   color: var(--accent);
   font-weight: 600;
   margin-bottom: 14px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   gap: 10px;
