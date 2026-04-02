@@ -1,7 +1,25 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+}
+
+.cardWrapper {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 1024px) {

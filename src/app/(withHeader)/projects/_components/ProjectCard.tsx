@@ -35,18 +35,13 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
             {PROJECT_TYPE_LABEL[project.type]}
           </span>
           <div className={styles.thumbnailOverlay}>
-            <span className={styles.overlayText}>클릭하여 자세히 보기</span>
+            <span className={styles.overlayText}>자세히 보기</span>
           </div>
         </ProjectThumbnail>
 
         <div className={styles.content}>
           <h3 className={styles.title}>{project.title}</h3>
           <p className={styles.description}>{project.description}</p>
-
-          <div className={styles.meta}>
-            <span className={styles.period}>{project.period}</span>
-            <span className={styles.duration}>{project.duration}</span>
-          </div>
 
           <TechBadge techStack={project.techStack} variant="icon" />
         </div>

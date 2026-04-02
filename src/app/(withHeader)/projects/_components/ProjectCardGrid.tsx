@@ -29,12 +29,14 @@ export default function ProjectCardGrid() {
   return (
     <>
       <section className={styles.grid}>
-        {projects.map((project) => (
-          <ProjectCard
+        {projects.map((project, idx) => (
+          <div
             key={project.id}
-            project={project}
-            onClick={handleCardClick}
-          />
+            className={styles.cardWrapper}
+            style={{ animationDelay: `${idx * 80}ms` }}
+          >
+            <ProjectCard project={project} onClick={handleCardClick} />
+          </div>
         ))}
       </section>
 

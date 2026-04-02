@@ -2,7 +2,7 @@
 .wrapper {
   position: relative;
   width: 100%;
-  background: var(--background-tertiary);
+  background: var(--background);
   overflow: hidden;
 }
 

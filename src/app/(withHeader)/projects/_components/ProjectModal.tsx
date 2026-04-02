@@ -48,7 +48,7 @@ export default function ProjectModal({
 
   if (!project) return null;
 
-  const modalClass = styles.modal;
+  const modalClass = `${styles.modal} ${isClosing ? styles.modalClosing : ""}`;
 
   const modalContent = (
     <div

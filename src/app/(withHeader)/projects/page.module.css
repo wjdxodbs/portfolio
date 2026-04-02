@@ -1,12 +1,17 @@
 .page {
   position: relative;
+  overflow: hidden;
 }
 
 .page::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 15% 15%, rgba(129, 140, 248, 0.05) 0%, transparent 50%);
+  background: radial-gradient(
+    ellipse 70% 50% at 80% 0%,
+    rgba(129, 140, 248, 0.08) 0%,
+    transparent 100%
+  );
   pointer-events: none;
   z-index: 0;
 }
