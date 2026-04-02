@@ -1,15 +1,14 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import {
   contactInfo,
   socialLinks,
 } from "@/app/(withHeader)/contact/_constants/contact";
 import type { Metadata } from "next";
-import CardSection from "./_components/CardSection";
 import CopyButton from "./_components/CopyButton";
 import CtaButton from "@/components/ui/CtaButton";
 import { Mail } from "lucide-react";
 import SectionHeader from "@/components/common/SectionHeader";
+import AnimateOnScroll from "@/components/common/AnimateOnScroll";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
@@ -25,92 +24,77 @@ export const metadata: Metadata = {
   },
 };
 
+const emailInfo = contactInfo.find((c) => c.label === "Email")!;
+
 export default function ContactPage() {
   return (
     <div className={`page-layout ${styles.page}`}>
       <div className="container">
         <SectionHeader label="Contact" as="h1" />
 
-        <div className={styles.content}>
-          <CardSection title="연락처 정보">
-            <ul className={styles.contactList}>
-              {contactInfo.map((item) => (
-                <li key={item.label} className={styles.contactItem}>
-                  <span className={styles.iconBox}>{item.icon}</span>
-                  <div className={styles.contactInfo}>
-                    <span className={styles.contactLabel}>{item.label}</span>
-                    {item.href ? (
-                      <a href={item.href} className={styles.contactValue}>
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span className={styles.contactValueText}>
-                        {item.value}
-                      </span>
-                    )}
-                  </div>
-                  {["Email", "Phone"].includes(item.label) && (
-                    <CopyButton value={item.value} />
-                  )}
-                </li>
-              ))}
-            </ul>
-          </CardSection>
-
-          <CardSection title="소셜 링크">
-            <ul className={styles.socialList}>
-              {socialLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.socialCard}
-                  >
-                    <span className={styles.iconBox} aria-hidden>
-                      {link.iconUrl ? (
-                        <Image
-                          src={link.iconUrl}
-                          alt=""
-                          width={24}
-                          height={24}
-                        />
-                      ) : (
-                        link.icon
-                      )}
-                    </span>
-                    <div className={styles.socialInfo}>
-                      <span className={styles.socialName}>{link.name}</span>
-                      <span className={styles.socialDescription}>
-                        {link.description}
-                      </span>
-                    </div>
-                    <span className={styles.arrow}>→</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </CardSection>
-        </div>
-
-        <aside className={styles.cta}>
-          <div className={styles.ctaContent}>
-            <h2 className={styles.ctaTitle}>함께 일하고 싶으시다면?</h2>
-            <p className={styles.ctaDescription}>
+        <div className={styles.grid}>
+          {/* 왼쪽: 헤드라인 + 소개 + 버튼 */}
+          <AnimateOnScroll className={styles.left}>
+            <h2 className={styles.headline}>
+              함께 만들어요,
+              <br />
+              <em className={styles.headlineEm}>지금 연락주세요.</em>
+            </h2>
+            <p className={styles.desc}>
               새로운 기회를 찾고 있습니다. 프론트엔드 개발자로서 팀에 기여하고
               함께 성장하고 싶습니다.
             </p>
-            <CtaButton
-              as="a"
-              href={contactInfo.find((c) => c.label === "Email")?.href ?? ""}
-              variant="primary"
-              size="lg"
-            >
-              <Mail size={16} aria-hidden="true" />
-              이메일 보내기
-            </CtaButton>
+            <div className={styles.btns}>
+              <CtaButton
+                as="a"
+                href={emailInfo.href ?? ""}
+                variant="primary"
+                size="md"
+              >
+                <Mail size={16} aria-hidden="true" />
+                이메일 보내기
+              </CtaButton>
+            </div>
+          </AnimateOnScroll>
+
+          {/* 오른쪽: 연락처 정보 테이블 */}
+          <div className={styles.right}>
+            {[...contactInfo, ...socialLinks].map((item, idx) => (
+              <AnimateOnScroll
+                key={"label" in item ? item.label : item.name}
+                className={styles.row}
+                delay={100 + idx * 60}
+              >
+                <span className={styles.rowLabel}>
+                  {"label" in item ? item.label : item.name}
+                </span>
+                {"href" in item && item.href && !("displayLabel" in item) ? (
+                  <a href={item.href} className={styles.rowLink}>
+                    {item.value}
+                  </a>
+                ) : "displayLabel" in item ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.rowLink}
+                  >
+                    {item.displayLabel}
+                  </a>
+                ) : (
+                  <span className={styles.rowValue}>
+                    {"value" in item ? item.value : ""}
+                  </span>
+                )}
+                {"label" in item && ["Email", "Phone"].includes(item.label) ? (
+                  <CopyButton value={item.value} />
+                ) : (
+                  <span />
+                )}
+              </AnimateOnScroll>
+            ))}
           </div>
-        </aside>
+        </div>
       </div>
     </div>
   );

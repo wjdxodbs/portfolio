@@ -11,4 +11,5 @@ export interface SocialLink {
   iconUrl?: string;
   href: string;
   description: string;
+  displayLabel: string;
 }

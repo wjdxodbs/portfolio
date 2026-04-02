@@ -28,6 +28,7 @@ export const socialLinks: SocialLink[] = [
     iconUrl: "/icons/github.svg",
     href: "https://github.com/wjdxodbs",
     description: "코드와 프로젝트를 확인하세요",
+    displayLabel: "github.com/wjdxodbs",
   },
 
   {
@@ -35,5 +36,6 @@ export const socialLinks: SocialLink[] = [
     icon: "📝",
     href: "https://exultant-dish-a7c.notion.site/fbc464f7f2454acb89e173cdc6222fea?source=copy_link",
     description: "개발 관련 글을 작성합니다",
+    displayLabel: "Notion 블로그",
   },
 ];
