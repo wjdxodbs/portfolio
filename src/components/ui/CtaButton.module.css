@@ -52,7 +52,7 @@
 
 /* secondary */
 .secondary {
-  background: transparent;
+  background: var(--background-secondary);
   color: var(--foreground);
   border: 1px solid var(--border);
 }

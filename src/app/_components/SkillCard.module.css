@@ -6,11 +6,14 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: border-color var(--transition-normal);
+  transition:
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
 .card:hover {
-  border-color: var(--accent-border);
+  border-color: rgba(129, 140, 248, 0.5);
+  box-shadow: var(--card-glow);
 }
 
 .header {
@@ -54,7 +57,7 @@
 }
 
 .cap {
-  font-size: 0.76rem;
+  font-size: 0.82rem;
   color: var(--foreground-muted);
   line-height: 1.65;
   padding-left: 12px;
