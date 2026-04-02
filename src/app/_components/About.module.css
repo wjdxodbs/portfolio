@@ -1,20 +1,7 @@
 .about {
   padding: var(--section-padding) 0;
   background: var(--background);
-  position: relative;
   border-top: 1px solid var(--border);
-}
-
-.about::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at 90% 50%,
-    rgba(129, 140, 248, 0.05) 0%,
-    transparent 60%
-  );
-  pointer-events: none;
 }
 
 .content {
@@ -69,10 +56,40 @@
   font-style: italic;
 }
 
-.description {
-  font-size: 0.95rem;
-  line-height: 1.85;
+.capabilities {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.capLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+}
+
+.capList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.capList li {
+  font-size: 0.9rem;
+  line-height: 1.7;
   color: var(--foreground-secondary);
+  padding-left: 16px;
+  position: relative;
+}
+
+.capList li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
 }
 
 .infoGrid {

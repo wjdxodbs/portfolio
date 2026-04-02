@@ -1,20 +1,7 @@
 .skills {
   padding: var(--section-padding) 0;
-  background: var(--background-secondary);
-  position: relative;
+  background: var(--background);
   border-top: 1px solid var(--border);
-}
-
-.skills::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at 10% 50%,
-    rgba(129, 140, 248, 0.05) 0%,
-    transparent 60%
-  );
-  pointer-events: none;
 }
 
 .category {
@@ -45,20 +32,24 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  columns: 3;
+  column-gap: 10px;
   list-style: none;
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.grid li {
+  break-inside: avoid;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 600px) {
   .grid {
-    grid-template-columns: 1fr;
+    columns: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    columns: 1;
   }
 }

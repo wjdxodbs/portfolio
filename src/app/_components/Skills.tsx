@@ -2,6 +2,7 @@ import styles from "./Skills.module.css";
 import { skills } from "@/app/_constants/skills";
 import SkillCard from "./SkillCard";
 import SectionHeader from "@/components/common/SectionHeader";
+import AnimateOnScroll from "@/components/common/AnimateOnScroll";
 
 const CATEGORIES: Record<string, string[]> = {
   Core: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"],
@@ -15,10 +16,10 @@ export default function Skills() {
       <div className="container">
         <SectionHeader label="Skills" index="02" />
 
-        {Object.entries(CATEGORIES).map(([category, names]) => {
+        {Object.entries(CATEGORIES).map(([category, names], idx) => {
           const categorySkills = skills.filter((s) => names.includes(s.name));
           return (
-            <div key={category} className={styles.category}>
+            <AnimateOnScroll key={category} className={styles.category} delay={idx * 100}>
               <h3 className={styles.categoryTitle}>{category}</h3>
               <ul className={styles.grid}>
                 {categorySkills.map((skill) => (
@@ -27,7 +28,7 @@ export default function Skills() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </AnimateOnScroll>
           );
         })}
       </div>
