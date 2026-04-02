@@ -286,7 +286,7 @@ export const projects: Project[] = [
       {
         title: "접근성 구현",
         details: [
-          '탭에 role="tablist"/"tab"/"tabpanel", 아코디언에 aria-expanded, 모달에 role="dialog"와 aria-modal을 적용해 키보드와 보조 기술로 각 컴포넌트를 탐색할 수 있도록 했습니다.',
+          '모달에 role="dialog"와 aria-modal을 적용해 키보드와 보조 기술로 모달을 탐색할 수 있도록 했습니다.',
           "모달 내 포커스 트랩을 구현해 Tab/Shift+Tab이 모달 안에서만 순환하고, Escape로 닫힌 뒤 포커스가 열기 버튼으로 복귀하도록 처리했습니다.",
         ],
       },
@@ -294,6 +294,14 @@ export const projects: Project[] = [
         title: "디자인 시스템 구축",
         details: [
           "색상, 간격, 애니메이션 지속 시간부터 카드 패턴까지 반복 사용되는 값을 CSS 변수로 정의해 컴포넌트 간 일관된 스타일을 유지하고 수정 범위를 최소화했습니다.",
+        ],
+      },
+      {
+        title: "스크롤 애니메이션",
+        details: [
+          "IntersectionObserver 기반 AnimateOnScroll 컴포넌트를 구현해, 뷰포트 진입 시 fadeUp 전환이 트리거되도록 했습니다.",
+          "Server Component를 Client Component로 전환하지 않고, 클라이언트 로직만 담은 AnimateOnScroll 래퍼로 감싸 서버 컴포넌트 구조를 유지했습니다.",
+          "About·Skills·Experience·Contact 등 각 섹션에 stagger delay를 적용해 순차적인 등장 흐름을 구성했습니다.",
         ],
       },
     ],
@@ -317,6 +325,13 @@ export const projects: Project[] = [
         details: [
           "opacity: 0으로 초기 상태를 설정한 요소에 globals.css의 애니메이션을 참조했는데, 해당 요소들이 화면에 나타나지 않는 문제가 발생했습니다.",
           "CSS Modules는 @keyframes 이름을 로컬 스코프로 처리하기 때문에, 다른 파일에 정의된 keyframes를 참조할 수 없었습니다. 이를 해결하기 위해 사용하는 각 .module.css 파일 내에 @keyframes를 직접 정의하는 방식으로 수정했습니다.",
+        ],
+      },
+      {
+        title: "Server Component에서 스크롤 애니메이션 적용",
+        details: [
+          "IntersectionObserver를 직접 사용하려면 해당 컴포넌트를 Client Component로 전환해야 했는데, 기존 섹션 컴포넌트들의 서버 컴포넌트 구조를 바꾸고 싶지 않았습니다.",
+          "클라이언트 로직만 담은 AnimateOnScroll 래퍼 컴포넌트를 별도로 만들어, 서버 컴포넌트 내부에서 해당 래퍼로 감싸는 방식으로 서버 컴포넌트 구조를 유지하면서 스크롤 애니메이션을 적용했습니다.",
         ],
       },
     ],
