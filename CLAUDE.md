@@ -33,7 +33,7 @@ Shared components live in `src/components/` (layout, ui, common, icons).
 
 ### Server vs Client Components
 - Default to **React Server Components**. Add `"use client"` only for components with event handlers or hooks.
-- When a section needs interactivity, split it: keep the outer section as a Server Component and extract only the interactive part into a `*Interactive.tsx` Client Component (e.g., `Experience.tsx` → `ExperienceInteractive.tsx`).
+- When a section needs interactivity, split it: keep the outer section as a Server Component and extract only the interactive part into a separate Client Component (e.g., `Hero.tsx` stays server, `HeroStats.tsx` is a `"use client"` component for the counter animation).
 - All interactive components (modals, cards with toggle, copy buttons, typewriter) are client components.
 - Heavy client-only components (e.g., `ProjectModal`) use `next/dynamic` with `ssr: false` to exclude them from the initial bundle.
 
@@ -42,7 +42,7 @@ Shared components live in `src/components/` (layout, ui, common, icons).
 - CSS class names use **camelCase** (e.g., `.skillCard`) for dot-notation access (`styles.skillCard`).
 - Design tokens (colors, spacing, etc.) are defined as CSS variables in `globals.css`. Always use `var(--token-name)` instead of hardcoded values.
 - Badge/chip padding uses `--badge-padding-sm` (3px 8px) or `--badge-padding-md` (4px 10px). Pick the appropriate size — don't hardcode.
-- **Dark theme shadow policy**: black `box-shadow` is nearly invisible on `#0a0a0a`. For **glow effects** (box-shadow, text-shadow, border) use green `rgba(0, 255, 136, ...)` only. Cyan `rgba(0, 212, 255, ...)` is acceptable in **background radial gradients** (section `::before` pseudo-elements) for visual depth, but not in interactive or visible glow effects.
+- **Dark theme shadow policy**: black `box-shadow` is nearly invisible on `#0a0a0a`. For **glow effects** (box-shadow, text-shadow, border) use indigo `rgba(129, 140, 248, ...)` only. Indigo is also acceptable in **background radial gradients** (section `::before` pseudo-elements) for visual depth. The accent color is `#818cf8` (indigo).
 - Accordion/expand animations use `grid-template-rows: 0fr → 1fr` pattern (not `max-height`).
 
 #### Glassmorphism Card Pattern
@@ -81,6 +81,7 @@ If no existing token matches, add a named variable to `globals.css` and referenc
 ### Component Patterns
 - **`CtaButton`** supports an `as` prop (polymorphic) — renders as any element or component. Use `as="a"`, `as="button"`, or `as={Link}` for Next.js navigation. **Never wrap `<CtaButton>` in a `<button>`, `<a>`, or `<Link>` tag** — `Link` renders as `<a>`, which is the same violation.
 - **`SectionHeader`** accepts an `as` prop to control the heading level (`as="h1"` on page-level sections).
+- **`AnimateOnScroll`** (`src/components/common/AnimateOnScroll.tsx`) — `"use client"` wrapper that triggers `fadeUp` transition when the element enters the viewport via `IntersectionObserver`. Accepts `className` and `delay` (ms) props for stagger effects. Use in Server Components to add scroll-triggered animations without converting them to client components.
 - **`ProjectThumbnail`** is the shared thumbnail component used by both `ProjectCard` and `ProjectModal`. Pass `variant="card"` (16:9 aspect ratio, hover scale) or `variant="modal"` (fixed height, rounded). Overlay badges/CTAs go in `children`.
 - Icons use **lucide-react**. Import named exports directly: `import { Mail, X } from "lucide-react"`. Always pass `size` and `aria-hidden="true"` props (e.g., `<Mail size={16} aria-hidden="true" />`). Do not create custom SVG icon components or inline SVGs.
 - Static data (projects, skills, experience) lives in `_constants/` and is imported directly — no props drilling.
@@ -93,10 +94,9 @@ If no existing token matches, add a named variable to `globals.css` and referenc
 3. **Structure**: `.modal` uses `display: flex; flex-direction: column`. The close button sits at `position: absolute` inside `.modal`, and `.scrollArea` (`flex: 1; overflow-y: auto`) wraps the thumbnail + body so the button stays visible while content scrolls.
 4. **Focus trap**: `useFocusTrap({ isActive, containerRef, initialFocusRef, onEscape })` — traps Tab/Shift+Tab within the container and calls `onEscape` on Escape key. The hook stores `onEscape` in a `useRef` internally to avoid stale closure; do **not** add it to the effect's dependency array.
 5. **Focus restore**: the opener element (`triggerElement`) is stored in parent state. On close, call `triggerElement?.focus()` before clearing state so keyboard users return to where they were.
-6. **Exit animation**: `isClosing` state drives a CSS exit class on the **overlay** (not the modal). The overlay `fadeIn/fadeOut` carries the modal as a child. A `setTimeout` matching `MODAL_CLOSE_DURATION` (synced with `var(--transition-normal)`) delays the actual unmount.
+6. **Exit animation**: `isClosing` state drives CSS exit classes on both the **overlay** (`.overlayClosing` → `fadeOut`) and the **modal** (`.modalClosing` → `scale + fadeOut`). A `setTimeout` matching `MODAL_CLOSE_DURATION` (synced with `var(--transition-normal)`) delays the actual unmount.
 
 ### WAI-ARIA Patterns
-- **Tabs** (`ExperienceTabs` / `ExperienceInteractive`): tabs container has `role="tablist"`, each tab button has `role="tab"`, `aria-selected`, and `aria-controls="experience-panel-{id}"`. The panel has `id="experience-panel-{id}"` and `role="tabpanel"`.
 - **Accordion** (`SkillCard`): toggle button has `aria-expanded={isOpen}` and a descriptive `aria-label`.
 - **Dialog** (`ProjectModal`): the modal content div carries `role="dialog"`, `aria-modal="true"`, and `aria-labelledby` pointing to the visible `<h2 id="modal-title">` inside the modal. Do **not** put `role="dialog"` on the backdrop/overlay div.
 

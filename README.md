@@ -26,25 +26,22 @@ portfolio/
     ├── components/           # 공통 UI 컴포넌트
     │   ├── layout/           # Header, ScrollProgress
     │   ├── ui/               # CtaButton
-    │   └── common/           # SectionHeader
+    │   └── common/           # SectionHeader, AnimateOnScroll
     └── app/
         ├── _components/      # 홈페이지 전용 컴포넌트
         │   ├── Hero.tsx
+        │   ├── HeroStats.tsx
         │   ├── About.tsx
         │   ├── Skills.tsx
         │   ├── SkillCard.tsx
         │   ├── Experience.tsx
-        │   ├── ExperienceList.tsx
-        │   ├── ExperienceTabs.tsx
-        │   └── TypewriterRole.tsx
+        │   └── ExperienceList.tsx
         ├── _constants/       # 홈페이지 전용 정적 데이터
         │   ├── skills.ts
         │   └── experiences.ts
         ├── _types/           # 홈페이지 전용 타입 정의
         │   ├── skill.ts
         │   └── experience.ts
-        ├── _hooks/           # 홈페이지 전용 훅
-        │   └── useTypewriter.ts
         ├── (withHeader)/     # 헤더 포함 라우트 그룹
         │   ├── layout.tsx
         │   ├── page.tsx      # 홈 페이지
