@@ -7,6 +7,7 @@
   --foreground-secondary: #94949f;
   --foreground-muted: #8b8b9f;
   --foreground-bright: #f0f0f5;
+  --foreground-overlay: rgba(200, 200, 220, 0.8);
 
   /* Accent Colors — green replaced with indigo */
   --accent: #818cf8;
