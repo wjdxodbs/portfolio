@@ -125,7 +125,7 @@ export const projects: Project[] = [
     period: "2023.12 - 2024.02",
     duration: "총 6주",
     thumbnailUrl: "/fish.png",
-    thumbnailBg: "#1a1a2a",
+    thumbnailBg: "#c8cce8",
     techStack: ["React", "Vite", "JavaScript", "Recoil", "SCSS"],
     type: "team",
     teamSize: "프론트엔드 3명, 백엔드 3명",
