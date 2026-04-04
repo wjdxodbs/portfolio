@@ -272,15 +272,15 @@ export const projects: Project[] = [
       {
         title: "검색 노출 및 공유 설정",
         details: [
-          "Google Search Console 검증 파일 추가, sitemap/robots 설정으로 크롤링 가능 상태를 정비했습니다.",
-          "페이지 메타데이터를 정리해 검색 결과 제목/설명 및 공유 미리보기의 일관성을 개선했습니다.",
+          "Next.js App Router의 sitemap.ts·robots.ts로 빌드 시 sitemap과 robots.txt를 자동 생성하고, Google Search Console 검증 파일을 추가해 크롤링·인덱싱 기반을 갖췄습니다.",
+          "Next.js Metadata API로 페이지별 title·description·canonical을 정의하고, Open Graph·Twitter Card로 소셜 공유 미리보기를 구성했습니다.",
         ],
       },
       {
         title: "프로젝트 모달 구현",
         details: [
           "next/dynamic으로 초기 번들에서 제외하고, createPortal로 document.body에 렌더링해 z-index 충돌 없이 전체 화면을 덮도록 구현했습니다.",
-          "모달 닫기 시 exit 애니메이션이 완료된 뒤 언마운트되도록, 애니메이션 진행 중 상태를 별도로 관리해 타이밍을 제어했습니다.",
+          "모달 닫기 시 exit 애니메이션이 완료된 뒤 언마운트되도록 애니메이션 진행 상태를 별도로 관리했으며, JS 타이머와 CSS 트랜지션 지속 시간을 동일하게 맞춰 타이밍 불일치를 방지했습니다.",
         ],
       },
       {
@@ -288,12 +288,6 @@ export const projects: Project[] = [
         details: [
           '모달에 role="dialog"와 aria-modal을 적용해 키보드와 보조 기술로 모달을 탐색할 수 있도록 했습니다.',
           "모달 내 포커스 트랩을 구현해 Tab/Shift+Tab이 모달 안에서만 순환하고, Escape로 닫힌 뒤 포커스가 열기 버튼으로 복귀하도록 처리했습니다.",
-        ],
-      },
-      {
-        title: "디자인 시스템 구축",
-        details: [
-          "색상, 간격, 애니메이션 지속 시간부터 카드 패턴까지 반복 사용되는 값을 CSS 변수로 정의해 컴포넌트 간 일관된 스타일을 유지하고 수정 범위를 최소화했습니다.",
         ],
       },
       {
@@ -306,13 +300,6 @@ export const projects: Project[] = [
       },
     ],
     concerns: [
-      {
-        title: "검색 노출 우선순위 설정",
-        details: [
-          "구글 검색 노출을 위해 인덱싱·메타데이터·시맨틱 구조 중 어떤 순서로 적용할지 기준이 없어 막막했습니다.",
-          "초기에는 검색 등록·사이트맵·로봇 설정으로 인덱싱 기반을 먼저 갖추고, 이후 메타데이터·시맨틱 구조·접근성 개선을 순차 적용했습니다.",
-        ],
-      },
       {
         title: "모달 구현 복잡도",
         details: [
