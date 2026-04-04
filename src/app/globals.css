@@ -142,6 +142,10 @@ img {
 
 /* Responsive */
 @media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
   :root {
     --header-height: 64px;
     --section-padding: 60px;
@@ -149,5 +153,11 @@ img {
 
   .container {
     padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
   }
 }

@@ -76,29 +76,10 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .overviewLabel {
-    font-size: 1.1rem;
-  }
-
-  .overviewDetail {
-    font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 480px) {
   .itemImages {
     grid-template-columns: 1fr;
-  }
-
-  .overviewLabel {
-    font-size: 0.95rem;
-  }
-
-  .overviewTitle {
-    font-size: 0.9rem;
-  }
-
-  .overviewDetail {
-    font-size: 0.85rem;
   }
 }

@@ -80,12 +80,10 @@
 @media (max-width: 480px) {
   .lg {
     padding: 11px 22px;
-    font-size: 0.9rem;
   }
 
   .md {
     padding: 9px 18px;
-    font-size: 0.8rem;
   }
 
   .icon {

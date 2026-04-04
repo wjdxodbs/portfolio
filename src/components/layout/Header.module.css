@@ -40,13 +40,6 @@
     height: var(--header-height);
   }
 
-  .logo {
-    font-size: 1rem;
-  }
+
 }
 
-@media (max-width: 480px) {
-  .logo {
-    font-size: 0.9rem;
-  }
-}

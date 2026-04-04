@@ -77,31 +77,9 @@
   top: 4px;
 }
 
-@media (max-width: 768px) {
-  .infoValue {
-    font-size: 0.95rem;
-  }
-
-  .achievementItem {
-    font-size: 0.95rem;
-  }
-}
-
 @media (max-width: 480px) {
   .infoItem {
     flex: 1 1 100%;
     border-right: none;
-  }
-
-  .infoLabel {
-    font-size: 0.75rem;
-  }
-
-  .infoValue {
-    font-size: 0.9rem;
-  }
-
-  .achievementItem {
-    font-size: 0.9rem;
   }
 }
