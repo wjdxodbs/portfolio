@@ -24,6 +24,7 @@
 
 .imageCard {
   composes: image;
+  padding: 16px;
   transition: transform var(--transition-slow);
 }
 
