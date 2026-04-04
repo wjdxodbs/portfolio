@@ -36,7 +36,7 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--foreground);
   letter-spacing: -0.02em;
@@ -77,26 +77,3 @@
   line-height: 1.7;
 }
 
-@media (max-width: 768px) {
-  .title {
-    font-size: 1.7rem;
-  }
-
-  .description {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.3rem;
-  }
-
-  .description {
-    font-size: 0.9rem;
-  }
-
-  .period {
-    font-size: 0.85rem;
-  }
-}
