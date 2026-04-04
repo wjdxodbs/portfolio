@@ -1,6 +1,6 @@
 .card {
-  background: var(--background-secondary);
-  border: 1px solid var(--border-hover);
+  background: var(--background);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--radius-lg);
   overflow: hidden;
   flex: 1;
@@ -17,49 +17,14 @@
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: var(--card-glow);
+  transform: translateY(-6px);
+  border-color: rgba(129, 140, 248, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(129, 140, 248, 0.2),
+    0 8px 32px rgba(129, 140, 248, 0.18);
 }
 
-/* Thumbnail Overlay */
-.thumbnailOverlay {
-  position: absolute;
-  inset: 0;
-  background: var(--overlay-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-  backdrop-filter: blur(2px);
-}
-
-.card:hover .thumbnailOverlay {
-  opacity: 1;
-}
-
-.overlayText {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--foreground-bright);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  border: 1px solid var(--glass-border);
-  padding: 10px 18px;
-  border-radius: var(--radius-full);
-  background: var(--glass-bg);
-  backdrop-filter: blur(4px);
-  transform: translateY(6px);
-  transition: transform var(--transition-normal);
-}
-
-.card:hover .overlayText {
-  transform: translateY(0);
-}
-
+/* 타입 뱃지 */
 .typeBadge {
   position: absolute;
   top: 12px;
@@ -72,51 +37,44 @@
   border: 1px solid var(--accent-border);
   color: var(--accent);
   letter-spacing: 0.03em;
+  z-index: 2;
+}
+
+/* 그라디언트 오버레이 */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 8, 22, 1) 0%,
+    rgba(10, 8, 22, 0.85) 30%,
+    rgba(10, 8, 22, 0.2) 65%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
   z-index: 1;
 }
 
-/* Content */
-.content {
-  padding: 20px;
+/* 텍스트 콘텐츠 */
+.overlayContent {
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  flex: 1;
+  gap: 8px;
+  width: 100%;
 }
 
 .title {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--foreground);
+  color: var(--foreground-bright);
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
 
 .description {
-  font-size: 0.875rem;
-  color: var(--foreground-secondary);
-  line-height: 1.6;
-  flex: 1;
-}
-
-.meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.period {
   font-size: 0.78rem;
-  color: var(--foreground-muted);
-  font-family: var(--font-mono);
-}
-
-.duration {
-  font-size: 0.78rem;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  background: var(--accent-glow);
-  padding: var(--badge-padding-sm);
-  border-radius: var(--radius-sm);
+  color: rgba(200, 200, 220, 0.8);
+  line-height: 1.5;
 }
