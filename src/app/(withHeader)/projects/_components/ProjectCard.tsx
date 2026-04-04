@@ -26,25 +26,22 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       onClick={handleClick}
       aria-label={`${project.title} 프로젝트 자세히 보기`}
     >
-        <ProjectThumbnail
-          project={project}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          variant="card"
-        >
-          <span className={styles.typeBadge}>
-            {PROJECT_TYPE_LABEL[project.type]}
-          </span>
-          <div className={styles.thumbnailOverlay}>
-            <span className={styles.overlayText}>자세히 보기</span>
+      <ProjectThumbnail
+        project={project}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        variant="card"
+      >
+        <span className={styles.typeBadge}>
+          {PROJECT_TYPE_LABEL[project.type]}
+        </span>
+        <div className={styles.overlay}>
+          <div className={styles.overlayContent}>
+            <h3 className={styles.title}>{project.title}</h3>
+            <p className={styles.description}>{project.description}</p>
+            <TechBadge techStack={project.techStack} variant="icon" />
           </div>
-        </ProjectThumbnail>
-
-        <div className={styles.content}>
-          <h3 className={styles.title}>{project.title}</h3>
-          <p className={styles.description}>{project.description}</p>
-
-          <TechBadge techStack={project.techStack} variant="icon" />
         </div>
+      </ProjectThumbnail>
     </button>
   );
 }
