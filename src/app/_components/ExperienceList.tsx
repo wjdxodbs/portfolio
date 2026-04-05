@@ -1,7 +1,5 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import type { ExperienceItem } from "@/app/_types/experience";
+import AnimateOnScroll from "@/components/common/AnimateOnScroll";
 import styles from "./ExperienceList.module.css";
 
 interface FlatExperienceItem extends ExperienceItem {
@@ -12,48 +10,11 @@ interface ExperienceListProps {
   items: FlatExperienceItem[];
 }
 
-function AnimatedRow({
-  children,
-  delay,
-}: {
-  children: React.ReactNode;
-  delay: number;
-}) {
-  const ref = useRef<HTMLLIElement>(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <li
-      ref={ref}
-      className={`${styles.row} ${styles.animate} ${isInView ? styles.visible : ""}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </li>
-  );
-}
-
 export default function ExperienceList({ items }: ExperienceListProps) {
   return (
     <ul className={styles.list}>
       {items.map((item, idx) => (
-        <AnimatedRow key={idx} delay={idx * 60}>
+        <AnimateOnScroll key={idx} as="li" delay={idx * 60} className={styles.row}>
           <span className={styles.period}>{item.period}</span>
           <div className={styles.main}>
             <span className={styles.title}>{item.title}</span>
@@ -69,7 +30,7 @@ export default function ExperienceList({ items }: ExperienceListProps) {
             )}
           </div>
           <span className={styles.badge}>{item.categoryLabel}</span>
-        </AnimatedRow>
+        </AnimateOnScroll>
       ))}
     </ul>
   );
