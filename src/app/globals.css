@@ -31,13 +31,6 @@
 
   /* Glass Effect */
   --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.3);
-
-  /* UI Colors */
-  --star-color: #ffd700;
-  --dot-red: #ff5f57;
-  --dot-yellow: #febc2e;
-  --dot-green: #28c840;
 
   /* Border Radius */
   --radius-sm: 6px;
@@ -68,7 +61,6 @@
   --scale-lg: 1.12;
 
   /* glass */
-  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   --card-glow:
     0 0 0 1px rgba(129, 140, 248, 0.2),
     0 0 20px rgba(129, 140, 248, 0.12),
