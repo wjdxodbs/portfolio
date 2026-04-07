@@ -24,7 +24,7 @@ portfolio/
 ├── public/                   # 정적 자산 (이미지, PDF, 아이콘)
 └── src/
     ├── components/           # 공통 UI 컴포넌트
-    │   ├── layout/           # Header, ScrollProgress
+    │   ├── layout/           # Header (Floating Nav)
     │   ├── ui/               # CtaButton
     │   └── common/           # SectionHeader, AnimateOnScroll
     └── app/
@@ -35,7 +35,9 @@ portfolio/
         │   ├── Skills.tsx
         │   ├── SkillCard.tsx
         │   ├── Experience.tsx
-        │   └── ExperienceList.tsx
+        │   ├── ExperienceList.tsx
+        │   ├── SectionDots.tsx   # 우측 섹션 도트 네비게이션
+        │   └── SectionDots.module.css
         ├── _constants/       # 홈페이지 전용 정적 데이터
         │   ├── skills.ts
         │   └── experiences.ts
