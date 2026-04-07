@@ -34,38 +34,17 @@ export default function SectionDots() {
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  const handleClick = (id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    const start = window.scrollY;
-    const target = el.getBoundingClientRect().top + start;
-    const distance = target - start;
-    const duration = 600;
-    let startTime: number | null = null;
-
-    const step = (time: number) => {
-      if (!startTime) startTime = time;
-      const progress = Math.min((time - startTime) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      window.scrollTo(0, start + distance * ease);
-      if (progress < 1) requestAnimationFrame(step);
-    };
-
-    requestAnimationFrame(step);
-  };
-
   return (
     <nav className={styles.dots} aria-label="섹션 네비게이션">
       {SECTIONS.map(({ id, label }) => (
-        <button
+        <a
           key={id}
+          href={`#${id}`}
           className={`${styles.dot} ${activeId === id ? styles.active : ""}`}
-          onClick={() => handleClick(id)}
           aria-label={`${label} 섹션으로 이동`}
         >
           <span className={styles.label}>{label}</span>
-        </button>
+        </a>
       ))}
     </nav>
   );
