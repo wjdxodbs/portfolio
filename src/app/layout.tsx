@@ -80,6 +80,7 @@ export default function RootLayout({
     <html
       lang="ko"
       className={`${ibmPlexSansKR.variable} ${jetbrainsMono.variable}`}
+      data-scroll-behavior="smooth"
     >
       <body>{children}</body>
     </html>
