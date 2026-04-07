@@ -40,8 +40,8 @@
   --radius-full: 9999px;
 
   /* Spacing */
-  --header-height: 72px;
-  --section-padding: 100px;
+  --header-height: 88px;
+  --section-padding: clamp(60px, 8vw, 100px);
   --container-width: 1200px;
 
   /* Transitions */
@@ -62,8 +62,7 @@
 
   /* glass */
   --card-glow:
-    0 0 0 1px rgba(129, 140, 248, 0.2),
-    0 0 20px rgba(129, 140, 248, 0.12),
+    0 0 0 1px rgba(129, 140, 248, 0.2), 0 0 20px rgba(129, 140, 248, 0.12),
     0 4px 24px rgba(129, 140, 248, 0.08);
 }
 
@@ -83,6 +82,10 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+section[id] {
+  scroll-margin-top: var(--header-height);
 }
 
 a {
@@ -139,8 +142,7 @@ img {
   }
 
   :root {
-    --header-height: 64px;
-    --section-padding: 60px;
+    --header-height: 72px;
   }
 
   .container {

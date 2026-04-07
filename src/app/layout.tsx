@@ -77,7 +77,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${ibmPlexSansKR.variable} ${jetbrainsMono.variable}`} data-scroll-behavior="smooth">
+    <html
+      lang="ko"
+      className={`${ibmPlexSansKR.variable} ${jetbrainsMono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );

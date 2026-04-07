@@ -14,7 +14,12 @@ export default function ExperienceList({ items }: ExperienceListProps) {
   return (
     <ul className={styles.list}>
       {items.map((item, idx) => (
-        <AnimateOnScroll key={idx} as="li" delay={idx * 60} className={styles.row}>
+        <AnimateOnScroll
+          key={idx}
+          as="li"
+          delay={idx * 60}
+          className={styles.row}
+        >
           <span className={styles.period}>{item.period}</span>
           <div className={styles.main}>
             <span className={styles.title}>{item.title}</span>

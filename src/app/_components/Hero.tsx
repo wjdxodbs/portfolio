@@ -6,7 +6,7 @@ import HeroStats from "./HeroStats";
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
+    <section id="hero" className={styles.hero}>
       <div className={styles.inner}>
         <div className={styles.eyebrow} aria-hidden="true">
           <span className={styles.eyebrowLine} />
