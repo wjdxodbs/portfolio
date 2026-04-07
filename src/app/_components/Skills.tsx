@@ -6,7 +6,7 @@ import AnimateOnScroll from "@/components/common/AnimateOnScroll";
 
 const CATEGORIES: Record<string, string[]> = {
   Core: ["React", "Next.js", "TypeScript", "JavaScript", "HTML"],
-  Styling: ["CSS", "SCSS", "Tailwind CSS"],
+  Styling: ["CSS", "SCSS", "Tailwind CSS", "shadcn/ui"],
   "State Management": ["Recoil", "Zustand", "Tanstack Query"],
 };
 
