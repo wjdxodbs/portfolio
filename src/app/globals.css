@@ -1,6 +1,7 @@
 :root {
   /* Colors */
   --background: #0d0d11;
+  --background-rgb: 13, 13, 17;
   --background-secondary: #1a1a22;
   --background-tertiary: #24242e;
   --foreground: #e8e8f0;
