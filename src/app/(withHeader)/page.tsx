@@ -5,7 +5,7 @@ import Skills from "@/app/_components/Skills";
 import Experience from "@/app/_components/Experience";
 import SectionDots from "@/app/_components/SectionDots";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   alternates: {

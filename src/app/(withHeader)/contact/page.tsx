@@ -10,7 +10,7 @@ import { Mail } from "lucide-react";
 import SectionHeader from "@/components/common/SectionHeader";
 import AnimateOnScroll from "@/components/common/AnimateOnScroll";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   title: "Contact | 정태윤 포트폴리오",
