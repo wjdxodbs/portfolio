@@ -54,6 +54,12 @@
   opacity: 1;
 }
 
+.dot::after {
+  content: "";
+  position: absolute;
+  inset: -8px -20px; /* 수직: dot 간격 침범 방지(8px), 수평: 여유롭게 확장(20px) */
+}
+
 @media (max-width: 768px) {
   .dots {
     display: none;
