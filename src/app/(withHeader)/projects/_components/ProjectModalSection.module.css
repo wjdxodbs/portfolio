@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 12px;
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-faint);
 }
 
 .overviewLabel {
@@ -60,22 +60,21 @@
 }
 
 .itemImageWrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border-subtle);
 }
 
 .itemImage {
-  width: 100%;
-  height: auto;
-  display: block;
+  object-fit: cover;
 }
 
 @media (max-width: 768px) {
   .itemImages {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 
 @media (max-width: 480px) {

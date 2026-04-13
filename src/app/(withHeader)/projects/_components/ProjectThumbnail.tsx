@@ -6,6 +6,7 @@ interface ProjectThumbnailProps {
   project: Pick<Project, "thumbnailUrl" | "title" | "thumbnailBg">;
   sizes: string;
   variant: "card" | "modal";
+  priority?: boolean;
   children?: React.ReactNode;
 }
 
@@ -13,6 +14,7 @@ export default function ProjectThumbnail({
   project,
   sizes,
   variant,
+  priority = false,
   children,
 }: ProjectThumbnailProps) {
   const wrapperClass =
@@ -31,6 +33,7 @@ export default function ProjectThumbnail({
         alt={project.title}
         fill
         sizes={sizes}
+        priority={priority}
         className={imageClass}
       />
       {children}

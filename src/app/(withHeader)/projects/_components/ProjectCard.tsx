@@ -10,9 +10,14 @@ import styles from "./ProjectCard.module.css";
 interface ProjectCardProps {
   project: Project;
   onClick: (project: Project, triggerEl: HTMLElement | null) => void;
+  priority?: boolean;
 }
 
-export default function ProjectCard({ project, onClick }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  onClick,
+  priority = false,
+}: ProjectCardProps) {
   const cardRef = useRef<HTMLButtonElement>(null);
 
   const handleClick = () => {
@@ -30,6 +35,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
         project={project}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         variant="card"
+        priority={priority}
       >
         <span className={styles.typeBadge}>
           {PROJECT_TYPE_LABEL[project.type]}

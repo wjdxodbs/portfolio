@@ -27,8 +27,7 @@ export default function ProjectModalSection({
                     <Image
                       src={src}
                       alt={`${item.title} 이미지 ${idx + 1}`}
-                      width={0}
-                      height={0}
+                      fill
                       sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
                       className={styles.itemImage}
                     />
