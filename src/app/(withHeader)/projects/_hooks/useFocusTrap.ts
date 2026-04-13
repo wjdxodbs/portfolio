@@ -28,9 +28,7 @@ export function useFocusTrap({
   // 이렇게 하면 useEffect 의존성 배열에 함수를 추가하지 않아도
   // stale closure 없이 안전하게 사용할 수 있습니다.
   const onEscapeRef = useRef(onEscape);
-  useEffect(() => {
-    onEscapeRef.current = onEscape;
-  });
+  onEscapeRef.current = onEscape;
 
   useEffect(() => {
     if (!isActive) return;

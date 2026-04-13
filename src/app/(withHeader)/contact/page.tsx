@@ -14,17 +14,19 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 export const metadata: Metadata = {
   title: "Contact | 정태윤 포트폴리오",
-  description: "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
+  description:
+    "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
   alternates: { canonical: `${SITE_URL}/contact` },
   openGraph: {
     title: "Contact | 정태윤 포트폴리오",
-    description: "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
+    description:
+      "프론트엔드 개발자 정태윤에게 연락하세요. 이메일, GitHub 등을 통해 소통할 수 있습니다.",
     url: `${SITE_URL}/contact`,
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };
 
-const emailInfo = contactInfo.find((c) => c.label === "Email")!;
+const emailInfo = contactInfo.find((c) => c.label === "Email");
 
 export default function ContactPage() {
   return (
@@ -47,7 +49,7 @@ export default function ContactPage() {
             <div className={styles.btns}>
               <CtaButton
                 as="a"
-                href={emailInfo.href ?? ""}
+                href={emailInfo?.href ?? ""}
                 variant="primary"
                 size="md"
               >

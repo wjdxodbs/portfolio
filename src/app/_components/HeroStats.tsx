@@ -10,6 +10,7 @@ export default function HeroStats() {
 
   useEffect(() => {
     const start = performance.now();
+    let frameId: number;
 
     const tick = (now: number) => {
       const progress = Math.min((now - start) / DURATION, 1);
@@ -17,10 +18,11 @@ export default function HeroStats() {
 
       setCounts([Math.round(eased * 6), Math.round(eased * 2)]);
 
-      if (progress < 1) requestAnimationFrame(tick);
+      if (progress < 1) frameId = requestAnimationFrame(tick);
     };
 
-    requestAnimationFrame(tick);
+    frameId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   return (
