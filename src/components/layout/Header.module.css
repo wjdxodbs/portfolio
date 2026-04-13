@@ -3,7 +3,7 @@
   top: 16px;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: var(--z-header);
   display: flex;
   justify-content: center;
   pointer-events: none;
@@ -20,9 +20,9 @@
   justify-content: space-between;
   border-radius: 9999px;
   backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  background: var(--glass-bg-subtle);
+  border: 1px solid var(--glass-bg);
+  box-shadow: 0 4px 24px var(--shadow-nav);
   pointer-events: auto;
 }
 

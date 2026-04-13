@@ -35,3 +35,10 @@
     gap: 16px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .cardWrapper {
+    animation: none;
+    opacity: 1;
+  }
+}

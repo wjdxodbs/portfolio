@@ -6,6 +6,9 @@
 
 .navLink {
   padding: 8px 16px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--foreground-secondary);
@@ -20,8 +23,8 @@
 
 .navLink.active {
   color: var(--accent);
-  background: rgba(129, 140, 248, 0.08);
-  text-shadow: 0 0 10px rgba(129, 140, 248, 0.6);
+  background: var(--accent-glow-secondary);
+  text-shadow: 0 0 10px var(--accent-glow-text);
 }
 
 @media (max-width: 768px) {

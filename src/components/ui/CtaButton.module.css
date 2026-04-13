@@ -30,6 +30,8 @@
 
 .icon {
   padding: 11px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: var(--radius-sm);
   justify-content: center;
 }

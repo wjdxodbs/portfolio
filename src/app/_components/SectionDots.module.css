@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  z-index: 900;
+  z-index: var(--z-floating);
 }
 
 .dot {
@@ -24,7 +24,7 @@
 }
 
 .dot:hover {
-  background: var(--foreground-muted);
+  background: var(--foreground);
   transform: scale(1.3);
 }
 

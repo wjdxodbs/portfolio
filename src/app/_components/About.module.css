@@ -29,7 +29,7 @@
   background: linear-gradient(
     to bottom,
     transparent 50%,
-    rgba(13, 13, 17, 0.5) 100%
+    var(--background-overlay) 100%
   );
   pointer-events: none;
 }

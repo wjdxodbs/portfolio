@@ -31,6 +31,27 @@
 
   /* Glass Effect */
   --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.05);
+
+  /* Subtle Borders */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-faint: rgba(255, 255, 255, 0.08);
+
+  /* Background Overlay */
+  --background-overlay: rgba(13, 13, 17, 0.5);
+
+  /* Accent Hover */
+  --accent-border-hover: rgba(129, 140, 248, 0.45);
+  --accent-glow-text: rgba(129, 140, 248, 0.6);
+
+  /* Shadow */
+  --shadow-nav: rgba(0, 0, 0, 0.3);
+
+  /* Z-index */
+  --z-raised: 10;
+  --z-floating: 900;
+  --z-header: 950;
+  --z-modal: 1000;
 
   /* Border Radius */
   --radius-sm: 6px;
@@ -64,6 +85,8 @@
   --card-glow:
     0 0 0 1px rgba(129, 140, 248, 0.2), 0 0 20px rgba(129, 140, 248, 0.12),
     0 4px 24px rgba(129, 140, 248, 0.08);
+  --card-hover-glow:
+    0 0 0 1px rgba(129, 140, 248, 0.2), 0 8px 32px rgba(129, 140, 248, 0.18);
 }
 
 * {

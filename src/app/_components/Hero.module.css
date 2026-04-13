@@ -171,3 +171,13 @@
     gap: 20px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow,
+  .headline,
+  .body {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
