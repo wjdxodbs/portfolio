@@ -586,6 +586,20 @@ export const projects: Project[] = [
           "정규식 기반 포맷 자동 감지로 별도 선택 없이 입력값만으로 변환 가능",
         ],
       },
+      {
+        title: "PDF 변환기",
+        details: [
+          "이미지(PNG·JPEG·WebP)를 묶어 단일 PDF 파일로 생성",
+          "PDF의 각 페이지를 이미지로 변환해 개별 파일로 다운로드",
+        ],
+      },
+      {
+        title: "PDF 암호화",
+        details: [
+          "PDF에 비밀번호를 설정하거나 이미 걸린 암호를 해제",
+          "클라이언트 사이드에서만 처리해 원본 파일이 서버로 전송되지 않음",
+        ],
+      },
     ],
     tasks: [
       {
@@ -618,6 +632,14 @@ export const projects: Project[] = [
           "OKLCH는 sRGB와 색상 공간이 달라 별도 계산이 필요했습니다. sRGB 감마 디코딩 후 LMS 행렬 → 큐브루트로 OKLab을 구하고 극좌표로 변환했으며, 역방향은 극좌표 → 직교 좌표 → 역행렬 → 감마 인코딩·clamp 순으로 처리했습니다.",
         ],
       },
+      {
+        title: "PDF 변환 구현",
+        details: [
+          "pdfjs-dist는 Worker를 별도로 초기화해야 해서, dynamic import로 모듈을 지연 로딩한 뒤 workerSrc를 설정했습니다.",
+          "이미지 → PDF 변환 시 pdf-lib이 PNG/JPEG만 직접 지원하기 때문에, 모든 포맷을 Canvas를 거쳐 PNG로 정규화한 뒤 임베딩했습니다.",
+          "각 이미지의 원본 크기 그대로 페이지 크기를 설정해 비율 왜곡 없이 PDF를 생성했습니다.",
+        ],
+      },
     ],
     concerns: [
       {
@@ -632,6 +654,13 @@ export const projects: Project[] = [
         details: [
           "PNG는 무손실 포맷이라 quality 슬라이더가 의미 없는데, 모든 포맷에 동일하게 노출하면 사용자에게 혼란을 줄 수 있었습니다.",
           "JPG·WebP 등 손실 포맷에서만 슬라이더를 표시하고 PNG 선택 시 숨기도록 조건부 렌더링을 적용했습니다.",
+        ],
+      },
+      {
+        title: "PDF 암호화 라이브러리 선택",
+        details: [
+          "PDF 처리에 pdf-lib을 먼저 검토했으나 암호화 기능이 공식 지원되지 않아 fork 버전인 @cantoo/pdf-lib을 도입했습니다.",
+          "두 패키지를 동시에 쓰는 대신 @cantoo/pdf-lib 하나로 통일하는 방향도 고려했지만, API 안정성과 유지보수 이력을 고려해 PDF 생성은 원본, 암호화만 fork로 분리해 관리했습니다.",
         ],
       },
     ],
