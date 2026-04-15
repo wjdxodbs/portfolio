@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Project } from "@/app/(withHeader)/projects/_types/project";
 import { X } from "lucide-react";
@@ -28,11 +28,18 @@ export default function ProjectModal({
   const modalRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const handleClose = () => {
     setIsClosing(true);
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       triggerElement?.focus();
       setIsClosing(false);
       onClose();

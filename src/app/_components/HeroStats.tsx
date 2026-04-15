@@ -1,16 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
 
 const DURATION = 900;
 
 export default function HeroStats() {
   const [counts, setCounts] = useState([0, 0]);
+  const frameIdRef = useRef<number | null>(null);
 
   useEffect(() => {
     const start = performance.now();
-    let frameId: number;
 
     const tick = (now: number) => {
       const progress = Math.min((now - start) / DURATION, 1);
@@ -18,11 +18,13 @@ export default function HeroStats() {
 
       setCounts([Math.round(eased * 6), Math.round(eased * 2)]);
 
-      if (progress < 1) frameId = requestAnimationFrame(tick);
+      if (progress < 1) frameIdRef.current = requestAnimationFrame(tick);
     };
 
-    frameId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frameId);
+    frameIdRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (frameIdRef.current !== null) cancelAnimationFrame(frameIdRef.current);
+    };
   }, []);
 
   return (
