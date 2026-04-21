@@ -32,3 +32,9 @@
   composes: image;
   padding: 16px;
 }
+
+@media (max-width: 600px) {
+  .wrapperModal {
+    height: 140px;
+  }
+}
