@@ -19,7 +19,7 @@
   background: var(--background-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  width: min(calc(100vw - 48px), calc((1200px - 96px) / 3 * 2.5 + 24px * 1.5));
+  width: min(100vw - 48px, 960px);
   height: 96dvh;
   position: relative;
   display: flex;
