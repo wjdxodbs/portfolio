@@ -158,9 +158,7 @@ export default function ProjectCardGrid() {
               <div className={styles.bottom}>
                 <h3 className={styles.title}>{project.title}</h3>
                 <p className={styles.desc}>{project.description}</p>
-                <div className={styles.techWrap}>
-                  <TechBadge techStack={project.techStack} variant="icon" />
-                </div>
+                <TechBadge techStack={project.techStack} variant="icon" />
               </div>
             </div>
           </article>
