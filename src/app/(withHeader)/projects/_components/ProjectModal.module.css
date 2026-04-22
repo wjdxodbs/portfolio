@@ -143,13 +143,11 @@
 @media (max-width: 480px) {
   .overlay {
     padding: 16px;
-    align-items: flex-end;
   }
 
   .modal {
     width: calc(100vw - 32px);
     height: 96dvh;
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   }
 }
 
