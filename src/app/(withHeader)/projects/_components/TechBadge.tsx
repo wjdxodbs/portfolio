@@ -16,24 +16,35 @@ export default function TechBadge({
     <ul className={`${styles.techStack} ${styles[variant]}`}>
       {techStack.map((tech) => {
         const icon = getTechIcon(tech);
+        const iconContent = icon.iconUrl ? (
+          <Image
+            src={icon.iconUrl}
+            alt=""
+            width={variant === "icon" ? 20 : 16}
+            height={variant === "icon" ? 20 : 16}
+            className={styles.techIcon}
+          />
+        ) : (
+          <span className={styles.fallback}>{icon.abbr ?? tech[0]}</span>
+        );
         return (
           <li key={tech} className={styles.techItem} aria-label={tech}>
-            <div className={styles.iconWrapper} aria-hidden="true">
-              {icon.iconUrl ? (
-                <Image
-                  src={icon.iconUrl}
-                  alt=""
-                  width={variant === "icon" ? 20 : 16}
-                  height={variant === "icon" ? 20 : 16}
-                  className={styles.techIcon}
-                />
-              ) : (
-                <span className={styles.fallback}>{icon.abbr ?? tech[0]}</span>
-              )}
-            </div>
-            {variant === "chip" && <span className={styles.label} aria-hidden="true">{tech}</span>}
+            {variant === "icon" ? (
+              <div className={styles.iconWrapper} aria-hidden="true">
+                {iconContent}
+              </div>
+            ) : (
+              iconContent
+            )}
+            {variant === "chip" && (
+              <span className={styles.label} aria-hidden="true">
+                {tech}
+              </span>
+            )}
             {variant === "icon" && (
-              <span className={styles.tooltip} aria-hidden="true">{tech}</span>
+              <span className={styles.tooltip} aria-hidden="true">
+                {tech}
+              </span>
             )}
           </li>
         );

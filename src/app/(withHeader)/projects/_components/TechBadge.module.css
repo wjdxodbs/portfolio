@@ -110,12 +110,6 @@
   border-radius: var(--radius-sm);
 }
 
-.chip .iconWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .chip .techIcon {
   width: 16px;
   height: 16px;
