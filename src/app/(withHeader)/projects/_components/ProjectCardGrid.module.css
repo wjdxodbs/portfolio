@@ -127,9 +127,11 @@
     scroll-snap-type: x mandatory;
     overscroll-behavior-x: contain;
     margin-inline: -16px;
-    padding-block: 16px;
+    padding-block: 8px;
     padding-inline: 11vw;
     scrollbar-width: none;
+    flex: 1;
+    min-height: 0;
   }
 
   .grid::-webkit-scrollbar {
@@ -139,8 +141,10 @@
   .card {
     flex: 0 0 78vw;
     aspect-ratio: auto;
-    height: calc(100dvh - 320px);
+    height: auto;
+    align-self: stretch;
     scroll-snap-align: center;
+    scroll-snap-stop: always;
     opacity: 0.7;
     transition:
       transform var(--transition-fast),
@@ -171,6 +175,7 @@
     align-items: center;
     gap: 6px;
     margin-top: 12px;
+    flex-shrink: 0;
   }
 
   .dot {
