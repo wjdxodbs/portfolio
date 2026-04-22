@@ -154,7 +154,7 @@ img {
 
 /* Page Layout */
 .page-layout {
-  min-height: 100vh;
+  min-height: 100dvh;
   padding-top: 120px;
   padding-bottom: var(--section-padding);
 }
