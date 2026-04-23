@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { projects } from "@/app/(withHeader)/projects/_constants/projects";
 import type { Project } from "@/app/(withHeader)/projects/_types/project";
 import { PROJECT_TYPE_LABEL } from "@/app/_constants/labels";
@@ -129,9 +129,12 @@ export default function ProjectCardGrid() {
             }}
             className={`${styles.card} ${idx === activeIdx ? styles.cardActive : ""}`}
             style={
-              project.thumbnailBg
-                ? { background: project.thumbnailBg }
-                : undefined
+              {
+                ...(project.thumbnailBg
+                  ? { background: project.thumbnailBg }
+                  : {}),
+                "--card-idx": idx,
+              } as CSSProperties
             }
             role="button"
             tabIndex={0}
