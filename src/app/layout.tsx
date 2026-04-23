@@ -8,12 +8,16 @@ const ibmPlexSansKR = IBM_Plex_Sans_KR({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
+  preload: false,
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono",
+  preload: false,
+  display: "swap",
 });
 
 export const metadata: Metadata = {
