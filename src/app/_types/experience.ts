@@ -10,6 +10,5 @@ export interface ExperienceItem {
 export interface CategoryData {
   id: CategoryType;
   label: string;
-  icon: string;
   items: ExperienceItem[];
 }

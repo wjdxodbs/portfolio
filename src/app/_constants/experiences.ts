@@ -4,7 +4,6 @@ export const categories: CategoryData[] = [
   {
     id: "education",
     label: "교육",
-    icon: "🎓",
     items: [
       {
         title: "삼성 청년 SW 아카데미",
@@ -23,7 +22,6 @@ export const categories: CategoryData[] = [
   {
     id: "certificate",
     label: "자격증",
-    icon: "📜",
     items: [
       {
         title: "정보처리기사",
@@ -42,7 +40,6 @@ export const categories: CategoryData[] = [
   {
     id: "award",
     label: "수상",
-    icon: "🏆",
     items: [
       {
         title: "SSAFY 자율 프로젝트 우수상",

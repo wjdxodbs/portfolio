@@ -10,7 +10,13 @@ function parsePeriodStart(period: string): number {
 }
 
 const allItems = categories
-  .flatMap((cat) => cat.items.map((item) => ({ ...item, categoryLabel: cat.label })))
+  .flatMap((cat) =>
+    cat.items.map((item) => ({
+      ...item,
+      categoryId: cat.id,
+      categoryLabel: cat.label,
+    })),
+  )
   .sort((a, b) => parsePeriodStart(b.period) - parsePeriodStart(a.period));
 
 export default function Experience() {
