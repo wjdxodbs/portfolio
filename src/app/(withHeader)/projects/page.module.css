@@ -15,19 +15,3 @@
   pointer-events: none;
   z-index: 0;
 }
-
-@media (max-width: 640px) {
-  .page {
-    height: 100dvh;
-    min-height: unset;
-    padding-top: calc(var(--header-height) + 24px);
-    padding-bottom: 48px;
-    overflow: hidden;
-  }
-
-  .page > :global(.container) {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-}
