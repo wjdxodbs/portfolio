@@ -72,6 +72,7 @@
 }
 
 .period {
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--foreground-muted);
   font-variant-numeric: tabular-nums;
@@ -79,6 +80,7 @@
 }
 
 .badge {
+  font-family: var(--font-mono);
   font-size: 0.65rem;
   color: var(--accent);
   background: var(--accent-glow);
