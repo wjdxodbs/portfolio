@@ -58,12 +58,14 @@
 
 /* ── Card base ── */
 .card {
-  background: var(--background-secondary);
+  background: rgba(17, 17, 17, 0.45);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: clamp(20px, 3vw, 28px);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--glass-highlight);
   transition:
     border-color var(--transition-normal),
     box-shadow var(--transition-normal);
@@ -85,7 +87,7 @@
       var(--accent-glow) 0%,
       transparent 60%
     ),
-    var(--background-secondary);
+    rgba(17, 17, 17, 0.45);
 }
 
 .mainTop {
