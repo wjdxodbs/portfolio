@@ -31,19 +31,87 @@
   height: 120px;
   background: linear-gradient(to bottom, transparent, var(--background));
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
+/* Marquee */
+.marqueeStack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.marqueeRow {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marqueeTrack {
+  display: flex;
+  animation: scroll 38s linear infinite;
+}
+
+.marqueeReverse .marqueeTrack {
+  animation-direction: reverse;
+  animation-duration: 52s;
+}
+
+.marqueeTrack span {
+  font-family: inherit;
+  font-size: clamp(5rem, 14vw, 12rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-right: 64px;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
+}
+
+.marqueeAccent {
+  -webkit-text-stroke: 1.5px var(--accent);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.3333%);
+  }
+}
+
+/* Inner + Card */
 .inner {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: calc(var(--header-height) + 24px) 24px 0;
   position: relative;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 85vh;
+}
+
+.card {
+  position: relative;
+  z-index: 3;
+  backdrop-filter: blur(18px);
+  background: rgba(17, 17, 17, 0.18);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 36px 40px;
+  max-width: 720px;
+  width: 100%;
+  box-shadow:
+    var(--glass-highlight),
+    0 30px 80px rgba(0, 0, 0, 0.5);
 }
 
 .eyebrow {
@@ -71,9 +139,9 @@
 }
 
 .headline {
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(2rem, 5.5vw, 4rem);
   font-weight: 700;
-  line-height: 1.02;
+  line-height: 1.1;
   letter-spacing: -0.05em;
   color: var(--foreground-bright);
   display: flex;
@@ -82,23 +150,17 @@
   opacity: 0;
 }
 
-.headlineOutline {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--foreground-muted);
-}
-
 .headlineAccent {
   font-style: italic;
   color: var(--accent);
-  -webkit-text-stroke: 0;
 }
 
 .body {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  margin-top: 48px;
-  padding-top: 48px;
+  margin-top: 40px;
+  padding-top: 40px;
   border-top: 1px solid var(--border);
   animation: fadeInUp var(--transition-slower) 0.2s forwards;
   opacity: 0;
@@ -156,13 +218,22 @@
 
 @media (max-width: 768px) {
   .headline {
-    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    font-size: clamp(1.75rem, 7vw, 2.75rem);
   }
 
   .body {
     gap: 24px;
     margin-top: 32px;
     padding-top: 32px;
+  }
+
+  .card {
+    padding: 32px 28px;
+  }
+
+  .marqueeTrack span {
+    font-size: clamp(3.5rem, 16vw, 6rem);
+    margin-right: 40px;
   }
 }
 
@@ -179,5 +250,9 @@
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .marqueeTrack {
+    animation: none;
   }
 }
