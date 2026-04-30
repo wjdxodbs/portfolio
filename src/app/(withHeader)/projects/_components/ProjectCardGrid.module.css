@@ -1,7 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: clamp(16px, 1.76vw, 18px);
 }
 
 .card {
@@ -133,7 +133,6 @@
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 16px;
   }
 }
 

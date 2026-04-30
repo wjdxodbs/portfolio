@@ -13,7 +13,7 @@
 
 .wrapperModal {
   composes: wrapper;
-  height: 200px;
+  height: clamp(140px, 19.5vw, 200px);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
@@ -31,10 +31,4 @@
 .imageModal {
   composes: image;
   padding: 16px;
-}
-
-@media (max-width: 600px) {
-  .wrapperModal {
-    height: 140px;
-  }
 }

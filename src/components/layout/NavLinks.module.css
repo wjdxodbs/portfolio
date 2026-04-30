@@ -1,11 +1,11 @@
 .navList {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: clamp(2px, 0.7vw, 8px);
 }
 
 .navLink {
-  padding: 8px 16px;
+  padding: clamp(6px, 0.8vw, 8px) clamp(8px, 1.3vw, 16px);
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -25,24 +25,4 @@
   color: var(--accent);
   background: var(--accent-glow-secondary);
   text-shadow: 0 0 10px var(--accent-glow-text);
-}
-
-@media (max-width: 768px) {
-  .navList {
-    gap: 4px;
-  }
-
-  .navLink {
-    padding: 6px 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .navList {
-    gap: 2px;
-  }
-
-  .navLink {
-    padding: 6px 8px;
-  }
 }
