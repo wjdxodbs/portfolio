@@ -37,7 +37,7 @@
   .card:hover {
     transform: translateY(-4px);
     border-color: var(--accent-border-hover);
-    box-shadow: var(--card-hover-glow);
+    box-shadow: var(--shadow-accent);
   }
 
   .card:hover .metaKey {

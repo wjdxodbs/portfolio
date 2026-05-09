@@ -10,7 +10,7 @@
 
 .card:hover {
   border-color: var(--accent-border-hover);
-  box-shadow: var(--card-glow);
+  box-shadow: var(--shadow-accent);
 }
 
 .card.open {
