@@ -37,7 +37,7 @@
 /* Marquee */
 .marqueeStack {
   position: absolute;
-  inset: 0;
+  inset: var(--header-height) 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,7 +91,7 @@
 .inner {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: calc(var(--header-height) + 24px) 24px 0;
+  padding: var(--header-height) 24px 0;
   position: relative;
   display: flex;
   flex-direction: column;
