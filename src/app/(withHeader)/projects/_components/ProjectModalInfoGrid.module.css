@@ -55,7 +55,7 @@
 .achievementList {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   margin-top: 2px;
 }
 

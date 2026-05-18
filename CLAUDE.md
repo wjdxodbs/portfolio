@@ -51,14 +51,15 @@ Shared components live in `src/components/` (layout, ui, common, icons).
 - **Dark theme shadow policy**: black `box-shadow` is nearly invisible on `#0a0a0a`. For **glow effects** (box-shadow, text-shadow, border) use indigo `rgba(129, 140, 248, ...)` only. Indigo is also acceptable in **background radial gradients** (section `::before` pseudo-elements) for visual depth. The accent color is `#818cf8` (indigo).
 - Accordion/expand animations use `grid-template-rows: 0fr → 1fr` pattern (not `max-height`).
 
-#### Responsive: `@media` vs `clamp()`
+#### Responsive: `@media` 우선
 
 - **Breakpoints**: only `640 / 768 / 1024` with `max-width` (mobile breaks down from desktop base). No new breakpoints.
-- **Continuous values** (font-size, padding, gap) use `clamp()` + tokens in `globals.css` (`--fs-display`, `--fs-h1`, `--fs-h2`, `--card-padding`, `--section-padding`). Do **not** branch fonts/paddings with `@media`.
+- **Default approach**: use `@media` breakpoints for responsive values (font-size, padding, gap). Discrete step changes match industry standard and align with designer-spec workflows.
+- **Body text rule**: do not shrink body/clickable text (`~14-16px`) on mobile — only large display/heading text needs to shrink. Touch targets must stay ≥ 44px.
+- **Legacy `clamp()` tokens** in `globals.css` (`--fs-display`, `--fs-h1`, `--fs-h2`, `--card-padding`, `--section-padding`) are retained for large display/heading text and section-level spacing where fluid scaling is intentional. Do **not** introduce new `clamp()` values in components — use `@media` instead.
 - **Discrete layout changes** (grid columns, flex-basis 100%, flex direction, show/hide, hover-capability) use `@media`. A non-standard breakpoint (e.g., 480px) is allowed **only** when the change is genuinely discrete and the standard 640px branch would degrade UX — current examples: `Skills.module.css`, `ProjectModalInfoGrid.module.css`, and `ProjectModalSection.module.css` each keep a 480px branch for grid/flex layout changes.
-- **Small-mobile fine-tuning** (single numeric value at small widths) is absorbed into a `clamp()` min — never a new sub-640 branch.
-- **No double-fluid**: never define `clamp()` on a base property and then override with another `clamp()` (or different value) inside `@media` for the same property. Tune the single `clamp()` to cover all widths.
 - **Container size limit** (e.g., modal width) uses `min(100vw - n, max)`. ProjectModal demonstrates the canonical pattern: `width: 100%; max-width: 960px;` on the modal lets the overlay's `padding: clamp(...)` handle the breathing room automatically.
+- **No `html` font-size scaling**: the root font-size is not adjusted via `@media`. `rem` values are stable across viewports, and component-level fonts use `@media` for responsive adjustment.
 
 #### Floating Navigation Bar
 

@@ -19,7 +19,7 @@
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 600;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -35,7 +35,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 14px;
   list-style: none;
   align-items: start;
 }
@@ -43,6 +43,14 @@
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category {
+    margin-bottom: 28px;
+  }
+
+  .categoryTitle {
+    margin-bottom: 14px;
   }
 }
 

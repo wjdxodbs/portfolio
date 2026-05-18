@@ -26,7 +26,7 @@
 }
 
 .headline {
-  font-size: clamp(1.5rem, 4.5vw, 3rem);
+  font-size: var(--fs-h2);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.2;
@@ -72,7 +72,7 @@
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: var(--card-padding);
+  padding: 28px;
   position: relative;
   overflow: hidden;
   box-shadow: var(--glass-highlight);
@@ -126,7 +126,7 @@
 }
 
 .mainValue {
-  font-size: var(--fs-h2);
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.3;
@@ -217,7 +217,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: var(--card-padding);
+  padding: 28px;
   height: 100%;
   text-decoration: none;
   color: inherit;
@@ -272,6 +272,10 @@
 
 /* ── Mobile: stack into single column ── */
 @media (max-width: 768px) {
+  .mainValue {
+    font-size: 1rem;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
@@ -281,5 +285,14 @@
   .socialCard {
     grid-column: auto;
     grid-row: auto;
+  }
+
+  .card,
+  .socialInner {
+    padding: 20px;
+  }
+
+  .socialCard {
+    padding: 0;
   }
 }

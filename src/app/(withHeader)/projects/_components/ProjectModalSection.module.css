@@ -34,7 +34,7 @@
 .overviewDetails {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
 }
 
 .overviewDetail {
@@ -72,6 +72,10 @@
 }
 
 @media (max-width: 768px) {
+  .overviewLabel {
+    font-size: 1.1rem;
+  }
+
   .itemImages {
     grid-template-columns: repeat(2, 1fr);
   }

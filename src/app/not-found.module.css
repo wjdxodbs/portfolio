@@ -31,3 +31,13 @@
   color: var(--foreground-secondary);
   margin-bottom: 32px;
 }
+
+@media (max-width: 768px) {
+  .code {
+    font-size: 3rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+}
