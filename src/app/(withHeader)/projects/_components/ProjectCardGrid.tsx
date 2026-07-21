@@ -11,6 +11,10 @@ import styles from "./ProjectCardGrid.module.css";
 
 const ProjectModal = dynamic(() => import("./ProjectModal"), { ssr: false });
 
+// 모바일에서 첫 두 카드 썸네일이 above-the-fold라 LCP 후보다. 이들만 eager 로드해
+// LCP 이미지의 lazy 지연을 없앤다(나머지는 기본 lazy 유지).
+const EAGER_THUMBNAIL_COUNT = 2;
+
 export default function ProjectCardGrid() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [triggerElement, setTriggerElement] = useState<HTMLElement | null>(
@@ -63,6 +67,8 @@ export default function ProjectCardGrid() {
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                loading={idx < EAGER_THUMBNAIL_COUNT ? "eager" : undefined}
+                fetchPriority={idx < EAGER_THUMBNAIL_COUNT ? "high" : undefined}
                 className={styles.image}
               />
               <span className={styles.idx}>
