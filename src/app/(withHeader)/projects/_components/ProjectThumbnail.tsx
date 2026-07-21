@@ -5,25 +5,15 @@ import styles from "./ProjectThumbnail.module.css";
 interface ProjectThumbnailProps {
   project: Pick<Project, "thumbnailUrl" | "title" | "thumbnailBg">;
   sizes: string;
-  variant: "card" | "modal";
-  priority?: boolean;
-  children?: React.ReactNode;
 }
 
 export default function ProjectThumbnail({
   project,
   sizes,
-  variant,
-  priority = false,
-  children,
 }: ProjectThumbnailProps) {
-  const wrapperClass =
-    variant === "card" ? styles.wrapperCard : styles.wrapperModal;
-  const imageClass = variant === "card" ? styles.imageCard : styles.imageModal;
-
   return (
     <div
-      className={wrapperClass}
+      className={styles.wrapper}
       style={
         project.thumbnailBg ? { background: project.thumbnailBg } : undefined
       }
@@ -33,10 +23,8 @@ export default function ProjectThumbnail({
         alt={project.title}
         fill
         sizes={sizes}
-        priority={priority}
-        className={imageClass}
+        className={styles.image}
       />
-      {children}
     </div>
   );
 }

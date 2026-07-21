@@ -84,7 +84,6 @@ export default function ProjectModal({
           <ProjectThumbnail
             project={project}
             sizes="(max-width: 480px) 100vw, (max-width: 640px) calc(100vw - 48px), 800px"
-            variant="modal"
           />
 
           <div className={styles.body}>
