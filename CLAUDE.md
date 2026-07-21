@@ -87,9 +87,9 @@ border: 1px solid rgba(255, 255, 255, 0.1);
 Cards use a consistent glassmorphism treatment:
 
 ```css
-background: rgba(17, 17, 17, 0.6);
+background: var(--card-bg);
 backdrop-filter: blur(12px);
-border: 1px solid rgba(255, 255, 255, 0.07);
+border: 1px solid var(--border-subtle);
 box-shadow: var(--glass-highlight); /* inset 0 1px 0 rgba(255,255,255,0.05) */
 ```
 

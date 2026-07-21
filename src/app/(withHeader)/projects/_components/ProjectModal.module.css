@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: var(--overlay-bg);
+  background: var(--scrim);
   backdrop-filter: blur(6px);
   z-index: var(--z-modal);
   display: flex;
@@ -63,8 +63,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--overlay-bg);
-  border: 1px solid var(--close-btn-border);
+  background: var(--scrim);
+  border: 1px solid var(--border-strong);
   border-radius: 50%;
   color: var(--foreground-bright);
   cursor: pointer;

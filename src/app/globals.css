@@ -1,94 +1,93 @@
 :root {
-  /* Colors */
+  /* ── Background ── */
   --background: #0d0d11;
   --background-secondary: #1a1a22;
   --background-tertiary: #24242e;
+
+  /* ── Foreground ── */
   --foreground: #e8e8f0;
+  --foreground-bright: #f0f0f5;
   --foreground-secondary: #94949f;
   --foreground-muted: #8b8b9f;
-  --foreground-bright: #f0f0f5;
 
-  /* Accent Colors — green replaced with indigo */
+  /* ── Accent (indigo) ── */
   --accent: #818cf8;
   --accent-hover: #6366f1;
   --accent-glow: rgba(129, 140, 248, 0.12);
   --accent-glow-secondary: rgba(129, 140, 248, 0.08);
+  --accent-glow-text: rgba(129, 140, 248, 0.6);
   --accent-border: rgba(129, 140, 248, 0.25);
+  --accent-border-hover: rgba(129, 140, 248, 0.45);
 
-  /* Borders */
+  /* ── Borders: structure (opaque) ── */
   --border: #24242e;
   --border-hover: #2a2a36;
 
-  /* Extended Background */
-  --overlay-bg: rgba(0, 0, 0, 0.55);
+  /* ── Borders: hairline (white-alpha) ── */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-faint: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.2);
 
-  /* Modal Close Button */
-  --close-btn-border: rgba(255, 255, 255, 0.2);
+  /* ── Overlays ── */
+  --scrim: rgba(0, 0, 0, 0.55);
+  --background-fade: rgba(13, 13, 17, 0.5);
+
+  /* ── Glass ── */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.05);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* ── Shadow ── */
+  --shadow-nav-color: rgba(0, 0, 0, 0.3);
+  --shadow-accent:
+    0 0 0 1px rgba(129, 140, 248, 0.2), 0 0 20px rgba(129, 140, 248, 0.12),
+    0 4px 24px rgba(129, 140, 248, 0.08);
+
+  /* ── Modal Close Button ── */
   --close-btn-border-hover: rgba(255, 255, 255, 0.35);
   --close-btn-bg-hover: rgba(0, 0, 0, 0.75);
 
-  /* Glass Effect */
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-bg-subtle: rgba(255, 255, 255, 0.05);
+  /* ── Surface ── */
+  --card-bg: rgba(17, 17, 17, 0.45);
 
-  /* Subtle Borders */
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-faint: rgba(255, 255, 255, 0.08);
-
-  /* Background Overlay */
-  --background-overlay: rgba(13, 13, 17, 0.5);
-
-  /* Accent Hover */
-  --accent-border-hover: rgba(129, 140, 248, 0.45);
-  --accent-glow-text: rgba(129, 140, 248, 0.6);
-
-  /* Shadow */
-  --shadow-nav: rgba(0, 0, 0, 0.3);
-
-  /* Z-index */
+  /* ── Z-index ── */
   --z-floating: 900;
   --z-header: 950;
   --z-modal: 1000;
 
-  /* Border Radius */
+  /* ── Border Radius ── */
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 18px;
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Spacing */
+  /* ── Layout & Spacing ── */
   --header-top: 16px;
   --header-nav-height: 64px;
   --header-height: calc(var(--header-top) + var(--header-nav-height));
   --section-padding: clamp(60px, calc(10.42vw - 6.67px), 100px);
   --container-width: 1200px;
 
-  /* Fluid Type */
+  /* ── Fluid Type (legacy clamp — intentional) ── */
   --fs-display: clamp(8rem, calc(16.67vw + 1.333rem), 12rem);
   --fs-h1: clamp(2.25rem, calc(7.29vw - 0.667rem), 4rem);
   --fs-h2: clamp(1.5rem, calc(9.375vw - 3rem), 3rem);
 
-  /* Transitions */
+  /* ── Transitions ── */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.45s ease;
   --transition-slower: 0.9s ease;
   --transition-loop: 2s ease;
 
-  /* padding */
+  /* ── Badge Padding ── */
   --badge-padding-sm: 3px 8px;
   --badge-padding-md: 4px 10px;
 
-  /* scale */
+  /* ── Scale ── */
   --scale-sm: 1.04;
   --scale-md: 1.08;
-
-  /* glass */
-  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  --shadow-accent:
-    0 0 0 1px rgba(129, 140, 248, 0.2), 0 0 20px rgba(129, 140, 248, 0.12),
-    0 4px 24px rgba(129, 140, 248, 0.08);
 }
 
 * {

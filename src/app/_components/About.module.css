@@ -32,7 +32,7 @@
       rgba(129, 140, 248, 0.2) 0%,
       transparent 60%
     ),
-    linear-gradient(to bottom, transparent 50%, var(--background-overlay) 100%);
+    linear-gradient(to bottom, transparent 50%, var(--background-fade) 100%);
   pointer-events: none;
 }
 
