@@ -1,14 +1,9 @@
 import styles from "./Skills.module.css";
 import { skills } from "@/app/_constants/skills";
+import { SKILL_CATEGORIES } from "@/app/_types/skill";
 import SkillCard from "./SkillCard";
 import SectionHeader from "@/components/common/SectionHeader";
 import AnimateOnScroll from "@/components/common/AnimateOnScroll";
-
-const CATEGORIES: Record<string, string[]> = {
-  Core: ["React", "Next.js", "TypeScript", "JavaScript", "HTML"],
-  Styling: ["CSS", "SCSS", "Tailwind CSS", "shadcn/ui"],
-  "State Management": ["Recoil", "Zustand", "Tanstack Query"],
-};
 
 export default function Skills() {
   return (
@@ -16,8 +11,8 @@ export default function Skills() {
       <div className="container">
         <SectionHeader label="Skills" index="02" />
 
-        {Object.entries(CATEGORIES).map(([category, names], idx) => {
-          const categorySkills = skills.filter((s) => names.includes(s.name));
+        {SKILL_CATEGORIES.map((category, idx) => {
+          const categorySkills = skills.filter((s) => s.category === category);
           return (
             <AnimateOnScroll
               key={category}

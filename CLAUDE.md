@@ -144,7 +144,7 @@ If no existing token matches, add a named variable to `globals.css` and referenc
 
 - Uses `display: grid; grid-template-columns: repeat(3, 1fr); align-items: stretch` for consistent row heights.
 - `SkillCard` has `height: 100%` to fill the grid cell completely.
-- Categories are defined in `Skills.tsx` as a `CATEGORIES` constant mapping category names to skill arrays — not in the data file.
+- Each `Skill` carries its own `category` field (a `SkillCategory` union derived from `SKILL_CATEGORIES` in `_types/skill.ts`). `Skills.tsx` renders by iterating `SKILL_CATEGORIES` (which also fixes category display order) and filtering skills by `s.category` — no separate name-list mapping.
 
 ### Modal Pattern
 

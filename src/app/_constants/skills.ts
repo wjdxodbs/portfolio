@@ -4,6 +4,7 @@ export const skills: Skill[] = [
   {
     name: "React",
     level: 4,
+    category: "Core",
     capabilities: [
       "컴포넌트 기반 아키텍처에 대한 이해를 바탕으로, 재사용성과 유지보수성을 고려한 UI 컴포넌트를 설계하고 구현할 수 있다.",
       "React Router를 활용해 다중 페이지 애플리케이션을 구성할 수 있으며, 동적 라우팅 및 중첩 라우팅 등 다양한 라우팅 패턴을 활용할 수 있다.",
@@ -13,6 +14,7 @@ export const skills: Skill[] = [
   {
     name: "Next.js",
     level: 3,
+    category: "Core",
     capabilities: [
       "프로젝트 요구사항에 따라 SSR, SSG, CSR 중 적합한 렌더링 전략을 선택하여 구현할 수 있다.",
       "Server Components와 Client Components의 차이를 이해하고, 적절한 상황에 맞게 선택적으로 활용할 수 있다.",
@@ -23,6 +25,7 @@ export const skills: Skill[] = [
   {
     name: "TypeScript",
     level: 4,
+    category: "Core",
     capabilities: [
       "인터페이스, 제네릭, 유니온 타입 등 고급 타입 시스템을 활용한 안전한 코드를 작성할 수 있다.",
       "API 데이터 구조를 인터페이스로 정의하고, 제네릭을 활용해 재사용 가능한 데이터 페칭 타입을 설계할 수 있다.",
@@ -32,6 +35,7 @@ export const skills: Skill[] = [
   {
     name: "JavaScript",
     level: 4,
+    category: "Core",
     capabilities: [
       "ES6+ 문법과 고차함수(map, filter, reduce 등)를 활용한 데이터 처리를 할 수 있다.",
       "클로저, 이벤트 루프, 호이스팅 등 자바스크립트 동작 원리를 이해하고 활용할 수 있다.",
@@ -41,6 +45,7 @@ export const skills: Skill[] = [
   {
     name: "Recoil",
     level: 3,
+    category: "State Management",
     capabilities: [
       "Atom으로 전역 상태를 분산 설계하고, 읽기/쓰기 목적에 맞는 훅을 선택해 컴포넌트의 리렌더링을 최소화할 수 있다.",
       "Selector로 atom 기반 파생 상태를 정의하고, 컴포넌트 내 계산 로직을 분리해 관심사를 명확히 구분할 수 있다.",
@@ -50,6 +55,7 @@ export const skills: Skill[] = [
   {
     name: "Zustand",
     level: 3,
+    category: "State Management",
     capabilities: [
       "create/set/get과 Selector를 활용한 효율적인 전역 상태 관리 및 리렌더링 최적화를 구현할 수 있다.",
       "actions 객체 분리와 도메인별 스토어 구조화로 확장 가능하고 유지보수하기 쉬운 아키텍처를 구축할 수 있다.",
@@ -59,6 +65,7 @@ export const skills: Skill[] = [
   {
     name: "Tanstack Query",
     level: 3,
+    category: "State Management",
     capabilities: [
       "useQuery/useMutation으로 서버 데이터 페칭, 캐싱, 변경을 통한 성능 최적화를 구현할 수 있다.",
       "Query Keys, invalidateQueries, staleTime 설정으로 캐시 관리 및 데이터 동기화를 자동화할 수 있다.",
@@ -69,6 +76,7 @@ export const skills: Skill[] = [
   {
     name: "SCSS",
     level: 4,
+    category: "Styling",
     capabilities: [
       "변수와 Mixin을 활용해 색상, 간격, 반응형 레이아웃 등을 재사용성과 유지보수성이 높은 스타일 코드를 작성할 수 있다.",
       "중첩과 부모 선택자를 활용해 HTML 구조와 일관된 CSS를 작성하고, 불필요한 중복 코드를 줄일 수 있다.",
@@ -78,6 +86,7 @@ export const skills: Skill[] = [
   {
     name: "Tailwind CSS",
     level: 3,
+    category: "Styling",
     capabilities: [
       "CSS-first 접근법과 임의값 문법을 활용하여 유틸리티 생성과 커스텀 스타일을 구현할 수 있다.",
       "반응형 유틸리티 클래스를 활용하여 모바일, 태블릿, 데스크톱 환경에 적합한 사용자 인터페이스를 구현할 수 있다.",
@@ -87,6 +96,7 @@ export const skills: Skill[] = [
   {
     name: "shadcn/ui",
     level: 3,
+    category: "Styling",
     capabilities: [
       "복사된 컴포넌트의 내부 구조를 이해하고, 프로젝트 요구사항에 맞게 로직과 스타일을 직접 수정할 수 있다.",
       "cva(class-variance-authority)를 활용해 컴포넌트 변형(variants)을 관리하고, 프로젝트에 맞는 커스텀 변형을 추가할 수 있다.",
@@ -96,6 +106,7 @@ export const skills: Skill[] = [
   {
     name: "HTML",
     level: 4,
+    category: "Core",
     capabilities: [
       "시맨틱 태그를 활용한 구조화된 HTML 작성 및 SEO 최적화를 할 수 있다.",
       "네이티브 HTML 요소를 활용해 JS 의존을 줄인 구현을 할 수 있다.",
@@ -105,6 +116,7 @@ export const skills: Skill[] = [
   {
     name: "CSS",
     level: 4,
+    category: "Styling",
     capabilities: [
       "Flexbox와 Grid를 활용하여 복잡한 레이아웃을 효율적으로 구현할 수 있다.",
       "미디어 쿼리, CSS 변수, clamp(), calc() 등을 활용하여 다양한 디바이스에 대응하는 반응형 웹을 구현할 수 있다.",
