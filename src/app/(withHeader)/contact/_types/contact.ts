@@ -1,11 +1,9 @@
-export interface ContactInfo {
-  label: string;
+export interface ContactItem {
   value: string;
   href: string | null;
 }
 
-export interface SocialLink {
-  name: string;
+export interface SocialItem {
   href: string;
   description: string;
   displayLabel: string;
