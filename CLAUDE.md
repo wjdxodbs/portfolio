@@ -125,7 +125,7 @@ If no existing token matches, add a named variable to `globals.css` and referenc
 
 ### Component Patterns
 
-- **`CtaButton`** supports an `as` prop (polymorphic) — renders as any element or component. Use `as="a"`, `as="button"`, or `as={Link}` for Next.js navigation. **Never wrap `<CtaButton>` in a `<button>`, `<a>`, or `<Link>` tag** — `Link` renders as `<a>`, which is the same violation.
+- **`CtaButton`** requires an `as` prop (polymorphic) — renders as any element or component. `as` is mandatory (no default element) so a CTA never silently renders as a non-interactive `<div>`. Use `as="a"`, `as="button"`, or `as={Link}` for Next.js navigation. **Never wrap `<CtaButton>` in a `<button>`, `<a>`, or `<Link>` tag** — `Link` renders as `<a>`, which is the same violation.
 - **`SectionHeader`** accepts an `as` prop to control the heading level (`as="h1"` on page-level sections).
 - **`AnimateOnScroll`** (`src/components/common/AnimateOnScroll.tsx`) — `"use client"` wrapper that triggers `fadeUp` transition when the element enters the viewport via `IntersectionObserver`. Accepts `className` and `delay` (ms) props for stagger effects. Use in Server Components to add scroll-triggered animations without converting them to client components.
 - **`ProjectThumbnail`** is the shared thumbnail component used by both `ProjectCard` and `ProjectModal`. Pass `variant="card"` (16:9 aspect ratio, hover scale) or `variant="modal"` (fixed height, rounded). Overlay badges/CTAs go in `children`.
