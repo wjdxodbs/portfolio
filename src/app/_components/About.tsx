@@ -16,7 +16,6 @@ export default function About() {
               alt="프로필 이미지"
               fill
               sizes="200px"
-              priority
               className={styles.profileImage}
             />
           </figure>
