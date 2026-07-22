@@ -3,7 +3,7 @@ import type { Project } from "@/app/(withHeader)/projects/_types/project";
 import styles from "./ProjectThumbnail.module.css";
 
 interface ProjectThumbnailProps {
-  project: Pick<Project, "thumbnailUrl" | "title" | "thumbnailBg">;
+  project: Pick<Project, "thumbnailUrl" | "title">;
   sizes: string;
 }
 
@@ -12,12 +12,7 @@ export default function ProjectThumbnail({
   sizes,
 }: ProjectThumbnailProps) {
   return (
-    <div
-      className={styles.wrapper}
-      style={
-        project.thumbnailBg ? { background: project.thumbnailBg } : undefined
-      }
-    >
+    <div className={styles.wrapper}>
       <Image
         src={project.thumbnailUrl}
         alt={project.title}

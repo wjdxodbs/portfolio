@@ -15,7 +15,6 @@ export interface Project {
   period: string;
   duration: string;
   thumbnailUrl: string;
-  thumbnailBg?: string;
   techStack: TechName[];
   type: "personal" | "team";
   teamSize: string;

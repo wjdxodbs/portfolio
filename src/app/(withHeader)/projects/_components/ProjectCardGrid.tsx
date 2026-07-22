@@ -54,14 +54,7 @@ export default function ProjectCardGrid() {
               }
             }}
           >
-            <div
-              className={styles.thumb}
-              style={
-                project.thumbnailBg
-                  ? { background: project.thumbnailBg }
-                  : undefined
-              }
-            >
+            <div className={styles.thumb}>
               <Image
                 src={project.thumbnailUrl}
                 alt=""
