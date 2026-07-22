@@ -224,6 +224,12 @@
   border-radius: inherit;
 }
 
+/* 링크가 카드를 꽉 채워 바깥 outline(+3px)이 부모 .card의 overflow:hidden에 잘리므로 안쪽으로 그린다 */
+.socialInner:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
+}
+
 .socialTop {
   display: flex;
   align-items: center;
