@@ -14,24 +14,21 @@ export default function SectionDots() {
   const [activeId, setActiveId] = useState("hero");
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        }
+      },
+      { rootMargin: "-50% 0px -50% 0px" },
+    );
 
     SECTIONS.forEach(({ id }) => {
       const el = document.getElementById(id);
-      if (!el) return;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveId(id);
-        },
-        { rootMargin: "-50% 0px -50% 0px" },
-      );
-
-      observer.observe(el);
-      observers.push(observer);
+      if (el) observer.observe(el);
     });
 
-    return () => observers.forEach((o) => o.disconnect());
+    return () => observer.disconnect();
   }, []);
 
   return (
