@@ -84,11 +84,7 @@
   padding: 44px;
   display: flex;
   flex-direction: column;
-  gap: 0;
-}
-
-.body > * + * {
-  margin-top: 24px;
+  gap: 24px;
 }
 
 @keyframes fadeIn {
