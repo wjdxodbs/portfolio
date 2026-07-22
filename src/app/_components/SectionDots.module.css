@@ -45,7 +45,7 @@
   pointer-events: none;
   transition: opacity var(--transition-normal);
   background: var(--background-secondary);
-  padding: 4px 10px;
+  padding: var(--badge-padding-md);
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
 }
