@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./About.module.css";
 import SectionHeader from "@/components/common/SectionHeader";
 import AnimateOnScroll from "@/components/common/AnimateOnScroll";
+import { contact } from "@/app/_constants/contact";
 
 export default function About() {
   return (
@@ -63,7 +64,7 @@ export default function About() {
               </div>
               <div className={styles.infoCell}>
                 <dt className={styles.infoKey}>이메일</dt>
-                <dd className={styles.infoVal}>wjdxodbs52@naver.com</dd>
+                <dd className={styles.infoVal}>{contact.email.value}</dd>
               </div>
             </dl>
           </div>

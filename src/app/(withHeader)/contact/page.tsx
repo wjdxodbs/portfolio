@@ -1,8 +1,5 @@
 import styles from "./page.module.css";
-import {
-  contact,
-  socials,
-} from "@/app/(withHeader)/contact/_constants/contact";
+import { contact, socials } from "@/app/_constants/contact";
 import type { Metadata } from "next";
 import CopyButton from "./_components/CopyButton";
 import {

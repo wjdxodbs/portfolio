@@ -133,6 +133,7 @@ If no existing token matches, add a named variable to `globals.css` and referenc
 - **`SectionDots`** (`src/app/_components/SectionDots.tsx`) — `"use client"` fixed-position dot navigation on the right side of the home page. Uses `IntersectionObserver` to track active section and anchor links (`<a href="#section">`) for navigation. Hidden on mobile (768px). Only rendered on the home page, not on Projects/Contact.
 - Static data (projects, skills, experience) lives in `_constants/` and is imported directly — no props drilling.
 - Shared UI strings (labels, button text) live in `src/app/_constants/labels.ts`.
+- Data consumed by more than one page is promoted out of the page folder into `src/app/_constants/` + `src/app/_types/` — `contact.ts` lives there because both the Contact page and the home `About` section render the email. Never re-type a contact value inline.
 
 ### Scroll Behavior
 

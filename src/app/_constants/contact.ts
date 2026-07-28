@@ -1,7 +1,4 @@
-import type {
-  ContactItem,
-  SocialItem,
-} from "@/app/(withHeader)/contact/_types/contact";
+import type { ContactItem, SocialItem } from "@/app/_types/contact";
 
 export const contact = {
   email: {
