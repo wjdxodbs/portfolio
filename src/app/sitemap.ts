@@ -1,6 +1,5 @@
 import { MetadataRoute } from "next";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { SITE_URL } from "@/app/_constants/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

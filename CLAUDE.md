@@ -164,7 +164,7 @@ If no existing token matches, add a named variable to `globals.css` and referenc
 
 ### Metadata
 
-Each page declares its own `export const metadata: Metadata` inline with `title`, `description`, `alternates.canonical`, and `openGraph` fields. The root layout (`layout.tsx`) owns the site-wide `metadataBase` and default metadata. `sitemap.ts` and `robots.ts` define their own local `SITE_URL` constant.
+Each page declares its own `export const metadata: Metadata` inline with `title`, `description`, `alternates.canonical`, and `openGraph` fields. The root layout (`layout.tsx`) owns the site-wide `metadataBase` and default metadata. The site origin comes from a single `SITE_URL` export in `src/app/_constants/site.ts` — import it, never re-declare `process.env.NEXT_PUBLIC_SITE_URL` locally.
 
 ### Performance Memoization — Do Not Overuse
 

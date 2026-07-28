@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans_KR, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { SITE_URL } from "@/app/_constants/site";
 
 const ibmPlexSansKR = IBM_Plex_Sans_KR({
   subsets: ["latin"],

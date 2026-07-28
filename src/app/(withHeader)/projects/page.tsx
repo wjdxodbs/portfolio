@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import ProjectCardGrid from "./_components/ProjectCardGrid";
 import SectionHeader from "@/components/common/SectionHeader";
 import styles from "./page.module.css";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { SITE_URL } from "@/app/_constants/site";
 
 export const metadata: Metadata = {
   title: "Projects | 정태윤 포트폴리오",

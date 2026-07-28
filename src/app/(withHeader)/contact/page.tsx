@@ -15,8 +15,7 @@ import {
 } from "lucide-react";
 import SectionHeader from "@/components/common/SectionHeader";
 import AnimateOnScroll from "@/components/common/AnimateOnScroll";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { SITE_URL } from "@/app/_constants/site";
 
 export const metadata: Metadata = {
   title: "Contact | 정태윤 포트폴리오",
