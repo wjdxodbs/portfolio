@@ -46,7 +46,8 @@ Shared components live in `src/components/` (layout, ui, common, icons).
 
 - **CSS Modules only** — one `.module.css` per component.
 - CSS class names use **camelCase** (e.g., `.skillCard`) for dot-notation access (`styles.skillCard`).
-- Design tokens (colors, spacing, etc.) are defined as CSS variables in `globals.css`. Always use `var(--token-name)` instead of hardcoded values.
+- Design tokens (colors, spacing, etc.) are defined as CSS variables in `globals.css`. Use `var(--token-name)` whenever a token exists — never re-type a value that is already tokenized.
+- A value used in exactly one place is **not** a token. Write it inline at the use site. `globals.css` holds values shared across components or whose meaning is global (z-index order, radius/transition scales); a component-specific one-off (`--close-btn-bg-hover`) belongs in that component's `.module.css`, not in `:root`. The rule bans magic numbers, not local values.
 - Badge/chip padding uses `--badge-padding-sm` (3px 8px) or `--badge-padding-md` (4px 10px). Pick the appropriate size — don't hardcode.
 - **Dark theme shadow policy**: black `box-shadow` is nearly invisible on `#0a0a0a`. For **glow effects** (box-shadow, text-shadow, border) use indigo `rgba(129, 140, 248, ...)` only. Indigo is also acceptable in **background radial gradients** (section `::before` pseudo-elements) for visual depth. The accent color is `#818cf8` (indigo).
 - Accordion/expand animations use `grid-template-rows: 0fr → 1fr` pattern (not `max-height`).
@@ -56,7 +57,7 @@ Shared components live in `src/components/` (layout, ui, common, icons).
 - **Breakpoints**: only `640 / 768 / 1024` with `max-width` (mobile breaks down from desktop base). No new breakpoints.
 - **Default approach**: use `@media` breakpoints for responsive values (font-size, padding, gap). Discrete step changes match industry standard and align with designer-spec workflows.
 - **Body text rule**: do not shrink body/clickable text (`~14-16px`) on mobile — only large display/heading text needs to shrink. Touch targets must stay ≥ 44px.
-- **Legacy `clamp()` tokens** in `globals.css` (`--fs-display`, `--fs-h1`, `--fs-h2`, `--card-padding`, `--section-padding`) are retained for large display/heading text and section-level spacing where fluid scaling is intentional. Do **not** introduce new `clamp()` values in components — use `@media` instead.
+- **Legacy `clamp()` tokens** in `globals.css` (`--fs-display`, `--fs-h1`, `--fs-h2`, `--section-padding`) are retained for large display/heading text and section-level spacing where fluid scaling is intentional. Do **not** introduce new `clamp()` values in components — use `@media` instead.
 - **Discrete layout changes** (grid columns, flex-basis 100%, flex direction, show/hide, hover-capability) use `@media`. A non-standard breakpoint (e.g., 480px) is allowed **only** when the change is genuinely discrete and the standard 640px branch would degrade UX — current examples: `Skills.module.css`, `ProjectModalInfoGrid.module.css`, and `ProjectModalSection.module.css` each keep a 480px branch for grid/flex layout changes.
 - **Container size limit** (e.g., modal width) uses `min(100vw - n, max)`. ProjectModal demonstrates the canonical pattern: `width: 100%; max-width: 960px;` on the modal lets the overlay's `padding: clamp(...)` handle the breathing room automatically.
 - **No `html` font-size scaling**: the root font-size is not adjusted via `@media`. `rem` values are stable across viewports, and component-level fonts use `@media` for responsive adjustment.

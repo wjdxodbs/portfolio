@@ -15,7 +15,6 @@
   --accent-hover: #6366f1;
   --accent-glow: rgba(129, 140, 248, 0.12);
   --accent-glow-secondary: rgba(129, 140, 248, 0.08);
-  --accent-glow-text: rgba(129, 140, 248, 0.6);
   --accent-border: rgba(129, 140, 248, 0.25);
   --accent-border-hover: rgba(129, 140, 248, 0.45);
 
@@ -25,12 +24,10 @@
 
   /* ── Borders: hairline (white-alpha) ── */
   --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-faint: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.2);
 
   /* ── Overlays ── */
   --scrim: rgba(0, 0, 0, 0.55);
-  --background-fade: rgba(13, 13, 17, 0.5);
 
   /* ── Glass ── */
   --glass-bg: rgba(255, 255, 255, 0.1);
@@ -38,14 +35,9 @@
   --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
   /* ── Shadow ── */
-  --shadow-nav-color: rgba(0, 0, 0, 0.3);
   --shadow-accent:
     0 0 0 1px rgba(129, 140, 248, 0.2), 0 0 20px rgba(129, 140, 248, 0.12),
     0 4px 24px rgba(129, 140, 248, 0.08);
-
-  /* ── Modal Close Button ── */
-  --close-btn-border-hover: rgba(255, 255, 255, 0.35);
-  --close-btn-bg-hover: rgba(0, 0, 0, 0.75);
 
   /* ── Surface ── */
   --card-bg: rgba(17, 17, 17, 0.45);
@@ -86,7 +78,6 @@
   --badge-padding-md: 4px 10px;
 
   /* ── Scale ── */
-  --scale-sm: 1.04;
   --scale-md: 1.08;
 }
 
