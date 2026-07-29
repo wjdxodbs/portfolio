@@ -20,8 +20,8 @@ export default function TechBadge({
           <Image
             src={icon.iconUrl}
             alt=""
-            width={variant === "icon" ? 20 : 16}
-            height={variant === "icon" ? 20 : 16}
+            width={16}
+            height={16}
             className={styles.techIcon}
           />
         ) : (

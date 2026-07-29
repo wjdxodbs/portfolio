@@ -3,8 +3,12 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 4px;
-  list-style: none;
-  padding: 0;
+}
+
+.techIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
 }
 
 /* ── variant: icon ── */
@@ -31,12 +35,6 @@
 .icon .techItem:hover .iconWrapper {
   border-color: var(--border-hover);
   transform: scale(var(--scale-md));
-}
-
-.icon .techIcon {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
 }
 
 .icon .fallback {
@@ -108,12 +106,6 @@
   background: var(--background-tertiary);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-}
-
-.chip .techIcon {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
 }
 
 .chip .fallback {
