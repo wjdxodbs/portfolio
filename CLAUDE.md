@@ -189,5 +189,5 @@ Do **not** reach for `React.memo`, `useCallback`, or `useMemo` by default. Only 
 - **Async APIs**: `params`, `searchParams`, `cookies()` must be awaited (Next.js 15+ requirement).
 - Images: use `next/image` with explicit `width`/`height` or `fill`.
 - Navigation: use `next/link` for all internal links — via `CtaButton as={Link}`, not wrapping.
-- External image domains allowed: `cdn.jsdelivr.net`, `raw.githubusercontent.com` (configured in `next.config.ts`).
+- External image domains allowed: `cdn.jsdelivr.net` (configured in `next.config.ts`).
 - SEO: `sitemap.ts` and `robots.ts` auto-generate at build time.
