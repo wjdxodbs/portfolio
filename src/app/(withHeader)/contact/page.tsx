@@ -50,24 +50,22 @@ export default function ContactPage() {
         </AnimateOnScroll>
 
         <div className={styles.grid}>
-          {email.href && (
-            <AnimateOnScroll
-              className={`${styles.card} ${styles.mainCard}`}
-              delay={100}
-            >
-              <div className={styles.mainTop}>
-                <div className={styles.mainIcon} aria-hidden="true">
-                  <Mail size={22} />
-                </div>
-                <span className={styles.mainLabel}>Email · 가장 빠른 경로</span>
-                <CopyButton value={email.value} />
+          <AnimateOnScroll
+            className={`${styles.card} ${styles.mainCard}`}
+            delay={100}
+          >
+            <div className={styles.mainTop}>
+              <div className={styles.mainIcon} aria-hidden="true">
+                <Mail size={22} />
               </div>
-              <a href={email.href} className={styles.mainValue}>
-                {email.value}
-              </a>
-              <p className={styles.mainMeta}>채용·협업 제안 환영</p>
-            </AnimateOnScroll>
-          )}
+              <span className={styles.mainLabel}>Email · 가장 빠른 경로</span>
+              <CopyButton value={email.value} />
+            </div>
+            <a href={email.href} className={styles.mainValue}>
+              {email.value}
+            </a>
+            <p className={styles.mainMeta}>채용·협업 제안 환영</p>
+          </AnimateOnScroll>
 
           <AnimateOnScroll
             className={`${styles.card} ${styles.smallCard}`}
@@ -80,13 +78,9 @@ export default function ContactPage() {
               <span className={styles.cardLabel}>Phone</span>
               <CopyButton value={phone.value} />
             </div>
-            {phone.href ? (
-              <a href={phone.href} className={styles.cardValueLink}>
-                {phone.value}
-              </a>
-            ) : (
-              <span className={styles.cardValue}>{phone.value}</span>
-            )}
+            <a href={phone.href} className={styles.cardValueLink}>
+              {phone.value}
+            </a>
           </AnimateOnScroll>
 
           <AnimateOnScroll
