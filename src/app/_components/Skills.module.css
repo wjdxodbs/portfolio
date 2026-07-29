@@ -1,6 +1,5 @@
 .skills {
   padding: var(--section-padding) 0;
-  background: var(--background);
   border-top: 1px solid var(--border);
 }
 
@@ -36,7 +35,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
-  list-style: none;
   align-items: start;
 }
 

@@ -14,13 +14,10 @@
   height: 10px;
   border-radius: 50%;
   background: var(--foreground-muted);
-  border: none;
-  cursor: pointer;
   position: relative;
   transition:
     background var(--transition-normal),
     transform var(--transition-normal);
-  padding: 0;
 }
 
 .dot:hover {

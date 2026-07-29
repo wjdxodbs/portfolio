@@ -25,7 +25,6 @@ export default function ProjectModal({
   triggerElement,
   onClose,
 }: ProjectModalProps) {
-  const modalRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -64,7 +63,6 @@ export default function ProjectModal({
       onClick={handleClose}
     >
       <div
-        ref={modalRef}
         className={modalClass}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
@@ -96,7 +94,7 @@ export default function ProjectModal({
             <ProjectModalSection label="담당 업무" items={project.tasks} />
             <ProjectModalSection label="고민했던 점" items={project.concerns} />
 
-            <ProjectModalRetrospect items={project.retrospect ?? []} />
+            <ProjectModalRetrospect items={project.retrospect} />
           </div>
         </div>
       </div>

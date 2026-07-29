@@ -2,6 +2,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  border-radius: var(--radius-sm);
   font-weight: 500;
   transition: all var(--transition-normal);
 }
@@ -9,30 +10,25 @@
 /* size */
 .sm {
   padding: 8px 16px;
-  border-radius: var(--radius-sm);
   font-size: 0.875rem;
   gap: 6px;
 }
 
 .md {
   padding: 11px 22px;
-  border-radius: var(--radius-sm);
   font-size: 0.95rem;
   gap: 7px;
 }
 
 .lg {
   padding: 14px 28px;
-  border-radius: var(--radius-sm);
   font-size: 1rem;
-  gap: 8px;
 }
 
 .icon {
   padding: 11px;
   min-width: 44px;
   min-height: 44px;
-  border-radius: var(--radius-sm);
   justify-content: center;
 }
 

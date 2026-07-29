@@ -1,6 +1,5 @@
 .about {
   padding: var(--section-padding) 0;
-  background: var(--background);
   border-top: 1px solid var(--border);
 }
 
@@ -19,7 +18,6 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
-  flex-shrink: 0;
 }
 
 .imageContainer::after {
@@ -63,7 +61,6 @@
 }
 
 .capList {
-  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 12px;

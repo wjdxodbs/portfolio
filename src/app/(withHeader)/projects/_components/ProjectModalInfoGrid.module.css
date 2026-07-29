@@ -1,7 +1,6 @@
 .infoGrid {
   display: flex;
   flex-direction: column;
-  gap: 0;
   background: var(--background-tertiary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);

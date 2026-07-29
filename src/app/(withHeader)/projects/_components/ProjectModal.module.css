@@ -67,10 +67,8 @@
   border: 1px solid var(--border-strong);
   border-radius: 50%;
   color: var(--foreground-bright);
-  cursor: pointer;
   transition: all var(--transition-fast);
   z-index: 10;
-  flex-shrink: 0;
   backdrop-filter: blur(8px);
 }
 
