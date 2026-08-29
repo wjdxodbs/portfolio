@@ -21,10 +21,12 @@ const MARQUEE_ROWS: MarqueeWord[][] = [
     { word: "INTERFACES" },
     { word: "DETAILS" },
   ],
-  [{ word: "CURIOUS" }, { word: "RIGOROUS", accent: true }, { word: "2026" }],
+  [{ word: "CURIOUS" }, { word: "RIGOROUS", accent: true }, { word: "VERIFY" }],
 ];
 
 export default function Hero() {
+  const year = new Date().getFullYear();
+
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.marqueeStack} aria-hidden="true">
@@ -55,13 +57,16 @@ export default function Hero() {
         <div className={styles.card}>
           <div className={styles.eyebrow} aria-hidden="true">
             <span className={styles.eyebrowLine} />
-            <span className={styles.eyebrowText}>Frontend · Seoul · 2026</span>
+            <span className={styles.eyebrowText}>
+              Frontend · Seoul · {year}
+            </span>
           </div>
 
           <h1 className={styles.headline}>
             <span>정태윤,</span>
             <span>
-              디테일에 <em className={styles.headlineAccent}>집착한다.</em>
+              AI로 빠르게,{" "}
+              <em className={styles.headlineAccent}>디테일은 확실하게.</em>
             </span>
           </h1>
 

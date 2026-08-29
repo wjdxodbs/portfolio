@@ -64,8 +64,8 @@
   --container-width: 1200px;
 
   /* ── Fluid Type (legacy clamp — intentional) ── */
-  --fs-display: clamp(8rem, calc(16.67vw + 1.333rem), 12rem);
-  --fs-h1: clamp(2.25rem, calc(7.29vw - 0.667rem), 4rem);
+  --fs-display: clamp(5rem, calc(16.67vw + 1.333rem), 12rem);
+  --fs-h1: clamp(1.9rem, calc(7.29vw - 0.667rem), 3.25rem);
   --fs-h2: clamp(1.5rem, calc(9.375vw - 3rem), 3rem);
 
   /* ── Transitions ── */
