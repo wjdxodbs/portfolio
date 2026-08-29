@@ -51,15 +51,15 @@
   height: 32px;
   border: 1px solid var(--border);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--glass-bg-subtle);
   line-height: 0;
   color: var(--foreground);
   transition: all var(--transition-fast);
 }
 
 .iconButton:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-strong);
+  background: var(--glass-bg);
   color: var(--foreground);
   transform: scale(var(--scale-md));
 }

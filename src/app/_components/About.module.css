@@ -27,7 +27,7 @@
   background:
     radial-gradient(
       ellipse 80% 50% at 50% 0%,
-      rgba(129, 140, 248, 0.2) 0%,
+      var(--accent-glow-strong) 0%,
       transparent 60%
     ),
     linear-gradient(to bottom, transparent 50%, rgba(13, 13, 17, 0.5) 100%);

@@ -15,6 +15,7 @@
   --accent-hover: #6366f1;
   --accent-glow: rgba(129, 140, 248, 0.12);
   --accent-glow-secondary: rgba(129, 140, 248, 0.08);
+  --accent-glow-strong: rgba(129, 140, 248, 0.2);
   --accent-border: rgba(129, 140, 248, 0.25);
   --accent-border-hover: rgba(129, 140, 248, 0.45);
 
@@ -35,9 +36,10 @@
   --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
   /* ── Shadow ── */
+  --shadow-ambient: rgba(0, 0, 0, 0.3);
   --shadow-accent:
-    0 0 0 1px rgba(129, 140, 248, 0.2), 0 0 20px rgba(129, 140, 248, 0.12),
-    0 4px 24px rgba(129, 140, 248, 0.08);
+    0 0 0 1px var(--accent-glow-strong), 0 0 20px var(--accent-glow),
+    0 4px 24px var(--accent-glow-secondary);
 
   /* ── Surface ── */
   --card-bg: rgba(17, 17, 17, 0.45);
@@ -79,6 +81,10 @@
 
   /* ── Scale ── */
   --scale-md: 1.08;
+
+  /* ── Alpha Step Guide (신규 값 추가 시 참고용 — 기존 값 재조정 목적 아님) ──
+     새 rgba 투명도가 필요하면 아래 기존 스텝과 ±2%p 이내인지 먼저 확인:
+     흰색 0.05 / 0.07 / 0.1 / 0.2, 인디고 0.08 / 0.12 / 0.2 / 0.25 / 0.45, 검정 0.3 / 0.55 */
 }
 
 * {
