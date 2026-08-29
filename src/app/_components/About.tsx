@@ -29,8 +29,8 @@ export default function About() {
 
             <ul className={styles.capList}>
               <li>
-                단독 업무와 팀 협업을 유연하게 병행하며, 기능 개발부터
-                배포·운영까지 서비스의 전 과정을 경험했습니다.
+                실서비스 운영 중 Node.js 지원 종료, 결제 API 로직 오류 등 이슈를
+                직접 처리하며 서비스 안정성을 지킵니다.
               </li>
               <li>
                 Vanilla JS 기반의 기존 서비스 유지보수부터 Next.js를 활용한 신규

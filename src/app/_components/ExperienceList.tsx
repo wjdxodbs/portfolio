@@ -1,4 +1,5 @@
 import {
+  Briefcase,
   GraduationCap,
   ScrollText,
   Trophy,
@@ -9,6 +10,7 @@ import AnimateOnScroll from "@/components/common/AnimateOnScroll";
 import styles from "./ExperienceList.module.css";
 
 const CATEGORY_ICONS: Record<CategoryType, LucideIcon> = {
+  career: Briefcase,
   education: GraduationCap,
   certificate: ScrollText,
   award: Trophy,

@@ -2,6 +2,18 @@ import type { CategoryData } from "@/app/_types/experience";
 
 export const categories: CategoryData[] = [
   {
+    id: "career",
+    label: "경력",
+    items: [
+      {
+        title: "인피노브",
+        organization: "프론트엔드 개발자",
+        period: "2024.08 - 2025.06",
+        highlights: [],
+      },
+    ],
+  },
+  {
     id: "education",
     label: "교육",
     items: [

@@ -1,4 +1,4 @@
-export type CategoryType = "education" | "certificate" | "award";
+export type CategoryType = "career" | "education" | "certificate" | "award";
 
 export interface ExperienceItem {
   title: string;
