@@ -5,7 +5,6 @@ import styles from "./SectionDots.module.css";
 
 const SECTIONS = [
   { id: "hero", label: "Hero" },
-  { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
 ];

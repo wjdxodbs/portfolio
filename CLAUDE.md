@@ -49,7 +49,7 @@ Shared components live in `src/components/` (layout, ui, common, icons).
 - Design tokens (colors, spacing, etc.) are defined as CSS variables in `globals.css`. Use `var(--token-name)` whenever a token exists — never re-type a value that is already tokenized.
 - A value used in exactly one place is **not** a token. Write it inline at the use site. `globals.css` holds values shared across components or whose meaning is global (z-index order, radius/transition scales); a component-specific one-off (`--close-btn-bg-hover`) belongs in that component's `.module.css`, not in `:root`. The rule bans magic numbers, not local values.
 - Badge/chip padding uses `--badge-padding-sm` (3px 8px) or `--badge-padding-md` (4px 10px). Pick the appropriate size — don't hardcode.
-- **Dark theme shadow policy**: black `box-shadow` is nearly invisible on `#0a0a0a`. For **glow effects** (box-shadow, text-shadow, border) use indigo `rgba(129, 140, 248, ...)` only. Indigo is also acceptable in **background radial gradients** (section `::before` pseudo-elements) for visual depth. The accent color is `#818cf8` (indigo).
+- **Accent & no-neon policy**: the accent is amber `var(--accent)` (`#d9a55b`) on a neutral near-black background (`#0e0e0f`). Use the accent as **fill and line** (button backgrounds, rules, focus rings, text emphasis) — never as a glow. Do **not** add new glow effects (zero-offset colored `box-shadow`/`text-shadow` halos, accent `radial-gradient` light pools); they read as AI-template neon. Glows have been removed from the codebase. Responsiveness comes from motion (lift, border-color change, underline draw), not light. The one sanctioned attention motion is the Hero "취업 준비 중" status dot: an expanding 1.5px ring (transform/opacity only — no blur, no shadow), disabled under `prefers-reduced-motion`. When a translucent accent or background tint is needed, derive it with `color-mix(in srgb, var(--accent) N%, transparent)` instead of hardcoding rgba.
 - Accordion/expand animations use `grid-template-rows: 0fr → 1fr` pattern (not `max-height`).
 
 #### Responsive: `@media` 우선
@@ -57,7 +57,7 @@ Shared components live in `src/components/` (layout, ui, common, icons).
 - **Breakpoints**: only `640 / 768 / 1024` with `max-width` (mobile breaks down from desktop base). No new breakpoints.
 - **Default approach**: use `@media` breakpoints for responsive values (font-size, padding, gap). Discrete step changes match industry standard and align with designer-spec workflows.
 - **Body text rule**: do not shrink body/clickable text (`~14-16px`) on mobile — only large display/heading text needs to shrink. Touch targets must stay ≥ 44px.
-- **Legacy `clamp()` tokens** in `globals.css` (`--fs-display`, `--fs-h1`, `--fs-h2`, `--section-padding`) are retained for large display/heading text and section-level spacing where fluid scaling is intentional. Do **not** introduce new `clamp()` values in components — use `@media` instead.
+- **Fluid `clamp()` token**: `--section-padding` is the only `clamp()` token left in `globals.css`; it is retained for section-level spacing where fluid scaling is intentional. Do **not** introduce new `clamp()` values in components — use `@media` instead (headings use discrete size steps).
 - **Discrete layout changes** (grid columns, flex-basis 100%, flex direction, show/hide, hover-capability) use `@media`. A non-standard breakpoint (e.g., 480px) is allowed **only** when the change is genuinely discrete and the standard 640px branch would degrade UX — current examples: `Skills.module.css`, `ProjectModalInfoGrid.module.css`, and `ProjectModalSection.module.css` each keep a 480px branch for grid/flex layout changes.
 - **Container size limit** (e.g., modal width) uses `min(100vw - n, max)`. ProjectModal demonstrates the canonical pattern: `width: 100%; max-width: 960px;` on the modal lets the overlay's `padding: clamp(...)` handle the breathing room automatically.
 - **No `html` font-size scaling**: the root font-size is not adjusted via `@media`. `rem` values are stable across viewports, and component-level fonts use `@media` for responsive adjustment.
@@ -81,24 +81,24 @@ border: 1px solid rgba(255, 255, 255, 0.1);
 
 #### Section Padding
 
-`--section-padding` uses `clamp(60px, 8vw, 100px)` for responsive spacing — no media query override needed.
+`--section-padding` uses `clamp(60px, calc(10.42vw - 6.67px), 100px)` for responsive spacing — no media query override needed.
 
 #### Glassmorphism Card Pattern
 
 Cards use a consistent glassmorphism treatment:
 
 ```css
-background: var(--card-bg);
+background: var(--glass-card-bg);
 backdrop-filter: blur(12px);
 border: 1px solid var(--border-subtle);
 box-shadow: var(--glass-highlight); /* inset 0 1px 0 rgba(255,255,255,0.05) */
 ```
 
-On hover, add a multi-layer accent glow using `--card-glow` or similar rgba chains. The `var(--glass-highlight)` token simulates a glass surface top-edge reflection.
+On hover, respond with motion and line (lift, `--accent-border-hover` border), not an accent glow — see the no-neon policy above. The `var(--glass-highlight)` token simulates a glass surface top-edge reflection.
 
 #### Section Background Pattern
 
-Each home page section uses `border-top: 1px solid var(--border)` for separation, and `position: relative` + `::before` pseudo-element with a `radial-gradient` accent glow positioned at different corners per section for visual rhythm. Skills uses `--background-secondary` as base.
+Home page sections are separated by color, not by a divider line or a glow. Rhythm comes from alternating section backgrounds: Hero and Experience sit on `--background`, Skills on `--background-alt` (one subtle step lighter). Boundaries are blended, not hard: each section's top `--section-blend` (160px) fades from the previous section's color into its own via the `--section-fade-alt` / `--section-fade-base` tokens (use `--section-fade-alt` for an alt section, `--section-fade-base` for a base section; no `border-top`). A new home section continues the alternation and uses the matching token.
 
 #### CSS Keyframe Rule — Critical
 
@@ -134,7 +134,7 @@ If no existing token matches, add a named variable to `globals.css` and referenc
 - **`SectionDots`** (`src/app/_components/SectionDots.tsx`) — `"use client"` fixed-position dot navigation on the right side of the home page. Uses `IntersectionObserver` to track active section and anchor links (`<a href="#section">`) for navigation. Hidden on mobile (768px). Only rendered on the home page, not on Projects/Contact.
 - Static data (projects, skills, experience) lives in `_constants/` and is imported directly — no props drilling.
 - Shared UI strings (labels, button text) live in `src/app/_constants/labels.ts`.
-- Data consumed by more than one page is promoted out of the page folder into `src/app/_constants/` + `src/app/_types/` — `contact.ts` lives there because both the Contact page and the home `About` section render the email. Never re-type a contact value inline.
+- Data consumed by more than one page is promoted out of the page folder into `src/app/_constants/` + `src/app/_types/` — `contact.ts` still lives there from when the home `About` section also rendered the email; today only the Contact page uses it. Never re-type a contact value inline.
 
 ### Scroll Behavior
 

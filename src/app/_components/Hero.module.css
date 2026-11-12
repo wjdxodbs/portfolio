@@ -1,123 +1,27 @@
 .hero {
   position: relative;
-  overflow: hidden;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse 80% 70% at 90% 5%,
-      var(--accent-glow-strong) 0%,
-      transparent 100%
-    ),
-    radial-gradient(
-      ellipse 50% 90% at 100% 55%,
-      var(--accent-glow) 0%,
-      transparent 100%
-    );
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, var(--background));
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Marquee */
-.marqueeStack {
-  position: absolute;
-  inset: var(--header-height) 0 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.marqueeRow {
-  display: flex;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.marqueeTrack {
-  display: flex;
-  animation: scroll 38s linear infinite;
-}
-
-.marqueeReverse .marqueeTrack {
-  animation-direction: reverse;
-  animation-duration: 52s;
-}
-
-.marqueeTrack span {
-  font-size: var(--fs-display);
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  line-height: 1;
-  flex-shrink: 0;
-  margin-right: clamp(40px, 6.25vw, 64px);
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
-}
-
-.marqueeAccent {
-  -webkit-text-stroke: 1.5px var(--accent);
-}
-
-/* Inner + Card */
 .inner {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: var(--header-height) 24px 0;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 85vh;
+  padding: calc(var(--header-height) + 40px) 24px 56px;
 }
 
-.card {
-  position: relative;
-  z-index: 3;
-  backdrop-filter: blur(18px);
-  background: rgba(17, 17, 17, 0.18);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  padding: 36px 40px;
-  max-width: 720px;
-  width: 100%;
-  box-shadow:
-    var(--glass-highlight),
-    0 16px 40px var(--shadow-ambient);
-}
-
-.eyebrow {
+/* 눈썹 라벨 + 상태 */
+.meta {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  row-gap: 8px;
   margin-bottom: 28px;
   animation: fadeInUp var(--transition-slower) 0s forwards;
   opacity: 0;
 }
 
-.eyebrowLine {
-  width: 32px;
-  height: 1px;
-  background: var(--accent);
-  flex-shrink: 0;
+.eyebrow {
+  display: flex;
+  align-items: center;
 }
 
 .eyebrowText {
@@ -128,12 +32,67 @@
   font-weight: 500;
 }
 
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 14px;
+  padding: var(--badge-padding-md);
+  background: var(--accent-tint);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.statusDot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* 점에서 링이 퍼져 나가며 "여기 봐주세요"를 알린다. 빛번짐(blur·shadow)이 아니라 1.5px 테두리의 확대 움직임이다 */
+.statusDot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  animation: statusPing var(--transition-loop) infinite;
+}
+
+@keyframes statusPing {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70%,
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* 헤드라인 + 사진 */
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 40px;
+  align-items: center;
+}
+
 .headline {
-  font-size: var(--fs-h1);
+  font-size: 3.25rem;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.05em;
   color: var(--foreground-bright);
+  word-break: keep-all;
   display: flex;
   flex-direction: column;
   animation: fadeInUp var(--transition-slower) 0.1s forwards;
@@ -145,21 +104,70 @@
   color: var(--accent);
 }
 
-.body {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid var(--border);
+.lead {
+  margin-top: 20px;
+  font-size: 1.05rem;
+  color: var(--foreground);
+  word-break: keep-all;
+  overflow-wrap: break-word;
   animation: fadeInUp var(--transition-slower) 0.2s forwards;
   opacity: 0;
 }
 
-.ctas {
+.photo {
+  position: relative;
+  width: 200px;
+  aspect-ratio: 3 / 4;
+  background: var(--background-secondary);
+  border: 1px solid var(--border-raised);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.photoImage {
+  object-fit: cover;
+  object-position: top;
+}
+
+/* 소개 불릿 (가로 2열) */
+.capList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 48px;
+  margin-top: 36px;
+  animation: fadeInUp var(--transition-slower) 0.25s forwards;
+  opacity: 0;
+}
+
+.capList li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--foreground-secondary);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+.capList li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* 통계 + 버튼 */
+.foot {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  animation: fadeInUp var(--transition-slower) 0.3s forwards;
+  opacity: 0;
 }
 
 .stats {
@@ -182,11 +190,17 @@
 
 .statLabel {
   font-size: 0.68rem;
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: 4px;
   display: block;
+}
+
+.ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 @keyframes fadeInUp {
@@ -200,32 +214,69 @@
   }
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
+@media (max-width: 1024px) {
+  .headline {
+    font-size: 2.5rem;
   }
-  to {
-    transform: translateX(-33.3333%);
+
+  .capList {
+    gap: 14px 32px;
   }
 }
 
+/* 모바일: 사진은 숨기고, 버튼을 헤드라인 바로 아래로 올려 첫 화면에 보이게 한다 */
 @media (max-width: 768px) {
-  .card {
-    padding: 32px 24px;
+  .inner {
+    display: flex;
+    flex-direction: column;
   }
 
-  .eyebrow {
+  .top,
+  .headBlock,
+  .foot {
+    display: contents;
+  }
+
+  .photo {
+    display: none;
+  }
+
+  .meta {
+    order: 1;
     margin-bottom: 20px;
   }
 
-  .body {
-    gap: 24px;
-    margin-top: 28px;
-    padding-top: 28px;
+  .headline {
+    order: 2;
+  }
+
+  .ctas {
+    order: 4;
+    margin-top: 20px;
+    animation: fadeInUp var(--transition-slower) 0.3s forwards;
+    opacity: 0;
+  }
+
+  .lead {
+    order: 3;
+    margin-top: 20px;
+  }
+
+  .capList {
+    order: 5;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 16px;
   }
 
   .stats {
+    order: 6;
     gap: 20px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    animation: fadeInUp var(--transition-slower) 0.35s forwards;
+    opacity: 0;
   }
 
   .statNum {
@@ -233,16 +284,35 @@
   }
 }
 
+@media (max-width: 640px) {
+  .headline {
+    font-size: 1.9rem;
+  }
+
+  /* 라벨과 "취업 준비 중"이 좁은 폰(340px)에서도 한 줄에 들어가도록 자간과 여백을 줄인다 */
+  .eyebrowText {
+    letter-spacing: 0.14em;
+  }
+
+  .status {
+    margin-left: 10px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .eyebrow,
+  .meta,
   .headline,
-  .body {
+  .lead,
+  .capList,
+  .foot,
+  .ctas,
+  .stats {
     animation: none;
     opacity: 1;
     transform: none;
   }
 
-  .marqueeTrack {
-    animation: none;
+  .statusDot::after {
+    display: none;
   }
 }

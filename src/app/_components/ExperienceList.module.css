@@ -46,12 +46,12 @@
   color: var(--accent);
   transition:
     border-color var(--transition-normal),
-    box-shadow var(--transition-normal);
+    transform var(--transition-normal);
 }
 
 .item:hover .node {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-glow);
+  transform: scale(var(--scale-md));
 }
 
 .body {
@@ -74,7 +74,7 @@
 .period {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.04em;
 }
@@ -83,7 +83,7 @@
   font-family: var(--font-mono);
   font-size: 0.65rem;
   color: var(--accent);
-  background: var(--accent-glow);
+  background: var(--accent-tint);
   border: 1px solid var(--accent-border);
   padding: var(--badge-padding-sm);
   border-radius: var(--radius-sm);
@@ -116,7 +116,7 @@
   position: relative;
   padding-left: 12px;
   font-size: 0.85rem;
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
 }
 
 .highlight::before {

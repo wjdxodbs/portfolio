@@ -5,6 +5,19 @@
   align-items: center;
 }
 
+/* 아이콘만 보이게: 배경과 테두리를 없애고 터치 영역(44px)은 유지한다 */
+.copyWrapper .iconButton {
+  background: none;
+  border-color: transparent;
+  color: var(--foreground-secondary);
+}
+
+.copyWrapper .iconButton:hover {
+  background: none;
+  border-color: transparent;
+  color: var(--accent);
+}
+
 .srAnnouncement {
   position: absolute;
   width: 1px;

@@ -1,16 +1,22 @@
 .card {
   background: var(--background-secondary);
-  border: 1px solid var(--border-hover);
+  border: 1px solid var(--border-raised);
   border-radius: var(--radius-md);
   overflow: hidden;
   transition:
     border-color var(--transition-normal),
-    box-shadow var(--transition-normal);
+    transform var(--transition-normal);
 }
 
 .card:hover {
   border-color: var(--accent-border-hover);
-  box-shadow: var(--shadow-accent);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
 }
 
 .card.open {
@@ -39,7 +45,7 @@
 }
 
 .header:hover {
-  background: rgba(129, 140, 248, 0.04);
+  background: color-mix(in srgb, var(--accent) 4%, transparent);
 }
 
 .name {
@@ -69,7 +75,7 @@
 }
 
 .bar {
-  background: var(--border-hover);
+  background: var(--border-raised);
 }
 
 .barFilled {
@@ -77,7 +83,7 @@
 }
 
 .chevron {
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
   transition:
     transform var(--transition-normal),
     color var(--transition-fast);
@@ -112,7 +118,7 @@
 
 .cap {
   font-size: 0.85rem;
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
   line-height: 1.6;
   padding-left: 14px;
   position: relative;

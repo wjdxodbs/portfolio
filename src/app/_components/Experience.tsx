@@ -23,7 +23,7 @@ export default function Experience() {
   return (
     <section id="experience" className={styles.experience}>
       <div className="container">
-        <SectionHeader label="Experience" index="03" />
+        <SectionHeader label="Experience" index="02" />
         <ExperienceList items={allItems} />
       </div>
     </section>

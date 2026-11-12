@@ -31,7 +31,6 @@ portfolio/
         ├── _components/      # 홈페이지 전용 컴포넌트
         │   ├── Hero.tsx
         │   ├── HeroStats.tsx
-        │   ├── About.tsx
         │   ├── Skills.tsx
         │   ├── SkillCard.tsx
         │   ├── Experience.tsx

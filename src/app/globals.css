@@ -1,27 +1,26 @@
 :root {
   /* ── Background ── */
-  --background: #0d0d11;
-  --background-secondary: #1a1a22;
-  --background-tertiary: #24242e;
+  --background: #0e0e0f;
+  /* 홈 섹션 교차 배경 (Skills) — 빛 효과 없이 구간을 나누는 은은한 한 단계 */
+  --background-alt: #141415;
+  --background-secondary: #1a1a1b;
+  --background-tertiary: #242426;
 
   /* ── Foreground ── */
-  --foreground: #e8e8f0;
-  --foreground-bright: #f0f0f5;
-  --foreground-secondary: #94949f;
-  --foreground-muted: #8b8b9f;
+  --foreground: #e8e8e8;
+  --foreground-bright: #f2f2f2;
+  --foreground-secondary: #9a9a9a;
 
-  /* ── Accent (indigo) ── */
-  --accent: #818cf8;
-  --accent-hover: #6366f1;
-  --accent-glow: rgba(129, 140, 248, 0.12);
-  --accent-glow-secondary: rgba(129, 140, 248, 0.08);
-  --accent-glow-strong: rgba(129, 140, 248, 0.2);
-  --accent-border: rgba(129, 140, 248, 0.25);
-  --accent-border-hover: rgba(129, 140, 248, 0.45);
+  /* ── Accent (amber) ── */
+  --accent: #d9a55b;
+  --accent-hover: #c48f45;
+  --accent-tint: rgba(217, 165, 91, 0.12);
+  --accent-border: rgba(217, 165, 91, 0.25);
+  --accent-border-hover: rgba(217, 165, 91, 0.45);
 
   /* ── Borders: structure (opaque) ── */
-  --border: #24242e;
-  --border-hover: #2a2a36;
+  --border: #242426;
+  --border-raised: #2c2c2e;
 
   /* ── Borders: hairline (white-alpha) ── */
   --border-subtle: rgba(255, 255, 255, 0.07);
@@ -34,15 +33,10 @@
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-bg-subtle: rgba(255, 255, 255, 0.05);
   --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --glass-card-bg: rgba(17, 17, 17, 0.45);
 
   /* ── Shadow ── */
-  --shadow-ambient: rgba(0, 0, 0, 0.3);
-  --shadow-accent:
-    0 0 0 1px var(--accent-glow-strong), 0 0 20px var(--accent-glow),
-    0 4px 24px var(--accent-glow-secondary);
-
-  /* ── Surface ── */
-  --card-bg: rgba(17, 17, 17, 0.45);
+  --shadow-color: rgba(0, 0, 0, 0.3);
 
   /* ── Z-index ── */
   --z-floating: 900;
@@ -61,12 +55,23 @@
   --header-nav-height: 64px;
   --header-height: calc(var(--header-top) + var(--header-nav-height));
   --section-padding: clamp(60px, calc(10.42vw - 6.67px), 100px);
+  /* 홈 구간 경계: 각 구간 윗부분에서 앞 구간 색이 자기 색으로 서서히 바뀐다 (구분선 대신) */
+  --section-blend: 160px;
+  --section-fade-alt:
+    linear-gradient(
+      to bottom,
+      var(--background),
+      transparent var(--section-blend)
+    ),
+    var(--background-alt);
+  --section-fade-base:
+    linear-gradient(
+      to bottom,
+      var(--background-alt),
+      transparent var(--section-blend)
+    ),
+    var(--background);
   --container-width: 1200px;
-
-  /* ── Fluid Type (legacy clamp — intentional) ── */
-  --fs-display: clamp(5rem, calc(16.67vw + 1.333rem), 12rem);
-  --fs-h1: clamp(1.9rem, calc(7.29vw - 0.667rem), 3.25rem);
-  --fs-h2: clamp(1.5rem, calc(9.375vw - 3rem), 3rem);
 
   /* ── Transitions ── */
   --transition-fast: 0.15s ease;
@@ -84,7 +89,7 @@
 
   /* ── Alpha Step Guide (신규 값 추가 시 참고용 — 기존 값 재조정 목적 아님) ──
      새 rgba 투명도가 필요하면 아래 기존 스텝과 ±2%p 이내인지 먼저 확인:
-     흰색 0.05 / 0.07 / 0.1 / 0.2, 인디고 0.08 / 0.12 / 0.2 / 0.25 / 0.45, 검정 0.3 / 0.55 */
+     흰색 0.05 / 0.07 / 0.1 / 0.2, 강조색(amber) 0.12 / 0.25 / 0.45, 검정 0.3 / 0.55 */
 }
 
 * {

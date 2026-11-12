@@ -22,7 +22,7 @@
   backdrop-filter: blur(20px);
   background: var(--glass-bg-subtle);
   border: 1px solid var(--glass-bg);
-  box-shadow: 0 4px 24px var(--shadow-ambient);
+  box-shadow: 0 4px 24px var(--shadow-color);
   pointer-events: auto;
 }
 

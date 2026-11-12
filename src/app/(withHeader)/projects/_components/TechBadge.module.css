@@ -33,7 +33,7 @@
 }
 
 .icon .techItem:hover .iconWrapper {
-  border-color: var(--border-hover);
+  border-color: var(--border-raised);
   transform: scale(var(--scale-md));
 }
 
@@ -49,7 +49,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(4px);
   background: var(--background-tertiary);
-  border: 1px solid var(--border-hover);
+  border: 1px solid var(--border-raised);
   color: var(--foreground);
   font-size: 0.72rem;
   font-weight: 500;
@@ -73,7 +73,7 @@
   left: 50%;
   transform: translateX(-50%);
   border: 5px solid transparent;
-  border-top-color: var(--border-hover);
+  border-top-color: var(--border-raised);
 }
 
 .icon .techItem:focus-within .tooltip {

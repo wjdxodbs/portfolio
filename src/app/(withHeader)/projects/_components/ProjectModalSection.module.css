@@ -49,7 +49,7 @@
   content: "–";
   position: absolute;
   left: 0;
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
 }
 
 /* Item Images */

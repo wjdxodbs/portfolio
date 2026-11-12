@@ -5,7 +5,7 @@
 }
 
 .card {
-  background: var(--card-bg);
+  background: var(--glass-card-bg);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
@@ -37,7 +37,6 @@
   .card:hover {
     transform: translateY(-4px);
     border-color: var(--accent-border-hover);
-    box-shadow: var(--shadow-accent);
   }
 
   .card:hover .metaKey {
@@ -66,7 +65,7 @@
   font-size: 0.72rem;
   font-weight: 500;
   color: var(--accent);
-  background: rgba(13, 13, 17, 0.7);
+  background: color-mix(in srgb, var(--background) 70%, transparent);
   backdrop-filter: blur(6px);
   padding: var(--badge-padding-sm);
   border-radius: var(--radius-sm);
@@ -110,7 +109,7 @@
 .metaKey {
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding-top: 3px;

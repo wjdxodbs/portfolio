@@ -7,7 +7,7 @@
 
 .index {
   font-size: 0.7rem;
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-weight: 500;

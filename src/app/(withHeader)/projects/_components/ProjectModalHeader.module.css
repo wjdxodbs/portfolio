@@ -16,7 +16,7 @@
   font-weight: 600;
   padding: var(--badge-padding-md);
   border-radius: var(--radius-full);
-  background: var(--accent-glow);
+  background: var(--accent-tint);
   border: 1px solid var(--accent-border);
   color: var(--accent);
   letter-spacing: 0.03em;
@@ -24,7 +24,7 @@
 
 .period {
   font-size: 0.95rem;
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
   font-family: var(--font-mono);
 }
 

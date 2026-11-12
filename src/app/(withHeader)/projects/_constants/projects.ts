@@ -249,7 +249,7 @@ export const projects: Project[] = [
         title: "페이지 구성",
         details: [
           "홈(/), 프로젝트(/projects), 연락처(/contact) 페이지 분리를 통한 목적별 탐색 구조 구성",
-          "홈의 Hero, About, Skills, Experience 섹션을 통한 개발자 정보·경험의 단계적 확인 흐름 제공",
+          "홈의 Hero, Skills, Experience 섹션을 통한 개발자 정보·경험의 단계적 확인 흐름 제공",
         ],
       },
       {
@@ -294,7 +294,7 @@ export const projects: Project[] = [
         details: [
           "IntersectionObserver 기반 AnimateOnScroll 컴포넌트를 구현해, 뷰포트 진입 시 fadeUp 전환이 트리거되도록 했습니다.",
           "Server Component를 Client Component로 전환하지 않고, 클라이언트 로직만 담은 AnimateOnScroll 래퍼로 감싸 서버 컴포넌트 구조를 유지했습니다.",
-          "About·Skills·Experience·Contact 등 각 섹션에 stagger delay를 적용해 순차적인 등장 흐름을 구성했습니다.",
+          "Skills·Experience·Contact 등 각 섹션에 stagger delay를 적용해 순차적인 등장 흐름을 구성했습니다.",
         ],
       },
     ],

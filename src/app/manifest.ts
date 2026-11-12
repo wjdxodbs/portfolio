@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "프론트엔드 개발자 정태윤의 포트폴리오입니다.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0d0d11",
-    theme_color: "#0d0d11",
+    background_color: "#0e0e0f",
+    theme_color: "#0e0e0f",
     icons: [
       {
         src: "/icons/icon-192x192.png",

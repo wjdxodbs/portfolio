@@ -31,7 +31,7 @@
   content: "–";
   position: absolute;
   left: 0;
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
 }
 
 @media (max-width: 768px) {

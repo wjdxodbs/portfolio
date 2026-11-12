@@ -42,7 +42,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--foreground-muted);
+  color: var(--foreground-secondary);
 }
 
 .infoValue {

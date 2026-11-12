@@ -45,7 +45,6 @@
 .primary:hover {
   background: var(--accent-hover);
   color: var(--background);
-  box-shadow: var(--shadow-accent);
 }
 
 /* secondary */
@@ -58,7 +57,6 @@
 .secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
-  box-shadow: var(--shadow-accent);
 }
 
 /* outline */
@@ -72,7 +70,6 @@
 .outline:hover {
   border-color: var(--accent);
   color: var(--accent);
-  box-shadow: var(--shadow-accent);
 }
 
 @media (max-width: 768px) {

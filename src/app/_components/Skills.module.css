@@ -1,6 +1,6 @@
 .skills {
+  background: var(--section-fade-alt);
   padding: var(--section-padding) 0;
-  border-top: 1px solid var(--border);
 }
 
 .category {

@@ -9,7 +9,7 @@ export default function Skills() {
   return (
     <section id="skills" className={styles.skills}>
       <div className="container">
-        <SectionHeader label="Skills" index="02" />
+        <SectionHeader label="Skills" index="01" />
 
         {SKILL_CATEGORIES.map((category, idx) => {
           const categorySkills = skills.filter((s) => s.category === category);

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import ProjectCardGrid from "./_components/ProjectCardGrid";
 import SectionHeader from "@/components/common/SectionHeader";
-import styles from "./page.module.css";
 import { SITE_URL } from "@/app/_constants/site";
 
 export const metadata: Metadata = {
@@ -18,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className={`page-layout ${styles.page}`}>
+    <div className="page-layout">
       <div className="container">
         <SectionHeader label="Projects" as="h1" />
 
